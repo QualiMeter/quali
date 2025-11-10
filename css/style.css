@@ -1,12 +1,12 @@
 @font-face {
     font-family: 'DelaGothic';
-    src: url('fonts/DelaGothicOne-Regular.ttf') format('truetype');
+    src: url('/fonts/DelaGothicOne-Regular.ttf') format('truetype');
     font-style: normal;
     font-display: swap;
 }
 @font-face {
     font-family: 'Lusitana';
-    src: url('fonts/Lusitana-Regular.ttf') format('truetype');
+    src: url('/fonts/Lusitana-Regular.ttf') format('truetype');
     font-style: normal;
     font-display: swap;
 }
