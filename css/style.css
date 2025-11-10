@@ -1,0 +1,37 @@
+@font-face {
+    font-family: 'DelaGothic';
+    src: url('fonts/DelaGothicOne-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'Lusitana';
+    src: url('fonts/Lusitana-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-display: swap;
+}
+@media (min-width: 1200px) {
+    
+    
+
+    .name{
+        position: absolute;
+        top: 11px;
+        left: 40px;
+    }
+    .br1{
+        position: relative;
+        top:0px;
+        left:359px;
+    } 
+    .h1{
+        position: absolute;
+        top:376px;
+        left:78px;
+        white-space: pre-line;
+        font-size: 52px;
+        font-weight: 400;
+        font-family:'DelaGothic','Times New Roman', sans-serif ;
+    }
+
+}
