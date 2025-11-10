@@ -1,19 +1,22 @@
+/* ВЫНЕСТИ ШРИФТЫ ИЗ МЕДИА-ЗАПРОСА */
 @font-face {
-    font-family: 'DelaGothic';
+    font-family: 'DG';
     src: url('fonts/DelaGothicOne-Regular.ttf') format('truetype');
     font-style: normal;
+    font-weight: 400;
     font-display: swap;
 }
+
 @font-face {
-    font-family: 'Lusitana';
+    font-family: 'ln';
     src: url('fonts/Lusitana-Regular.ttf') format('truetype');
     font-style: normal;
+    font-weight: 400;
     font-display: swap;
 }
-@media (min-width: 1200px) {
-    
-    
 
+/* Медиа-запрос только для стилей */
+@media (min-width: 1024px) {
     .name{
         position: absolute;
         top: 11px;
@@ -21,17 +24,45 @@
     }
     .br1{
         position: relative;
-        top:0px;
-        left:359px;
+        top: 0px;
+        left: 359px;
     } 
     .h1{
         position: absolute;
-        top:376px;
-        left:78px;
+        top: 370px;
+        left: 78px;
         white-space: pre-line;
         font-size: 52px;
         font-weight: 400;
-        font-family:'DelaGothic', sans-serif ;
+        font-family: 'DG', sans-serif;
     }
-
+    .p1{
+        position: absolute;
+        top: 570px;
+        left: 78px;
+        font-size: 16px;
+        font-weight: 400;
+        font-family: 'ln', serif;
+        color: #5E5E5E;
+    }
+    .btn{    
+        display: inline-block;
+        padding: 12px 24px;
+        font-family: 'ln', sans-serif;
+        font-size: 20px;
+        font-weight: 400;
+        text-align: center;
+        text-decoration: none;
+        background-color: #155DFC;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        cursor: pointer;
+        width: 267px;    
+        height: 47px;
+        transition: all 0.3s ease;
+        position: absolute;
+        top: 638px;
+        left: 78px;
+    }
 }
