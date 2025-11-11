@@ -41,6 +41,11 @@
         top: 12px;
         left: 35px;
     }
+    .ln1{
+        position: absolute;
+        top: 80px;
+        left: 0px;
+    }
     .br1{
         position: relative;
         top: 0px;
@@ -597,6 +602,11 @@
         top: 11px;
         left: 35px;
     }
+    .ln1{
+        position: absolute;
+        top: 80px;
+        left: 0px;
+    }
     .br1{
         position: relative;
         top: 0px;
@@ -1142,3 +1152,4 @@
         left: 360px;
     }
 }
+
