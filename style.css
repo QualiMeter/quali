@@ -34,10 +34,6 @@
 /* Медиа-запрос только для стилей */
 @media (min-width: 1024px) and (max-width:1440px) {
     div.container{width: 1440px;}
-    .container {
-  overflow-x: hidden;
-  transform: scale(1);
-    }
     .name{
         position: absolute;
         top: 11px;
@@ -1144,4 +1140,5 @@
         left: 360px;
     }
 }
+
 
