@@ -3,7 +3,7 @@ body {
     overflow-x: hidden;
     margin: 0;
     padding: 0;
-    background-color: #F9FAFB; /* Белый цвет */
+    background-color: #F9FAFB; 
     align-items:center;
 }
 .container {
@@ -40,7 +40,10 @@ body {
 #regForm input {
     border: none;
     outline: none;
-    background: transparent;
+    background: #F9FAFB;
+    width: 393px;
+    height: 30px;
+    border-radius: 5px;
 }
 @media (min-width: 1024px) and (max-width:1440px) {
     .h1{
@@ -73,8 +76,16 @@ body {
     .br3{
         position: absolute;
         top:0px;
-        left:-259px;
+        left:0px;
         z-index:1;
+    }
+    .ln1{
+        position:absolute;
+        top: 804px;
+        left:520px;
+        width: 393px;
+        height: 1px;
+        z-index: 2;
     }
     .h2{
         position: absolute;
@@ -224,6 +235,14 @@ body {
         font-size: 24px;
         z-index: 2;
     }
+    .ln1{
+        position:absolute;
+        top: 804px;
+        left:520px;
+        width: 393px;
+        height: 1px;
+        z-index: 2;
+    }
     .reg{
         position: absolute;
         top:209px;
@@ -387,4 +406,5 @@ body {
     }
 
 }
+
 
