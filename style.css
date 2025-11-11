@@ -1,4 +1,3 @@
-/* ВЫНЕСТИ ШРИФТЫ ИЗ МЕДИА-ЗАПРОСА */
 @font-face {
     font-family: 'DG';
     src: url('fonts/DelaGothicOne-Regular.ttf') format('truetype');
@@ -23,11 +22,14 @@
 }
 .container {
     width: 100%;
-    max-width: 1200px;
+    max-width: 1440px;
     margin: 0 auto;
     padding: 0 20px;
     position: relative;
     min-height: 100vh;
+    transform-origin: center top;
+    transition: transform 0.1s ease;
+
 }
 /* Медиа-запрос только для стилей */
 @media (min-width: 1024px) and (max-width:1440px) {
@@ -44,7 +46,8 @@
     .br1{
         position: relative;
         top: 0px;
-        left: 350px;
+        left: auto; /* убираем left */
+        right: -350px;
     } 
     .h1{
         position: absolute;
@@ -564,7 +567,7 @@
     }
     .p24{
         position: absolute;
-        top: 3264px;
+        top: 3263px;
         left:681px;
         font-size: 10px;
         font-weight: 400;
@@ -1141,6 +1144,4 @@
         left: 360px;
     }
 }
-
-
 
