@@ -30,7 +30,7 @@
     min-height: 100vh;
 }
 /* Медиа-запрос только для стилей */
-@media (min-width: 1024px) {
+@media (min-width: 1024px) and (max-width:1440px) {
     div.container{width: 1440px;}
     .container {
   overflow-x: hidden;
@@ -1141,5 +1141,6 @@
         left: 360px;
     }
 }
+
 
 
