@@ -1,0 +1,409 @@
+body {
+    width: 100%;
+    overflow-x: hidden;
+    margin: 0;
+    padding: 0;
+    background-color: #F9FAFB; 
+    align-items:center;
+}
+.container {
+    width: 100%;
+    max-width: 1440px;
+    margin: 0 auto;
+    padding: 0 20px;
+    position: relative;
+    transform-origin: center center;
+    transition: transform 0.1s ease;
+}
+@font-face {
+    font-family: 'DG';
+    src: url('fonts/DelaGothicOne-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ln';
+    src: url('fonts/Lusitana-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'lnb';
+    src: url('fonts/Lusitana-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
+#regForm input {
+    border: none;
+    outline: none;
+    background: #F9FAFB;
+    width: 393px;
+    height: 30px;
+    border-radius: 5px;
+}
+@media (min-width: 1024px) and (max-width:1440px) {
+    .h1{
+        position: absolute;
+        top: 34px;
+        left: 91px;
+        font-family: 'DG',sans-serif;
+        font-size: 24px;
+        z-index: 2;
+    }
+    .reg{
+        position: absolute;
+        top:209px;
+        left:480px;
+        z-index:2;
+
+    }
+    .br1{
+        position: absolute;
+        top:264px;
+        left:928px;
+        z-index:1;
+    }
+    .br2{
+        position: absolute;
+        top:143px;
+        left:0px;
+        z-index:1;
+    }
+    .br3{
+        position: absolute;
+        top:0px;
+        left:0px;
+        z-index:1;
+    }
+    .ln1{
+        position:absolute;
+        top: 804px;
+        left:520px;
+        width: 393px;
+        height: 1px;
+        z-index: 2;
+    }
+    .h2{
+        position: absolute;
+        top: 236px;
+        left: 644px;
+        font-family: 'ln',sans-serif;
+        font-size: 24px;
+        z-index: 2;
+    }
+    .p1{
+        position: absolute;
+        top: 290px;
+        left: 620px;
+        font-family: 'ln',sans-serif;
+        font-size: 13px;
+        z-index: 2;
+        color: #7E7C7C;
+    }
+    .p2{
+        position: absolute;
+        top: 333px;
+        left: 525px;
+        font-family: 'ln',sans-serif;
+        font-size: 13px;
+        z-index: 2;
+    }
+    .us{
+        position: absolute;
+        top:361px;
+        left:520px;
+        z-index:2;
+    }
+    .p3{
+        position: absolute;
+        top: 403px;
+        left: 525px;
+        font-family: 'ln',sans-serif;
+        font-size: 13px;
+        z-index: 2;
+    }
+    .p4{
+        position: absolute;
+        top: 473px;
+        left: 525px;
+        font-family: 'ln',sans-serif;
+        font-size: 13px;
+        z-index: 2;
+    }
+    .p5{
+        position: absolute;
+        top: 543px;
+        left: 525px;
+        font-family: 'ln',sans-serif;
+        font-size: 13px;
+        z-index: 2;
+    }
+    .p6{
+        position: absolute;
+        top: 613px;
+        left: 525px;
+        font-family: 'ln',sans-serif;
+        font-size: 13px;
+        z-index: 2;
+    }
+    .fam{
+        position: absolute;
+        top:431px;
+        left:520px;
+        z-index:2;
+
+    }
+    .lg{
+        position: absolute;
+        top:501px;
+        left:520px;
+        z-index:2;
+
+    }
+    .el{
+        position: absolute;
+        top:571px;
+        left:520px;
+        z-index:2;
+
+    }
+    .pass{
+        position: absolute;
+        top:641px;
+        left:520px;
+        z-index:2;
+
+    }
+    .btn{
+        position:absolute;
+        top:693px;
+        left: 520px;
+        color: white;
+        background-color: #155DFC;
+        border-radius: 5px;
+        width: 393px;
+        height: 30px;
+        font-family: 'ln',sans-serif;
+        font-size: 13px;
+        border: none;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 2;
+    }
+    .btn1{
+        position:absolute;
+        top:778px;
+        left: 752px;
+        color: #155DFC;
+        background-color: none;
+        border-radius: 5px;
+        width: 46px;
+        height: 18px;
+        font-family: 'ln',sans-serif;
+        font-size: 13px;
+        border: none;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 2;
+    }
+    .p7{
+        position: absolute;
+        top: 765px;
+        left: 630px;
+        font-family: 'ln',sans-serif;
+        font-size: 13px;
+        z-index: 2;
+        color: #7E7C7C;
+    }
+
+}
+@media (min-width: 1440px) {
+ 
+    .h1{
+        position: absolute;
+        top: 34px;
+        left: 91px;
+        font-family: 'DG',sans-serif;
+        font-size: 24px;
+        z-index: 2;
+    }
+    .ln1{
+        position:absolute;
+        top: 804px;
+        left:520px;
+        width: 393px;
+        height: 1px;
+        z-index: 2;
+    }
+    .reg{
+        position: absolute;
+        top:209px;
+        left:480px;
+        z-index:2;
+
+    }
+    .br1{
+        position: absolute;
+        top:264px;
+        left:928px;
+        z-index:1;
+    }
+    .br2{
+        position: absolute;
+        top:143px;
+        left:0px;
+        z-index:1;
+    }
+    .br3{
+        position: absolute;
+        top:0px;
+        left:-259px;
+        z-index:1;
+    }
+    .h2{
+        position: absolute;
+        top: 236px;
+        left: 644px;
+        font-family: 'ln',sans-serif;
+        font-size: 24px;
+        z-index: 2;
+    }
+    .p1{
+        position: absolute;
+        top: 290px;
+        left: 620px;
+        font-family: 'ln',sans-serif;
+        font-size: 13px;
+        z-index: 2;
+        color: #7E7C7C;
+    }
+    .p2{
+        position: absolute;
+        top: 333px;
+        left: 525px;
+        font-family: 'ln',sans-serif;
+        font-size: 13px;
+        z-index: 2;
+    }
+    .us{
+        position: absolute;
+        top:361px;
+        left:520px;
+        z-index:2;
+    }
+    .p3{
+        position: absolute;
+        top: 403px;
+        left: 525px;
+        font-family: 'ln',sans-serif;
+        font-size: 13px;
+        z-index: 2;
+    }
+    .p4{
+        position: absolute;
+        top: 473px;
+        left: 525px;
+        font-family: 'ln',sans-serif;
+        font-size: 13px;
+        z-index: 2;
+    }
+    .p5{
+        position: absolute;
+        top: 543px;
+        left: 525px;
+        font-family: 'ln',sans-serif;
+        font-size: 13px;
+        z-index: 2;
+    }
+    .p6{
+        position: absolute;
+        top: 613px;
+        left: 525px;
+        font-family: 'ln',sans-serif;
+        font-size: 13px;
+        z-index: 2;
+    }
+    .fam{
+        position: absolute;
+        top:431px;
+        left:520px;
+        z-index:2;
+
+    }
+    .lg{
+        position: absolute;
+        top:501px;
+        left:520px;
+        z-index:2;
+
+    }
+    .el{
+        position: absolute;
+        top:571px;
+        left:520px;
+        z-index:2;
+
+    }
+    .pass{
+        position: absolute;
+        top:641px;
+        left:520px;
+        z-index:2;
+
+    }
+    .btn{
+        position:absolute;
+        top:693px;
+        left: 520px;
+        color: white;
+        background-color: #155DFC;
+        border-radius: 5px;
+        width: 393px;
+        height: 30px;
+        font-family: 'ln',sans-serif;
+        font-size: 13px;
+        border: none;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 2;
+    }
+    .btn1{
+        position:absolute;
+        top:778px;
+        left: 752px;
+        color: #155DFC;
+        background-color: none;
+        border-radius: 5px;
+        width: 46px;
+        height: 18px;
+        font-family: 'ln',sans-serif;
+        font-size: 13px;
+        border: none;
+        text-align: center;
+        text-decoration: none;
+        cursor: pointer;
+        transition: all 0.3s ease;
+        z-index: 2;
+    }
+    .p7{
+        position: absolute;
+        top: 765px;
+        left: 630px;
+        font-family: 'ln',sans-serif;
+        font-size: 13px;
+        z-index: 2;
+        color: #7E7C7C;
+    }
+
+}
+
