@@ -1,0 +1,587 @@
+@font-face {
+    font-family: 'DG';
+    src: url('fonts/DelaGothicOne-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ln';
+    src: url('fonts/Lusitana-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'lnb';
+    src: url('fonts/Lusitana-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
+*{
+    margin: 0px;
+    padding: 0px;
+}
+.nav>p{
+    font-family: 'DG', sans-serif;
+    font-weight: 400;
+    font-size: 32px;
+    color: #155DFC;
+
+}
+.nav{
+    display: flex;
+    justify-content: space-between;
+    padding-top:10px ;
+    padding-right: 20px ;
+    padding-left: 10px;
+}
+.nav a {
+    text-decoration: none;
+}
+.nav .btn {
+    display: inline-block;
+    font-family: 'ln', serif;
+    padding: 10px 20px;
+    background: #155DFC;
+    color: white;
+    border: none;
+    border-radius: 18px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+.img{
+    float: right;
+    margin-top: 40px;
+}
+.str1{
+    display: flex;
+    justify-content: space-between;
+    
+}
+.cmp>h{
+    font-family: 'DG';
+    font-size: 52px;
+    white-space: pre-line;
+    
+}
+.cmp{
+    padding-left: 40px;
+    margin-top: 280px;
+    
+}
+.cmp .p>p{
+    font-family: 'ln',sans-serif;
+    color: #5E5E5E;
+}
+.p{
+    margin-top: 20px;
+}
+.cmp .btn {
+    display: inline-block;
+    font-family: 'ln',sans-serif;
+    font-weight: 400;
+    padding: 10px 20px;
+    background: #155DFC;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    font-size: 16px;
+    width: 100%;
+    text-align: center;
+    text-decoration: none;
+}
+.cmp .btn{
+    max-width: 267px;
+}
+.r{
+    padding-top: 70px;
+}
+/* жёлтая хуета*/
+.yel{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin: 30px;
+    margin-left: 80px;
+    margin-right: 80px ;
+    background-color: #F9FAFB;
+}
+.str2>h1{
+    font-family: 'DG';
+    font-size: 24px;
+    text-align: center;
+}
+.y1{
+    background-color: #FDC700;
+    max-width:394px ;
+    border-radius: 20px;
+    padding: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: 20px;
+    font-family: 'ln',sans-serif;
+    font-weight: 400;  
+}
+.y1>div>h2{
+    font-size: 18px;
+}
+.y1>p{
+    font-size: 15px;
+    white-space: pre-line;
+}
+
+.y2{
+    background-color: #FDC700;
+    max-width:394px ;
+    border-radius: 20px;
+    padding: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: 20px;
+    font-family: 'ln',sans-serif;
+    font-weight: 400;  
+}
+.y2>div>h2{
+    font-size: 18px;
+}
+.y2>p{
+    font-size: 15px;
+    white-space: pre-line;
+}
+
+.y3{
+    background-color: #FDC700;
+    max-width:394px ;
+    border-radius: 20px;
+    padding: 20px;
+    padding-top: 30px;
+    padding-bottom: 30px;
+    margin: 20px;
+    font-family: 'ln',sans-serif;
+    font-weight: 400;
+}
+.y3>div>h2{
+    font-size: 18px;
+}
+.y3>p{
+    font-size: 15px;
+    white-space: pre-line;
+}
+.y1>div{
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+.y2>div{
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+.y3>div{
+    margin-top: 15px;
+    margin-bottom: 5px;
+}
+.str3>h1{
+    font-family: 'DG';
+    font-size: 24px;
+    text-align: center;
+}
+.str3{
+    margin-top: 200px;
+}
+.ch .h2>h2{
+    color: #155DFC;
+    font-family: 'DG',sans-serif;
+    font-size: 40px;
+}
+.ch .h3>h3{
+    font-family: 'ln',sans-serif;
+    font-size: 20px;
+    font-weight: 400;
+}
+.str3 .ch p{
+    font-family: 'ln',sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+}
+.str3 .ch{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    margin: 60px;
+    padding-top: 100px;
+}
+.bl1{
+    margin-right: 60px;
+}
+.bl2{
+    margin-right: 60px;
+}
+.bl3{
+    margin-right: 60px;
+}
+.bl4{
+    margin-right: 70px ;
+}
+.str4{
+    margin-top: 150px;
+    background-color: #155DFC;
+    height: 707px;
+    color: #FFFFFF;
+    position: relative;
+    padding-top: 50px;
+}
+.img1,.img2,.img3,.img4{
+    filter: brightness(0) invert(1);;
+}
+.img1{
+    position: absolute;
+    left: 0;
+    bottom: 0;
+}
+.img2{
+    position: absolute;
+    left: 0;
+    top: 0;
+}
+.str4>h2{
+    font-family: 'DG',sans-serif;
+    font-size: 24px;
+    text-align: center;
+    font-weight: 400;
+}
+.img3{
+    position: absolute;
+    right: 0;
+    top: 0; 
+}
+.img4{
+    position: absolute;
+    right: 0;
+    bottom: 0;
+}
+.str4>div{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 1fr 1fr;
+}
+.key1{
+    height: 208px;
+    width: 440px;
+    background-color: #2D6EFC;
+    border: none;
+    border-radius: 24px;
+    margin-left: 230px;
+    margin-top: 70px;
+    margin-bottom: 40px;
+    padding-left: 24px;
+
+}
+.str4>div .h3 h3{
+    font-family: 'ln',sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+}
+.str4>div p{
+    font-family: 'ln',sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    white-space: pre-line;
+}
+.key2{
+    height: 208px;
+    width: 440px;
+    background-color: #2D6EFC;
+    border: none;
+    border-radius: 24px;
+    margin-top: 70px;
+    margin-bottom: 40px;
+    margin-left: 80px;
+    padding-left: 24px;
+
+}
+.key3{
+    height: 208px;
+    width: 440px;
+    background-color: #2D6EFC;
+    border: none;
+    border-radius: 24px;
+    margin-left: 230px;
+    padding-left: 24px;
+
+}
+.key4{
+    height: 208px;
+    width: 440px;
+    background-color: #2D6EFC;
+    border: none;
+    border-radius: 24px;
+    margin-left: 80px;
+    padding-left: 24px;
+
+}
+.str4>div .h3{
+    margin-bottom: 30px;
+    margin-top: 30px;
+}
+.str5 .h2{
+    text-align: center;
+}
+.str5 .p{
+    text-align: center;
+}
+.str5 .h2 h2{
+    font-family: 'DG',sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+}
+.str5 .p p{
+    font-size: 16px;
+    font-family: 'ln',sans-serif;
+    color: #5E5E5E;
+}
+.str5{
+    margin-top: 20px;
+}
+.click .btn1{
+    background-color: #155DFC;
+    color: #FFFFFF;
+    font-family: 'ln',sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    border: none;
+    border-radius: 10px;
+    height: 47px;
+    width: 267px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+}
+.click .btn2{
+    font-family: 'ln',sans-serif;
+    font-weight: 400;
+    font-size: 20px;
+    background-color:#ffffff;
+    border: 1px solid black;
+    color: rgb(0, 0, 0);
+    border-radius: 10px;
+    height: 47px;
+    width: 128px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+}
+.nav a {
+    text-decoration: none;
+}
+.click{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 30px; /* расстояние между кнопками */
+    margin-top: 50px;
+}
+.tem h3{
+    font-family: 'DG',sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #ffffff;
+}
+.tem p{
+    font-family: 'ln',sans-serif;
+    font-size: 10px;
+    font-weight: 400;
+    color: #59667C;
+    white-space: pre-line;
+}
+.tem{
+    background-color: #101828;
+    min-height: 334px;
+    padding-top: 80px;
+    margin-top: 50px;
+}
+.temrik{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    margin-left: 420px;
+    margin-right: 350px;
+}
+.temrik .h3{
+    margin-bottom: 20px;
+}
+.temrik .page2{
+    margin-left: 30px;
+}
+.temrik .page3 .img{
+    margin: 0;
+    padding: 0;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    float: none;
+    margin-right: 50px;
+}
+.tem .temrik2{
+    text-align: center;
+    margin-top: 30px;
+}
+/*Регистрация*/
+.reg{
+    position: relative;
+    height: 100vh;
+    background-color: #F9FAFB;
+    
+}
+
+.reg .imgreg{
+    position: absolute;
+    top:0;
+    left: 120px;
+    z-index: 1;
+}
+.reg .imgreg1{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index:1;
+}
+.reg .imgreg2{
+    position: absolute;
+    bottom:0;
+    left: 0;
+    z-index: 1;
+}
+.reg .h1{
+    font-family: 'DG',sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    position: absolute;
+    top: 10px;
+    left: 20px;
+}
+.reg .regpan{
+    background-color: #FFFFFF;
+    display: flex;
+    position: absolute; /* Абсолютное позиционирование */
+    top: 50%; /* Центрирование по вертикали */
+    left: 50%; /* Центрирование по горизонтали */
+    transform: translate(-50%, -50%); /* Точное центрирование */
+    z-index: 2; /* Поверх SVG */
+    min-width: 240px;
+    padding: 40px;
+  
+}
+.reg .regpan #regForm p{
+    font-family: 'ln',sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+}
+#regForm .h2 h2{
+    font-size: 24px;
+    font-family: 'ln',sans-serif;
+    font-weight: 400;
+    text-align: center;
+}
+#regForm .h2{
+    margin-bottom: 10px;
+}
+#regForm .p1{
+    color: #7E7C7C;
+    text-align: center;
+}
+.col1{
+    margin-top: 40px;
+}
+.col1 .us{
+    width: 393px;
+    background-color: #F9FAFB;
+    border: none;
+    height: 30px;
+    border-radius: 5px;
+}
+.col2, .col3, .col4, .col5{
+    margin-top: 22px;
+}
+.col2 .fam{
+    width: 393px;
+    background-color: #F9FAFB;
+    border: none;
+    height: 30px;
+    border-radius: 5px;
+}
+.col3 .lg{
+    width: 393px;
+    background-color: #F9FAFB;
+    border: none;
+    height: 30px;
+    border-radius: 5px;
+}
+.col4 .el{
+    width: 393px;
+    background-color: #F9FAFB;
+    border: none;
+    height: 30px;
+    border-radius: 5px;
+}
+.col5 .pass{
+    width: 393px;
+    background-color: #F9FAFB;
+    border: none;
+    height: 30px;
+    border-radius: 5px;
+}
+.col5{
+    margin-bottom: 32px;
+}
+#regForm .btn{
+    background-color: #155DFC;
+    color: #FFFFFF;
+    font-family: 'ln',sans-serif;
+    font-weight: 400;
+    font-size: 13px;
+    border: none;
+    border-radius: 10px;
+    height: 30px;
+    width: 393px;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    display: inline-block;
+}
+#regForm>div a{
+    display: inline-block;
+    color: #155DFC; /* Синий цвет как у кнопки */
+    text-decoration: none; /* Убираем подчеркивание */
+    font-family: 'ln',sans-serif;
+    font-weight: 400;
+}
+#regForm > div a:hover {
+    color: #0f4fd0; /* Темнее при наведении */
+    text-decoration: underline; /* Можно добавить подчеркивание при наведении */
+}
+#regForm .dv>p{
+    display: inline-block;
+    color: #555555;
+}
+#regForm .dv{
+    text-align: center;
+    margin-top: 47px;
+}
+#regForm .dv img{
+    display: block;
+}
+
+@media (max-width:1440px){
+    .reg .imgreg{
+        width: 70%;
+    }
+    .reg .imgreg1{
+        width: 30%;
+    }
+    .reg .imgreg2{
+        width: 30%;
+    }
+
+
+}
