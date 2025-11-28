@@ -1,0 +1,472 @@
+/* profile.css */
+@font-face {
+    font-family: 'DG';
+    src: url('fonts/DelaGothicOne-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ln';
+    src: url('fonts/Lusitana-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.prof1{
+    position: relative;
+    height: 100vh;
+    background-color: #F9FAFB;
+}
+.prof1 .imgreg{
+    position: absolute;
+    top:0;
+    right:0;
+    z-index: 1;
+    width: 95%;
+}
+.prof1 .imgreg1{
+    position: absolute;
+    bottom: 0;
+    right: 0px;
+    z-index:1;
+    width: 60%;
+    
+}
+.prof1 .imgreg2{
+    position: absolute;
+    bottom:0;
+    left: 0;
+    z-index: 1;
+    width:40%;
+}
+
+/* Навигация */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.logo .h1{
+    font-family: 'DG', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #155DFC;
+    background-color: #FFFFFF;
+    padding: 8px 15px;
+    border-radius: 10px;
+    border: none;
+}
+
+.part2 {
+    display: flex;
+    gap: 50px;
+    background-color: #FFFFFF;
+    padding: 15px 25px;
+    border-radius: 10px;
+    border: none;
+}
+
+.part2 a {
+    font-family: 'ln', sans-serif;
+    font-size: 16px;
+    color: #000000;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.part2 a:hover {
+    background-color: #f0f4ff;
+    color: #155DFC;
+}
+
+/* Стили для part3 (пользовательское меню) */
+.part3 {
+    display: flex;
+    gap: 10px;
+    background-color: #FFFFFF;
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: none;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.part3:hover {
+    background-color: #f0f4ff;
+}
+
+.part3 p {
+    font-family: 'ln', sans-serif;
+    font-size: 16px;
+    color: #000000;
+    margin: 0;
+}
+
+.user-icon, .arrow-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.arrow-icon {
+    transition: transform 0.3s ease;
+}
+
+/* Выпадающее меню */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 25px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 0px rgba(0,0,0,0.15);
+    padding: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-right: 25px;
+    margin-top: 0px;
+    margin-right: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.dropdown-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.part3.active .arrow-icon {
+    transform: rotate(180deg);
+}
+
+/* Секции меню */
+.menu-section {
+    margin-bottom: 0;
+}
+
+/* Элементы меню с иконками */
+.menu-item-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+    z-index: 3;
+}
+
+.menu-item-with-icon:hover {
+    background-color: #f0f4ff;
+}
+
+.menu-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.menu-link {
+    font-family: 'ln', sans-serif;
+    font-size: 14px;
+    color: #000000;
+    text-decoration: none;
+    flex: 1;
+}
+
+.menu-link:hover {
+    color: #155DFC;
+}
+
+/* Подчеркивание только для главной ссылки "Профиль" */
+.menu-link.main-link {
+    text-decoration: underline;
+    color: #155DFC;
+}
+
+/* Для остальных ссылок убираем подчеркивание */
+.menu-item-with-icon:not(:first-child)  {
+    text-decoration: none;
+}
+
+.menu-item-with-icon.logout .menu-link {
+    color: #000000;
+}
+
+.menu-item-with-icon.logout:hover .menu-link {
+    color: #ff0000;
+}
+.profile{
+    display: flex;
+    justify-content: space-between;
+    margin-left: 10%;
+    margin-top: 2%;
+    align-items: flex-start
+}
+.avatar .h2{
+    font-size: 32px;
+    font-family: 'ln',sans-serif;
+    font-weight: 400;
+}
+.avatar .p{
+    font-family: 'ln',sans-serif;
+    font-weight: 400;
+}
+
+.avatar{
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    border: none;
+    z-index: 2;
+    text-align: center;
+    padding: 20px;
+    padding-left: 80px;
+    padding-right: 80px;
+}
+.grade{
+    display: flex;
+    margin-top: 31px;
+    margin-bottom: 52px;
+    justify-content: center;
+
+}
+.inf .me{
+    font-family: 'ln',sans-serif;
+    background-color: #FFFFFF;
+    z-index: 2;
+    border: none;
+    border-radius: 15px;
+    padding: 20px;
+    padding-bottom: 20%;
+}
+.me p{
+    font-size: 13px;
+}
+.me h2{
+    font-size: 24px;
+    font-weight: 400;
+}
+.inf{
+    z-index: 2;
+    margin-right: 24%;
+}
+body{
+    background-color: #F2F5FC;
+}
+.quali{
+    font-family: 'ln',sans-serif;
+    background-color: #FFFFFF;
+    z-index: 2;
+    border: none;
+    border-radius: 15px;
+    margin-top: 20px;
+    padding: 20px;
+
+}
+.quali h2{
+    font-size: 24px;
+}
+.last{
+    text-align: center;
+    margin-top: 20px;
+}
+.quali .comp1{
+    background-color: #FDC700;
+    padding: 15px;
+    padding-bottom: 25px;
+    z-index: 3;
+    border: none;
+    border-radius: 10px;
+    margin-top: 25px;
+}
+.quali .comp2{
+    background-color: #FDC700;
+    padding: 15px;
+    padding-bottom: 25px;
+    z-index: 3;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+.quali .comp3{
+    background-color: #4F86FF;
+    padding: 15px;
+    padding-bottom: 25px;
+    z-index: 3;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+.quali .comp4{
+    background-color: #A2BFFE;
+    padding: 15px;
+    padding-bottom: 25px;
+    z-index: 3;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+    
+    .part2 {
+        gap: 20px;
+        padding: 10px 15px;
+    }
+    
+    .part2 a {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+    
+    .dropdown-menu {
+        width: 240px;
+        right: -30px;
+    }
+    .profile {
+        flex-direction: column; /* Столбик на мобильных */
+        margin-left: 5%;
+        margin-right: 5%;
+        gap: 20px; /* Расстояние между блоками */
+    }
+    
+    .avatar {
+        padding: 20px;
+        padding-left: 40px; /* Уменьшаем отступы */
+        padding-right: 40px;
+        width: 100%; /* Занимает всю ширину */
+        box-sizing: border-box; /* Учитываем padding в ширине */
+        order: 1; /* Порядок: аватар первый */
+    }
+    
+    .inf {
+        margin-right: 0;
+        width: 100%; /* Занимает всю ширину */
+        order: 2; /* Порядок: информация вторая */
+    }
+    
+    .inf .me {
+        padding-bottom: 20px;
+        margin-bottom: 0;
+    }
+    
+    .nav {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px 20px;
+    }
+    
+    .part2 {
+        gap: 20px;
+        padding: 10px 15px;
+        flex-wrap: wrap; /* Перенос на новую строку если не помещается */
+        justify-content: center;
+    }
+    
+    .part2 a {
+        font-size: 14px;
+        padding: 6px 10px;
+    }
+    
+    .dropdown-menu {
+        width: 240px;
+        right: -30px;
+    }
+    
+    /* Уменьшаем SVG на мобильных */
+    .prof1 .imgreg,
+    .prof1 .imgreg1,
+    .prof1 .imgreg2 {
+        opacity: 0.5; /* Делаем менее заметными */
+    }
+        .dropdown-menu {
+        width: 280px; /* Шире для удобства на мобильных */
+        right: 10px;
+        left: auto;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+    }
+    
+    /* Увеличиваем область клика для меню */
+    .part3 {
+        padding: 15px 20px; /* Больше padding для удобства касания */
+        min-height: 44px; /* Минимальная высота для touch */
+    }
+    
+    .menu-item-with-icon {
+        min-height: 44px; /* Минимальная высота для touch элементов */
+        padding: 12px 0; /* Больше padding */
+    }
+    
+    /* Убедитесь, что меню поверх всех элементов */
+    .dropdown-menu {
+        z-index: 10000;
+    }
+    
+    .part3 {
+        z-index: 10001;
+    }
+    .nav {
+        position: relative;
+        z-index: 10002; /* Увеличиваем z-index навигации */
+    }
+    
+    .dropdown-menu {
+        width: 280px;
+        right: 10px;
+        left: auto;
+        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
+        z-index: 10003; /* Увеличиваем z-index меню */
+        position: fixed; /* Меняем на fixed для мобильных */
+        top: 80px; /* Позиционируем ниже навигации */
+    }
+    
+    /* Увеличиваем область клика для меню */
+    .part3 {
+        padding: 15px 20px;
+        min-height: 44px;
+        z-index: 10004; /* Увеличиваем z-index кнопки меню */
+    }
+    
+    .menu-item-with-icon {
+        min-height: 44px;
+        padding: 12px 0;
+    }
+    
+    /* Убедитесь, что SVG не перекрывают меню */
+    .prof1 .imgreg,
+    .prof1 .imgreg1,
+    .prof1 .imgreg2 {
+        opacity: 0.3; /* Делаем еще более прозрачными */
+        z-index: 1; /* Убеждаемся, что z-index низкий */
+    }
+    
+    /* Убедитесь, что контент профиля не перекрывает меню */
+    .profile {
+        z-index: 1;
+        position: relative;
+    }
+}
