@@ -366,20 +366,24 @@ body {
     justify-content: center;
     margin-left: 10px;
     margin-top: 23%;
+    margin-right:20px;
 }
 .sec .special-text {
     justify-content: center;
     margin-left: 10px;
     margin-top: 13%;
+    margin-right:20px;
 }
 .fird .special-text{
     justify-content: center;
     margin-left: 10px;
     margin-top: 13%;
+    margin-right:20px;
 }
 
 .imgteam img{
     height: 71px;
     margin-bottom:25% ;
 }
+
 
