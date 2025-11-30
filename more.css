@@ -1,0 +1,276 @@
+@font-face {
+    font-family: 'DG';
+    src: url('fonts/DelaGothicOne-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ln';
+    src: url('fonts/Lusitana-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.prof1{
+    position: relative;
+    height: 100vh;
+    background-color: #F9FAFB;
+}
+.prof1 .imgreg{
+    position: absolute;
+    top:0;
+    right:0;
+    z-index: 1;
+    width: 75%;
+}
+.prof1 .imgreg2{
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    z-index:1;
+    width: 80%;
+    
+}
+.prof1 .imgreg1{
+    position: absolute;
+    bottom:0;
+    left: 0;
+    z-index: 1;
+    width:40%;
+}
+
+/* Навигация */
+.nav {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 30px;
+    position: relative;
+    z-index: 2;
+}
+
+.logo .h1{
+    font-family: 'DG', sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #155DFC;
+    background-color: #FFFFFF;
+    padding: 8px 15px;
+    border-radius: 10px;
+    border: none;
+}
+
+.part2 {
+    display: flex;
+    gap: 50px;
+    background-color: #FFFFFF;
+    padding: 15px 25px;
+    border-radius: 10px;
+    border: none;
+}
+
+.part2 a {
+    font-family: 'ln', sans-serif;
+    font-size: 16px;
+    color: #000000;
+    text-decoration: none;
+    padding: 8px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease;
+}
+
+.part2 a:hover {
+    background-color: #f0f4ff;
+    color: #155DFC;
+}
+/* Стили для part3 (пользовательское меню) */
+.part3 {
+    display: flex;
+    gap: 10px;
+    background-color: #FFFFFF;
+    padding: 12px 20px;
+    border-radius: 10px;
+    border: none;
+    align-items: center;
+    cursor: pointer;
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.part3:hover {
+    background-color: #f0f4ff;
+}
+
+.part3 p {
+    font-family: 'ln', sans-serif;
+    font-size: 16px;
+    color: #000000;
+    margin: 0;
+}
+
+.user-icon, .arrow-icon {
+    width: 20px;
+    height: 20px;
+}
+
+.arrow-icon {
+    transition: transform 0.3s ease;
+}
+/* Выпадающее меню */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 25px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 0px rgba(0,0,0,0.15);
+    padding: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-right: 25px;
+    margin-top: 0px;
+    margin-right: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+}
+
+.dropdown-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.part3.active .arrow-icon {
+    transform: rotate(180deg);
+}
+
+/* Секции меню */
+.menu-section {
+    margin-bottom: 0;
+}
+
+/* Элементы меню с иконками */
+.menu-item-with-icon {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    padding: 10px 0;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    border-radius: 6px;
+    z-index: 3;
+}
+
+.menu-item-with-icon:hover {
+    background-color: #f0f4ff;
+}
+
+.menu-icon {
+    width: 18px;
+    height: 18px;
+}
+
+.menu-link {
+    font-family: 'ln', sans-serif;
+    font-size: 14px;
+    color: #000000;
+    text-decoration: none;
+    flex: 1;
+}
+
+.menu-link:hover {
+    color: #155DFC;
+}
+/* Подчеркивание только для главной ссылки "Профиль" */
+.menu-link.main-link {
+    text-decoration: none;
+
+}
+
+/* Для остальных ссылок убираем подчеркивание */
+.menu-item-with-icon:not(:first-child)  {
+    text-decoration: none;
+}
+
+.menu-item-with-icon.logout .menu-link {
+    color: #000000;
+}
+
+.menu-item-with-icon.logout .menu-link {
+    color: #ff0000;
+}
+/*more*/
+.more{
+    position: relative;
+    background-color: #FFFFFF;
+    border-radius: 15px;
+    border: none;
+    z-index: 2;
+    margin-top:5%;
+    margin-left: 25%;
+    width: 53%;
+    padding: 20px;
+    padding-right: 126px;
+    padding-left: 60px;
+    padding-top: 48px;
+    height: 82%;
+}
+body{
+    background-color: #F2F5FC;
+}
+.quali h2{
+    font-size: 24px;
+    font-family: 'ln',sans-serif;
+}
+.quali .comp1{
+    background-color: #FDC700;
+    padding: 15px;
+    padding-bottom: 25px;
+    z-index: 3;
+    border: none;
+    border-radius: 10px;
+    margin-top: 25px;
+}
+.quali .comp2{
+    background-color: #FDC700;
+    padding: 15px;
+    padding-bottom: 25px;
+    z-index: 3;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+.quali .comp3{
+    background-color: #4F86FF;
+    padding: 15px;
+    padding-bottom: 25px;
+    z-index: 3;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+.quali .comp4{
+    background-color: #A2BFFE;
+    padding: 15px;
+    padding-bottom: 25px;
+    z-index: 3;
+    border: none;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+.quali div{
+    margin-left: 6%;
+    margin-top: 14%;
+}
