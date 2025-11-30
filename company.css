@@ -295,7 +295,8 @@ body {
     border: none;
     z-index: 3;
     font-size: 24px;
-    padding: 5.7%;
+    padding-left: 5.7%;
+    padding-right: 5.7%;
     white-space: pre-line;
     width:55%;
     margin-right: 14%;
@@ -388,6 +389,7 @@ body {
 .imgteam{
      margin-right:10px;
 }
+
 
 
 
