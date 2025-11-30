@@ -277,6 +277,7 @@ body {
 }
 .first .special{
     display: inline-block;
+    font-size:20px;
 }
 .first{
     position: relative;
@@ -381,3 +382,4 @@ body {
     height: 71px;
     margin-bottom:25% ;
 }
+
