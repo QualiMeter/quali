@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <title>Профиль - Qualimeter</title>
+  <link rel="stylesheet" href="more.css" />
+</head>
+
+<body>
+  <div class="prof1">
+    <div class="nav">
+      <div class="logo">
+        <h1 class="h1">Qualimeter</h1>
+      </div>
+      <div class="part2">
+        <div class="a1">
+          <a href="#">Тесты</a>
+        </div>
+        <div class="a2">
+          <a href="#">План развития</a>
+        </div>
+        <div class="a3">
+          <a href="#">Повышение</a>
+        </div>
+        <div class="a4">
+          <a href="#">Компания</a>
+        </div>
+      </div>
+      <div class="part3" id="userMenu">
+        <img src="img/imgprof/user-account_9327873 1 (1).svg" alt="user" class="user-icon" />
+        <p>Никита Н.</p>
+        <img src="img/imgprof/Vector 1.svg" alt="arrow" class="arrow-icon" />
+      </div>
+      <div class="dropdown-menu" id="dropdownMenu">
+        <div class="menu-section">
+          <div class="menu-item-with-icon">
+            <img src="img/imgprof/person.svg" alt="" class="menu-icon" />
+            <a href="prof.html" class="menu-link main-link">Профиль</a>
+          </div>
+          <div class="menu-item-with-icon">
+            <img src="img/imgprof/settings.svg" alt="" class="menu-icon" />
+            <a href="#" class="menu-link">Настройки</a>
+          </div>
+          <div class="menu-item-with-icon">
+            <img src="img/imgprof/notifications_unread.svg" alt="" class="menu-icon" />
+            <a href="#" class="menu-link">Уведомления</a>
+          </div>
+          <div class="menu-item-with-icon logout">
+            <img src="img/imgprof/logout.svg" alt="" class="menu-icon" />
+            <a href="profend.html" class="menu-link">Выйти</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img src="img/imgprof/blending 1 (1).svg" alt="" class="imgreg" />
+    <img src="img/imgprof/blending 1 (2).svg" alt="" class="imgreg1" />
+    <img src="img/imgprof/blending 1 (3).svg" alt="" class="imgreg2" />
+    <div class="more">
+        <div class="quali">
+            <h2>Ваши компетенции</h2>
+            <div>
+                <div class="comp1">
+                  <p>Senior Python разработчик</p>
+                </div>
+                <div class="comp2">
+                  <p>Работа с ООП ( Продвинутый )</p>
+                </div>
+                <div class="comp3">
+                  <p>Алгоритмы и структуры данных ( Средний )</p>
+                </div>
+                <div class="comp4">
+                  <p>Математическая статистика ( Базовый )</p>
+                </div>
+            </div>
+        </div>
+    </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const userMenu = document.getElementById("userMenu");
+      const dropdownMenu = document.getElementById("dropdownMenu");
+
+      // Функция для переключения меню
+      function toggleMenu(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dropdownMenu.classList.toggle("active");
+        userMenu.classList.toggle("active");
+      }
+
+      // Обработчики для десктопов и мобильных
+      userMenu.addEventListener("click", toggleMenu);
+      userMenu.addEventListener("touchstart", toggleMenu); // Для мобильных
+
+      // Закрытие меню при клике вне его
+      function closeMenu() {
+        dropdownMenu.classList.remove("active");
+        userMenu.classList.remove("active");
+      }
+
+      document.addEventListener("click", closeMenu);
+      document.addEventListener("touchstart", closeMenu); // Для мобильных
+
+      // Предотвращение закрытия при клике внутри меню
+      dropdownMenu.addEventListener("click", function (e) {
+        e.stopPropagation();
+      });
+      dropdownMenu.addEventListener("touchstart", function (e) {
+        e.stopPropagation();
+      });
+    });
+  </script>
+</body>
+
+</html>

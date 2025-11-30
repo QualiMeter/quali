@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+    <title>Профиль - Qualimeter</title>
+    <link rel="stylesheet" href="company.css" />
+</head>
+
+<body>
+    <div class="prof1">
+        <div class="nav">
+            <div class="logo">
+                <h1 class="h1">Qualimeter</h1>
+            </div>
+            <div class="part2">
+                <div class="a1">
+                    <a href="#">Тесты</a>
+                </div>
+                <div class="a2">
+                    <a href="#">План развития</a>
+                </div>
+                <div class="a3">
+                    <a href="#">Повышение</a>
+                </div>
+                <div class="a4">
+                    <a href="#">Компания</a>
+                </div>
+            </div>
+            <div class="part3" id="userMenu">
+                <img src="img/imgprof/user-account_9327873 1 (1).svg" alt="user" class="user-icon" />
+                <p>Никита Н.</p>
+                <img src="img/imgprof/Vector 1.svg" alt="arrow" class="arrow-icon" />
+            </div>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <div class="menu-section">
+                    <div class="menu-item-with-icon">
+                        <img src="img/imgprof/person.svg" alt="" class="menu-icon" />
+                        <a href="prof.html" class="menu-link main-link">Профиль</a>
+                    </div>
+                    <div class="menu-item-with-icon">
+                        <img src="img/imgprof/settings.svg" alt="" class="menu-icon" />
+                        <a href="#" class="menu-link">Настройки</a>
+                    </div>
+                    <div class="menu-item-with-icon">
+                        <img src="img/imgprof/notifications_unread.svg" alt="" class="menu-icon" />
+                        <a href="#" class="menu-link">Уведомления</a>
+                    </div>
+                    <div class="menu-item-with-icon logout">
+                        <img src="img/imgprof/logout.svg" alt="" class="menu-icon" />
+                        <a href="profend.html" class="menu-link">Выйти</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <img src="img/imgprof/blending 1 (1).svg" alt="" class="imgreg" />
+        <img src="img/imgprof/blending 1 (2).svg" alt="" class="imgreg1" />
+        <img src="img/imgprof/blending 1 (3).svg" alt="" class="imgreg2" />
+        <div class="company">
+            <div class="name">
+                <div class="namecomp">ООО "Компания"</div>
+                <p>О компании</p>
+                <img src="img/imgprof/Line 5.svg" alt="">
+                <div class="about">ляляля туда сюда, вложились в кукисы и получили деньгусы</div>
+            </div>
+            <div class="team">
+                <h2>Команда</h2>
+                <div class="first">
+                    <div class="imgteam">
+                        <img src="img/imgprof/user-account_9327873 1 (1).svg" alt="">
+                    </div>
+                    <div class="nik">Роман Романыч</div>
+                    <div class="special">
+                        <img src="img/imgprof/Line 6.svg" alt="" class="img1">
+                        <div class="special-text">Руководитель</div>
+                    </div>
+                </div>
+                <div class="sec">
+                    <div class="imgteam">
+                        <img src="img/imgprof/user-account_9327873 1 (1).svg" alt="">
+                    </div>
+                    <div class="nik">Никита Никтин</div>
+                    <div class="special">
+                        <img src="img/imgprof/Line 6.svg" alt="" class="img1">
+                        <div class="special-text">Senior Python
+                            develope</div>
+                    </div>
+                </div>
+                <div class="fird">
+                    <div class="imgteam">
+                        <img src="img/imgprof/user-account_9327873 1 (1).svg" alt="">
+                    </div>
+                    <div class="nik">Денис Владиславович</div>
+                    <div class="special">
+                        <img src="img/imgprof/Line 6.svg" alt="" class="img1">
+                        <div class="special-text">Middle c++
+                            разработчик</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.addEventListener("DOMContentLoaded", function () {
+                const userMenu = document.getElementById("userMenu");
+                const dropdownMenu = document.getElementById("dropdownMenu");
+
+                // Функция для переключения меню
+                function toggleMenu(e) {
+                    e.preventDefault();
+                    e.stopPropagation();
+                    dropdownMenu.classList.toggle("active");
+                    userMenu.classList.toggle("active");
+                }
+
+                // Обработчики для десктопов и мобильных
+                userMenu.addEventListener("click", toggleMenu);
+                userMenu.addEventListener("touchstart", toggleMenu); // Для мобильных
+
+                // Закрытие меню при клике вне его
+                function closeMenu() {
+                    dropdownMenu.classList.remove("active");
+                    userMenu.classList.remove("active");
+                }
+
+                document.addEventListener("click", closeMenu);
+                document.addEventListener("touchstart", closeMenu); // Для мобильных
+
+                // Предотвращение закрытия при клике внутри меню
+                dropdownMenu.addEventListener("click", function (e) {
+                    e.stopPropagation();
+                });
+                dropdownMenu.addEventListener("touchstart", function (e) {
+                    e.stopPropagation();
+                });
+            });
+        </script>
+</body>
+
+</html>
