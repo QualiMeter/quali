@@ -232,6 +232,7 @@ body{
 }
 .quali h2{
     font-size: 24px;
+    font-family:'ln',sans-serif;
 }
 .quali .comp1{
     background-color: #FDC700;
@@ -272,4 +273,5 @@ body{
 .quali div{
     margin-left: 17%;
     margin-top: 14%;
+
 }
