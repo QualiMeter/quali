@@ -126,7 +126,11 @@
       });
 
       async function updatePlaceholder(role) {
-          let rolesResponse = await fetch('http://qmv2api.onrender.com/api/Roles', {mode: 'no-cors'});
+		  let mheader = new Headers();
+		  mheader.append('Access-Control-Allow-Origin', '*');
+		  mheader.append('Access-Control-Allow-Methods', 'GET');
+		  
+          let rolesResponse = await fetch('http://qmv2api.onrender.com/api/Roles', {mode: 'no-cors', headers: mheaders});
           let roleClient = (await rolesResponse.json()).find((element, index, array) => element.name == 'client');
           console.log('role is: ' + roleClient);
         if (role === 'company') {
@@ -393,6 +397,7 @@
 </body>
 
 </html>
+
 
 
 
