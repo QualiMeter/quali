@@ -143,7 +143,8 @@
               headers: {
                 'Content-Type': 'application/json',
                 'Accept': 'application/json'
-              }});
+              }
+          });
             const roleClient = (await rolesResponse.json()).find((element, index, array) => element.name == 'client');
           console.log(roleClient);
         });
@@ -213,7 +214,7 @@
               name: name,
               lastname: lastname,
               patronym: null, // Отчество (если нет)
-              roleId: roleClient.id, // GUID роли сотрудника из документации
+              roleId: '9f73a9a7-bf1b-40e8-8ae1-5416b22bc1e9', // GUID роли сотрудника из документации
               email: email,
               isEmailConfirmed: false, // Email еще не подтвержден
               birthday: null, // День рождения (если не указан)
@@ -397,4 +398,5 @@
 </body>
 
 </html>
+
 
