@@ -196,7 +196,13 @@
     background-color: rgba(21, 93, 252, 0.8);
     backdrop-filter: blur(10px);
 }
-
+.menu-link.main-link {
+    text-decoration: none!important;
+    color: black !important;
+}
+.menu-link.main-link:hover{
+    color: #155DFC!important;
+}
 /* Анимация загрузки */
 @keyframes fadeIn {
     from {

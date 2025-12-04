@@ -21,6 +21,11 @@
     font-weight: 400;
     font-display: swap;
 }
+
+/* company-content.css - ТОЛЬКО стили для контента компании */
+
+/* Удаляем дублирование шрифтов, они уже в style1.css */
+
 .company-content {
     display: flex;
     justify-content: space-between;
@@ -29,7 +34,7 @@
     top: 5%;
     margin: 20px 50px;
     gap: 30px;
-    z-index: 3;
+    z-index: 1;
 }
 
 .name {
@@ -141,7 +146,14 @@ body{
     top: 2%;  /* Было 5% */
     margin: 20px 50px;
     gap: 30px;
-    z-index: 3;
+    z-index: 1;
+}
+.menu-link.main-link {
+    text-decoration: none!important;
+    color: black !important;
+}
+.menu-link.main-link:hover{
+    color: #155DFC!important;
 }
 /* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
@@ -153,6 +165,9 @@ body{
     }
     .team .special img {
         display: none;
+    }
+    .name, .team {
+        z-index: 1; /* Элементы контента под навигацией */
     }
     .name, .team {
         width: 100%;

@@ -84,7 +84,7 @@
     background-color: #FFFFFF;
     border-radius: 15px;
     border: none;
-    z-index: 2;
+    z-index: 1;
     margin-top: 2%;  /* Было 5% */
     margin-left: 25%;
     width: 53%;
@@ -94,6 +94,13 @@
     padding-top: 48px;
     height: 82%;
 }
+.menu-link.main-link {
+    text-decoration: none!important;
+    color: black !important;
+}
+.menu-link.main-link:hover{
+    color: #155DFC!important;
+}
 /* Адаптивность для мобильных устройств */
 @media (max-width: 768px) {
     .more-content {
@@ -102,7 +109,9 @@
         padding: 25px;
         height: auto;
     }
-    
+    .name, .team {
+        z-index: 1; /* Элементы контента под навигацией */
+    }
     .quali h2 {
         font-size: 24px;
         text-align: center;
