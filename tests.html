@@ -12,19 +12,9 @@
             box-sizing: border-box;
         }
 
-        /* ⭐⭐⭐ ВСТАВЬТЕ ВАШЕ ИЗОБРАЖЕНИЕ ФОНА ЗДЕСЬ ⭐⭐⭐ */
         body {
             font-family: 'ln', sans-serif;
-            background-color: #F9FAFB;
-            
-            /* ⭐⭐ РАСКОММЕНТИРУЙТЕ И ЗАМЕНИТЕ НА ВАШЕ ИЗОБРАЖЕНИЕ ⭐⭐ */
-            /* Пример: если ваше изображение называется "background.jpg" в папке "img" */
-            background-image: url('cropped-image (6).svg'); /* <-- ЗАМЕНИТЕ НА ВАШЕ ИЗОБРАЖЕНИЕ */
-            background-size: cover;           /* Растянуть на весь экран */
-            background-position: center;      /* Центрировать */
-            background-repeat: no-repeat;     /* Не повторять */
-            background-attachment: fixed;     /* Фиксированный фон */
-            
+            background-color: #F9FAFB; /* Основной цвет фона */
             color: #000000;
             line-height: 1.6;
             min-height: 100vh;
@@ -32,13 +22,34 @@
             overflow-x: hidden;
         }
 
-        /* Если хотите сделать фон немного прозрачным для лучшей читаемости */
-        .main-content {
-            background-color: rgba(255, 255, 255, 0.85); /* Белый с прозрачностью */
-            border-radius: 15px;
-            margin: 20px auto;
-            padding: 40px;
-            max-width: 1200px;
+        /* ⭐⭐⭐ ДОБАВЬТЕ ЭТИ СТИЛИ ДЛЯ ВАШИХ ФОНОВЫХ ЭЛЕМЕНТОВ ⭐⭐⭐ */
+        .prof {
+            position: relative;
+            min-height: 100vh;
+        }
+
+        .imgreg {
+            position: absolute;
+            top: 0;
+            right: 0;
+            z-index: 1;
+            width: 95%;
+        }
+
+        .imgreg1 {
+            position: absolute;
+            bottom: 0;
+            right: 0px;
+            z-index: 1;
+            width: 60%;
+        }
+
+        .imgreg2 {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            z-index: 1;
+            width: 40%;
         }
 
         @font-face {
@@ -65,32 +76,6 @@
             font-display: swap;
         }
 
-        /* ⭐⭐⭐ УДАЛИТЕ МОИ ФОНОВЫЕ ДЕКОРАЦИИ ⭐⭐⭐ */
-        /* Закомментируйте или удалите эти стили: */
-        /*
-        .bg-decor {
-            position: absolute;
-            z-index: -1;
-            pointer-events: none;
-        }
-
-        .bg-decor-1 {
-            top: 0;
-            right: 0;
-            width: 45%;
-            max-width: 600px;
-            opacity: 0.7;
-        }
-
-        .bg-decor-2 {
-            bottom: 0;
-            left: 0;
-            width: 35%;
-            max-width: 500px;
-            opacity: 0.5;
-        }
-        */
-
         /* Навигация */
         .nav {
             display: flex;
@@ -99,8 +84,8 @@
             padding: 15px 30px;
             position: relative;
             z-index: 10;
-            background-color: rgba(255, 255, 255, 0.95); /* Полупрозрачный белый */
-            backdrop-filter: blur(10px); /* Эффект размытия фона */
+            background-color: rgba(255, 255, 255, 0.95);
+            backdrop-filter: blur(10px);
         }
 
         .logo .h1 {
@@ -182,7 +167,7 @@
             padding: 40px;
             position: relative;
             z-index: 2;
-            background-color: rgba(255, 255, 255, 0.9); /* Полупрозрачный фон для читаемости */
+            background-color: rgba(255, 255, 255, 0.9);
             border-radius: 20px;
             box-shadow: 0 10px 30px rgba(0,0,0,0.1);
         }
@@ -425,6 +410,11 @@
             .test-title {
                 font-size: 22px;
             }
+            
+            /* Для мобильных можно скрыть фоновые элементы */
+            .imgreg, .imgreg1, .imgreg2 {
+                opacity: 0.3;
+            }
         }
 
         @media (max-width: 480px) {
@@ -521,17 +511,12 @@
     </style>
 </head>
 <body>
-    <!-- ⭐⭐⭐ УДАЛИТЕ МОИ ФОНОВЫЕ SVG ЭЛЕМЕНТЫ ⭐⭐⭐ -->
-    <!-- Закомментируйте или удалите эти 2 строки: -->
-    <!--
-    <svg class="bg-decor bg-decor-1" viewBox="0 0 600 600" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#155DFC" d="M300,600 C500,600 600,500 600,300 C600,100 500,0 300,0 C100,0 0,100 0,300 C0,500 100,600 300,600 Z" opacity="0.05"/>
-    </svg>
-
-    <svg class="bg-decor bg-decor-2" viewBox="0 0 500 500" xmlns="http://www.w3.org/2000/svg">
-        <path fill="#4A90E2" d="M250,500 C400,500 500,400 500,250 C500,100 400,0 250,0 C100,0 0,100 0,250 C0,400 100,500 250,500 Z" opacity="0.03"/>
-    </svg>
-    -->
+    <!-- ⭐⭐⭐ ДОБАВЬТЕ ЭТИ ФОНОВЫЕ ЭЛЕМЕНТЫ ⭐⭐⭐ -->
+    <div class="prof">
+        <img src="img/imgprof/blending 1754474870 (1).svg" alt="" class="imgreg" />
+        <img src="img/imgprof/blending 1762691066228 (1).svg" alt="" class="imgreg1" />
+        <img src="img/imgprof/blending 1754474869 (1).svg" alt="" class="imgreg2" />
+    </div>
 
     <!-- Навигация -->
     <nav class="nav">
