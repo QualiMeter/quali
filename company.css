@@ -1,3 +1,11 @@
+/* company-content.css - ТОЛЬКО стили для контента компании */
+@font-face {
+    font-family: 'lnb';
+    src: url('fonts/Lusitana-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
 @font-face {
     font-family: 'DG';
     src: url('fonts/DelaGothicOne-Regular.ttf') format('truetype');
@@ -13,227 +21,18 @@
     font-weight: 400;
     font-display: swap;
 }
-@font-face {
-    font-family: 'lnb';
-    src: url('fonts/Lusitana-Bold.ttf') format('truetype');
-    font-style: normal;
-    font-weight: 700;
-    font-display: swap;
-}
-
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
-
-.prof1{
-    position: relative;
-    height: 100vh;
-    background-color: #F9FAFB;
-}
-.prof1 .imgreg{
-    position: absolute;
-    top:0;
-    right:0;
-    z-index: 1;
-    width: 75%;
-}
-.prof1 .imgreg2{
-    position: absolute;
-    bottom: 0;
-    right: 0;
-    z-index:1;
-    width: 80%;
-    
-}
-.prof1 .imgreg1{
-    position: absolute;
-    bottom:0;
-    left: 0;
-    z-index: 1;
-    width:40%;
-}
-
-/* Навигация */
-.nav {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    padding: 15px 30px;
-    position: relative;
-    z-index: 2;
-}
-
-.logo .h1{
-    font-family: 'DG', sans-serif;
-    font-size: 24px;
-    font-weight: 400;
-    color: #155DFC;
-    background-color: #FFFFFF;
-    padding: 8px 15px;
-    border-radius: 10px;
-    border: none;
-}
-
-.part2 {
-    display: flex;
-    gap: 50px;
-    background-color: #FFFFFF;
-    padding: 15px 25px;
-    border-radius: 10px;
-    border: none;
-}
-
-.part2 a {
-    font-family: 'ln', sans-serif;
-    font-size: 16px;
-    color: #000000;
-    text-decoration: none;
-    padding: 8px 15px;
-    border-radius: 8px;
-    transition: all 0.3s ease;
-}
-
-.part2 a:hover {
-    background-color: #f0f4ff;
-    color: #155DFC;
-}
-.part2 .a4 a{
-    color: #155DFC;
-    text-decoration: underline;
-}
-/* Стили для part3 (пользовательское меню) */
-.part3 {
-    display: flex;
-    gap: 10px;
-    background-color: #FFFFFF;
-    padding: 12px 20px;
-    border-radius: 10px;
-    border: none;
-    align-items: center;
-    cursor: pointer;
-    position: relative;
-    transition: all 0.3s ease;
-}
-
-.part3:hover {
-    background-color: #f0f4ff;
-}
-
-.part3 p {
-    font-family: 'ln', sans-serif;
-    font-size: 16px;
-    color: #000000;
-    margin: 0;
-}
-
-.user-icon, .arrow-icon {
-    width: 20px;
-    height: 20px;
-}
-
-.arrow-icon {
-    transition: transform 0.3s ease;
-}
-/* Выпадающее меню */
-.dropdown-menu {
-    position: absolute;
-    top: 100%;
-    right: 25px;
-    background: white;
-    border-radius: 10px;
-    box-shadow: 0 4px 0px rgba(0,0,0,0.15);
-    padding: 20px;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    padding-right: 25px;
-    margin-top: 0px;
-    margin-right: 5px;
-    opacity: 0;
-    visibility: hidden;
-    transform: translateY(-10px);
-    transition: all 0.3s ease;
-    z-index: 1000;
-}
-
-.dropdown-menu.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
-}
-
-.part3.active .arrow-icon {
-    transform: rotate(180deg);
-}
-
-/* Секции меню */
-.menu-section {
-    margin-bottom: 0;
-}
-
-/* Элементы меню с иконками */
-.menu-item-with-icon {
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    padding: 10px 0;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    border-radius: 6px;
-    z-index: 3;
-}
-
-.menu-item-with-icon:hover {
-    background-color: #f0f4ff;
-}
-
-.menu-icon {
-    width: 18px;
-    height: 18px;
-}
-
-.menu-link {
-    font-family: 'ln', sans-serif;
-    font-size: 14px;
-    color: #000000;
-    text-decoration: none;
-    flex: 1;
-}
-
-.menu-link:hover {
-    color: #155DFC;
-}
-/* Подчеркивание только для главной ссылки "Профиль" */
-.menu-link.main-link {
-    text-decoration: none;
-
-}
-
-/* Для остальных ссылок убираем подчеркивание */
-.menu-item-with-icon:not(:first-child)  {
-    text-decoration: none;
-}
-
-.menu-item-with-icon.logout .menu-link {
-    color: #000000;
-}
-
-.menu-item-with-icon.logout .menu-link {
-    color: #ff0000;
-}
-
-.company{
+.company-content {
     display: flex;
     justify-content: space-between;
     align-items: flex-start;
-
     position: relative;
     top: 5%;
     margin: 20px 50px;
     gap: 30px;
+    z-index: 3;
 }
-.name{
+
+.name {
     background-color: #FFFFFF;
     border: none;
     border-radius: 15px;
@@ -243,51 +42,31 @@
     z-index: 3;
     width: 28%;
     margin-left: 50px;
-
 }
-.name .namecomp{
+
+.name .namecomp {
     font-size: 32px;
-    font-family: 'lnb',sans-serif;
+    font-family: 'lnb', sans-serif;
     font-weight: 700;
     margin-bottom: 25%;
 }
-.name p{
-    font-family: 'ln',sans-serif;
+
+.name p {
+    font-family: 'ln', sans-serif;
     font-size: 20px;
 }
-.name img{
+
+.name img {
     width: 110%;
 }
-.name .about{
-    font-family: 'ln',sans-serif;
+
+.name .about {
+    font-family: 'ln', sans-serif;
     font-size: 20px;
     margin-bottom: 60%;
 }
-body {
-  font-family: 'ln', sans-serif;
-}
-.first .imgteam{
-    display: inline-block;
-}
-.first .nik{
-    display: inline-block;
-}
-.first img{
-    display: inline-block;
-}
-.first .special{
-    display: inline-block;
-}
-.first{
-    position: relative;
-    background-color: #FBFBFB;
-    border-radius: 15px;
-    border: none;
-    z-index: 3;
-    display: flex;
 
-}
-.team{
+.team {
     position: relative;
     background-color: #ffffff;
     border-radius: 15px;
@@ -297,209 +76,151 @@ body {
     padding-left: 5.7%;
     padding-right: 5.7%;
     white-space: pre-line;
-    width:55%;
+    width: 55%;
     margin-right: 14%;
-
 }
 
-.sec .imgteam{
-    display: inline-block;
-}
-.sec .nik{
-    display: inline-block;
-}
-.sec img{
-    display: inline-block;
-}
-.sec .special{
-    display: inline-block;
-}
-.sec{
-    position: relative;
-    background-color: #FBFBFB;
-    border-radius: 15px;
-    border: none;
-    z-index: 3;
-    display: flex;
-
-}
-.fird .imgteam{
-    display: inline-block;
-}
-.fird .nik{
-    display: inline-block;
-}
-.fird img{
-    display: inline-block;
-}
-.fird .special{
-    display: inline-block;
-}
-.fird{
-    position: relative;
-    background-color: #FBFBFB;
-    border-radius: 15px;
-    border: none;
-    z-index: 3;
-    display: flex;
-
-}
 .first, .sec, .fird {
-
-    align-items: center;
+    position: relative;
     background-color: #FBFBFB;
-    border-radius: 15px; 
+    border-radius: 15px;
+    border: none;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+
+}
+.team h2{
+    font-family: 'ln',sans-serif;
+}
+.imgteam {
+    margin-right: 10px;
 }
 
-.first .special {
-    display: flex;
-    margin-left: auto;
-}
-.sec .special {
-    display: flex;
-    margin-left: auto;
-}
-.fird .special {
-    display: flex;
-    margin-left: auto;
-}
-.first .special-text {
-    justify-content: center;
-    margin-left: 10px;
-    margin-top: 23%;
-    margin-right:20px;
-}
-.sec .special-text {
-    justify-content: center;
-    margin-left: 10px;
-    margin-top: 13%;
-    margin-right:20px;
-}
-.fird .special-text{
-    justify-content: center;
-    margin-left: 10px;
-    margin-top: 13%;
-    margin-right:20px;
-}
-
-.imgteam img{
+.imgteam img {
     height: 71px;
-    margin-bottom:25% ;
+    margin-bottom: 25%;
 }
-.imgteam{
-    margin-right:10px;
-}
-/* ДОБАВЬТЕ В КОНЕЦ company.css */
 
-@media (max-width: 768px) {
-  .prof1 {
-    height: auto;
-    min-height: 100vh;
-  }
-  
-  .prof1 .imgreg,
-  .prof1 .imgreg1,
-  .prof1 .imgreg2 {
-    display: none;
-  }
-  
-  /* Навигация */
-  .nav {
-    flex-direction: column;
-    gap: 15px;
-    padding: 15px 20px;
-  }
-  
-  .part2 {
-    flex-wrap: wrap;
-    gap: 10px;
-    justify-content: center;
-    padding: 10px 15px;
-    width: 100%;
-  }
-  
-  .part2 a {
-    font-size: 14px;
-    padding: 8px 12px;
-  }
-  
-  .part3 {
-    width: 100%;
-    justify-content: center;
-    margin-top: 10px;
-  }
-  
-  /* Выпадающее меню */
-  .dropdown-menu {
-    right: 50%;
-    transform: translateX(50%) translateY(-10px);
-    width: 90%;
-    max-width: 300px;
-  }
-  
-  .dropdown-menu.active {
-    transform: translateX(50%) translateY(0);
-  }
-  
-  /* Основной контент */
-  .company {
-    flex-direction: column;
-    margin: 20px;
-    gap: 30px;
-  }
-  
-  .name, .team {
-    width: 100%;
-    margin: 0;
-    padding: 25px;
-  }
-  
-  .name .namecomp {
-    font-size: 28px;
-    margin-bottom: 20px;
-  }
-  
-  .name p {
+.nik {
+    font-family: 'ln', sans-serif;
     font-size: 18px;
-  }
-  
-  .name .about {
+    flex-grow: 1;
+}
+
+.special {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.special-text {
+    font-family: 'ln', sans-serif;
     font-size: 16px;
-    margin-bottom: 20px;
-  }
-  
-  .team {
-    padding: 25px;
-  }
-  
-  .team h2 {
-    font-size: 24px;
-    margin-bottom: 20px;
-  }
-  
-  .first, .sec, .fird {
-    flex-direction: column;
-    padding: 20px;
-    margin-bottom: 15px;
-    gap: 15px;
-  }
-  
-  .imgteam {
-    margin: 0 auto;
-  }
-  
-  .nik {
-    text-align: center;
-    font-size: 18px;
-  }
-  
-  .special {
-    margin-left: 0;
-    margin-top: 10px;
-  }
-  
-  .special-text {
-    text-align: center;
-    margin: 0;
-  }
+    margin-left: 10px;
+    margin-right: 20px;
+}
+
+/* Подчеркивание для активной ссылки в навигации */
+.part2 .a4 a {
+    color: #155DFC;
+    text-decoration: underline;
+}
+body{
+    font-family: 'ln',sans-serif;
+}
+.special{
+    white-space: pre-line;
+}
+.company-content {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    position: relative;
+    top: 2%;  /* Было 5% */
+    margin: 20px 50px;
+    gap: 30px;
+    z-index: 3;
+}
+/* Адаптивность для мобильных устройств */
+@media (max-width: 768px) {
+    .company-content {
+        flex-direction: column;
+        margin: 20px;
+        gap: 30px;
+        padding-top: 20px;
+    }
+    .team .special img {
+        display: none;
+    }
+    .name, .team {
+        width: 100%;
+        margin: 0;
+        padding: 25px;
+    }
+    
+    .name .namecomp {
+        font-size: 28px;
+        margin-bottom: 20px;
+    }
+    
+    .name p {
+        font-size: 18px;
+    }
+    
+    .name .about {
+        font-size: 16px;
+        margin-bottom: 20px;
+    }
+    
+    .team {
+        padding: 25px;
+    }
+    
+    .team h2 {
+        font-size: 24px;
+        margin-bottom: 20px;
+    }
+    
+    .first, .sec, .fird {
+        flex-direction: column;
+        padding: 20px;
+        margin-bottom: 15px;
+        gap: 15px;
+    }
+    
+    .nik {
+        text-align: center;
+        font-size: 18px;
+    }
+    
+    .special {
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    
+    .special-text {
+        text-align: center;
+        margin: 0;
+    }
+}
+
+@media (max-width: 480px) {
+    .company-content {
+        margin: 10px;
+        gap: 20px;
+    }
+    
+    .name, .team {
+        padding: 20px;
+    }
+    
+    .name .namecomp {
+        font-size: 24px;
+    }
+    
+    .team h2 {
+        font-size: 22px;
+    }
 }

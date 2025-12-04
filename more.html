@@ -9,13 +9,25 @@
   <meta name="format-detection" content="telephone=no">
   <meta name="viewport"
     content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
-  <title>Профиль - Qualimeter</title>
+  <title>Компетенции - Qualimeter</title>
+  <!-- Подключаем общие стили из style1.css -->
+  <link rel="stylesheet" href="style1.css" />
+  <!-- Подключаем стили только для контента страницы -->
   <link rel="stylesheet" href="more.css" />
 </head>
 
 <body>
-
+  <script>
+    // Проверяем, вошел ли пользователь
+    const currentUser = localStorage.getItem('currentUser');
+    if (!currentUser) {
+      alert('Пожалуйста, войдите в систему');
+      window.location.href = 'enter.html';
+    }
+  </script>
+  
   <div class="prof1">
+    <!-- Навигация из style1.css -->
     <div class="nav">
       <div class="logo">
         <h1 class="h1">Qualimeter</h1>
@@ -36,7 +48,7 @@
       </div>
       <div class="part3" id="userMenu">
         <img src="img/imgprof/user-account_9327873 1 (1).svg" alt="user" class="user-icon" />
-        <p>Никита Н.</p>
+        <p id="userMenuName">Загрузка...</p>
         <img src="img/imgprof/Vector 1.svg" alt="arrow" class="arrow-icon" />
       </div>
       <div class="dropdown-menu" id="dropdownMenu">
@@ -60,10 +72,14 @@
         </div>
       </div>
     </div>
-    <img src="img/imgprof/blending 1 (1).svg" alt="" class="imgreg" />
-    <img src="img/imgprof/blending 1 (2).svg" alt="" class="imgreg1" />
-    <img src="img/imgprof/blending 1 (3).svg" alt="" class="imgreg2" />
-    <div class="more">
+    
+    <!-- Декоративные изображения -->
+    <img src="img/imgprof/blending 1754474870 (1).svg" alt="" class="imgreg" />
+    <img src="img/imgprof/blending 1762691066228 (1).svg" alt="" class="imgreg1" />
+    <img src="img/imgprof/blending 1754474869 (1).svg" alt="" class="imgreg2" />
+    
+    <!-- Контент страницы -->
+    <div class="more-content">
       <div class="quali">
         <h2>Ваши компетенции</h2>
         <div>
@@ -82,165 +98,92 @@
         </div>
       </div>
     </div>
-    <script>
-      // Проверяем, вошел ли пользователь
-      const currentUser = localStorage.getItem('currentUser');
-      if (!currentUser) {
-        alert('Пожалуйста, войдите в систему');
-        window.location.href = 'enter.html';
+  </div>
+
+  <script>
+    // Функция для загрузки данных пользователя
+    function loadUserData() {
+      try {
+        const userDataStr = localStorage.getItem('currentUser');
+
+        if (!userDataStr) {
+          console.error('Данные пользователя не найдены');
+          return;
+        }
+
+        const userData = JSON.parse(userDataStr);
+
+        let firstName = '';
+        let lastName = '';
+
+        if (userData.name) {
+          firstName = userData.name;
+        } else if (userData.firstName) {
+          firstName = userData.firstName;
+        } else if (userData.username) {
+          firstName = userData.username;
+        }
+
+        if (userData.lastname) {
+          lastName = userData.lastname;
+        } else if (userData.lastName) {
+          lastName = userData.lastName;
+        }
+
+        if (userData.name && userData.name.includes(' ')) {
+          const nameParts = userData.name.split(' ');
+          firstName = nameParts[0] || firstName;
+          lastName = nameParts.slice(1).join(' ') || lastName;
+        }
+
+        // Короткое имя для меню
+        let shortName = firstName;
+        if (lastName) {
+          const lastNameInitial = lastName.charAt(0);
+          shortName += ' ' + lastNameInitial + '.';
+        }
+
+        document.getElementById('userMenuName').textContent = shortName;
+
+      } catch (error) {
+        console.error('Ошибка при загрузке данных пользователя:', error);
+        document.getElementById('userMenuName').textContent = 'Пользователь';
+      }
+    }
+
+    // Настройка меню
+    document.addEventListener("DOMContentLoaded", function () {
+      loadUserData();
+
+      const userMenu = document.getElementById("userMenu");
+      const dropdownMenu = document.getElementById("dropdownMenu");
+
+      function toggleMenu(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dropdownMenu.classList.toggle("active");
+        userMenu.classList.toggle("active");
       }
 
-      // Функция для загрузки данных пользователя
-      function loadUserData() {
-        try {
-          const userDataStr = localStorage.getItem('currentUser');
+      userMenu.addEventListener("click", toggleMenu);
+      userMenu.addEventListener("touchstart", toggleMenu);
 
-          if (!userDataStr) {
-            console.error('Данные пользователя не найдены');
-            return;
-          }
-
-          const userData = JSON.parse(userDataStr);
-
-          // Извлекаем имя и фамилию
-          let firstName = '';
-          let lastName = '';
-
-          if (userData.name) {
-            firstName = userData.name;
-          } else if (userData.firstName) {
-            firstName = userData.firstName;
-          } else if (userData.username) {
-            firstName = userData.username;
-          } else if (userData.login) {
-            firstName = userData.login;
-          }
-
-          if (userData.lastname) {
-            lastName = userData.lastname;
-          } else if (userData.lastName) {
-            lastName = userData.lastName;
-          }
-
-          // Если в поле name есть и имя и фамилия, разделяем их
-          if (userData.name && userData.name.includes(' ')) {
-            const nameParts = userData.name.split(' ');
-            firstName = nameParts[0] || firstName;
-            lastName = nameParts.slice(1).join(' ') || lastName;
-          }
-
-          // Формируем короткое имя для меню (Имя Ф.)
-          let shortName = firstName;
-          if (lastName) {
-            const lastNameInitial = lastName.charAt(0);
-            shortName += ' ' + lastNameInitial + '.';
-          }
-
-          // Находим элемент для имени в меню
-          const userMenuNameElement = document.querySelector('.part3 p');
-          if (userMenuNameElement) {
-            userMenuNameElement.textContent = shortName;
-          }
-
-        } catch (error) {
-          console.error('Ошибка при загрузке данных пользователя:', error);
-          const userMenuNameElement = document.querySelector('.part3 p');
-          if (userMenuNameElement) {
-            userMenuNameElement.textContent = 'Пользователь';
-          }
-        }
+      function closeMenu() {
+        dropdownMenu.classList.remove("active");
+        userMenu.classList.remove("active");
       }
 
-      document.addEventListener("DOMContentLoaded", function () {
-        // Загружаем данные пользователя
-        loadUserData();
+      document.addEventListener("click", closeMenu);
+      document.addEventListener("touchstart", closeMenu);
 
-        const userMenu = document.getElementById("userMenu");
-        const dropdownMenu = document.getElementById("dropdownMenu");
-
-        // Функция для переключения меню
-        function toggleMenu(e) {
-          e.preventDefault();
-          e.stopPropagation();
-          dropdownMenu.classList.toggle("active");
-          userMenu.classList.toggle("active");
-        }
-
-        // Обработчики для десктопов и мобильных
-        if (userMenu) {
-          userMenu.addEventListener("click", toggleMenu);
-          userMenu.addEventListener("touchstart", toggleMenu);
-        }
-
-        // Закрытие меню при клике вне его
-        function closeMenu() {
-          if (dropdownMenu) {
-            dropdownMenu.classList.remove("active");
-          }
-          if (userMenu) {
-            userMenu.classList.remove("active");
-          }
-        }
-
-        document.addEventListener("click", closeMenu);
-        document.addEventListener("touchstart", closeMenu);
-
-        // Предотвращение закрытия при клике внутри меню
-        if (dropdownMenu) {
-          dropdownMenu.addEventListener("click", function (e) {
-            e.stopPropagation();
-          });
-          dropdownMenu.addEventListener("touchstart", function (e) {
-            e.stopPropagation();
-          });
-        }
+      dropdownMenu.addEventListener("click", function (e) {
+        e.stopPropagation();
       });
-      // mobile.js - улучшения для мобильных устройств
-      document.addEventListener('DOMContentLoaded', function () {
-        // Определяем мобильное устройство
-        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-        if (isMobile) {
-          // Увеличиваем область клика для всех кнопок и ссылок
-          document.querySelectorAll('a, button, .menu-item-with-icon, .switch-btn').forEach(element => {
-            element.style.minHeight = '44px';
-            element.style.minWidth = '44px';
-          });
-
-          // Улучшаем touch события
-          document.querySelectorAll('.password-toggle, .btn, .switch-btn').forEach(button => {
-            button.addEventListener('touchstart', function () {
-              this.style.transform = 'scale(0.98)';
-            });
-
-            button.addEventListener('touchend', function () {
-              this.style.transform = 'scale(1)';
-            });
-          });
-
-          // Предотвращаем масштабирование при двойном тапе на полях ввода
-          document.querySelectorAll('input, textarea').forEach(field => {
-            field.addEventListener('touchstart', function (e) {
-              if (e.touches.length > 1) {
-                e.preventDefault();
-              }
-            }, { passive: false });
-          });
-
-          // Улучшаем скролл на мобильных
-          document.body.style.overflow = 'auto';
-          document.body.style.webkitOverflowScrolling = 'touch';
-
-          // Скрываем нативные стрелки ввода на iOS
-          if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-            document.querySelectorAll('input[type="number"]').forEach(input => {
-              input.style.appearance = 'none';
-              input.style.MozAppearance = 'textfield';
-            });
-          }
-        }
+      dropdownMenu.addEventListener("touchstart", function (e) {
+        e.stopPropagation();
       });
-    </script>
+    });
+  </script>
 </body>
 
 </html>
