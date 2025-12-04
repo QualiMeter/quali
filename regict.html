@@ -137,7 +137,7 @@
 		  mheader.append('Accept', '*/*');
 		  
           let rolesResponse = await fetch('http://qmv2api.onrender.com/api/Roles', {method: 'GET', mode: 'no-cors', headers: mheader});
-		  console.log("rolesResponse is: " + JSON.stringify(rolesResponse))
+		  console.log(rolesResponse);
           //let roleClient = (await rolesResponse.json()).find((element, index, array) => element.name == 'client');
           //console.log('role is: ' + roleClient);
         if (role === 'company') {
@@ -449,6 +449,7 @@
 </body>
 
 </html>
+
 
 
 
