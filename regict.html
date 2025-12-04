@@ -125,14 +125,8 @@
       });
 
       async function updatePlaceholder(role) {
-          const rolesResponse = await fetch('http://qmv2api.onrender.com/api/Roles', {
-              method: 'GET',
-              headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-              }
-          });
-          const roleClient = (await rolesResponse.json()).find((element, index, array) => element.name == 'client');
+          let rolesResponse = await fetch('http://qmv2api.onrender.com/api/Roles');
+          let roleClient = (await rolesResponse.json()).find((element, index, array) => element.name == 'client');
           console.log('role is: ' + roleClient);
         if (role === 'company') {
           usernameInput.placeholder = "  ООО \"Компания\"";
@@ -398,6 +392,7 @@
 </body>
 
 </html>
+
 
 
 
