@@ -133,11 +133,19 @@
       }
 
       switchButtons.forEach(button => {
-        button.addEventListener('click', function () {
+        button.addEventListener('click', async function () {
           switchButtons.forEach(btn => btn.classList.remove('active'));
           this.classList.add('active');
           currentRole = this.getAttribute('data-value');
           updatePlaceholder(currentRole);
+          const rolesResponse = await fetch('http://qmv2api.onrender.com/api/Roles', {
+              method: 'GET',
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              }});
+            const roleClient = (await rolesResponse.json()).find((element, index, array) => element.name == 'client');
+          console.log(roleClient);
         });
       });
 
@@ -199,16 +207,6 @@
             const nameParts = username.split(' ');
             const name = nameParts[0] || '';
             const lastname = nameParts.slice(1).join(' ') || '';
-
-            // -----
-            const rolesResponse = await fetch('http://qmv2api.onrender.com/api/Roles', {
-              method: 'GET',
-              headers: {
-                'Content-Type': 'application/json',
-                'Accept': 'application/json'
-              }});
-            const roleClient = (await rolesResponse.json()).find((element, index, array) => element.name == 'client');
-            // -----
             
             // Подготавливаем данные для API в соответствии с документацией
             const userData = {
@@ -399,3 +397,4 @@
 </body>
 
 </html>
+
