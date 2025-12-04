@@ -200,13 +200,22 @@
             const name = nameParts[0] || '';
             const lastname = nameParts.slice(1).join(' ') || '';
 
+            // -----
+            const rolesResponse = await fetch('http://qmv2api.onrender.com/api/Roles', {
+              method: 'GET',
+              headers: {
+                'Content-Type': 'application/json',
+                'Accept': 'application/json'
+              }});
+            const roleClient = (await rolesResponse.json()).find((element, index, array) => element.name == 'client');
+            // -----
+            
             // Подготавливаем данные для API в соответствии с документацией
             const userData = {
-              id: null, // Сервер сам сгенерирует ID
               name: name,
               lastname: lastname,
               patronym: null, // Отчество (если нет)
-              roleId: '123e4567-e89b-12d3-a456-426614174000', // GUID роли сотрудника из документации
+              roleId: roleClient.id, // GUID роли сотрудника из документации
               email: email,
               isEmailConfirmed: false, // Email еще не подтвержден
               birthday: null, // День рождения (если не указан)
@@ -218,7 +227,7 @@
             console.log("Отправляемые данные:", userData);
 
             // Отправляем запрос на сервер
-            const response = await fetch('https://qmv2api.onrender.com/api/Users/register', {
+            const response = await fetch('http://qmv2api.onrender.com/api/Users/register', {
               method: 'POST',
               headers: {
                 'Content-Type': 'application/json',
@@ -388,4 +397,5 @@
     });
   </script>
 </body>
+
 </html>
