@@ -329,148 +329,151 @@ body{
     border-radius: 10px;
     margin-top: 20px;
 }
+/* Исправляем селектор для h2 в аватаре */
+.avatar h2 {
+    font-size: 32px;
+    font-family: 'ln', sans-serif;
+    font-weight: 400;
+    margin: 5px 0;
+}
+
+/* Для роликов в профиле */
+.user-data-placeholder {
+    font-family: 'ln', sans-serif;
+    color: #333;
+}
+
+
+/* Для имени в меню пользователя */
+.part3 p {
+    font-family: 'ln', sans-serif;
+    font-size: 16px;
+    color: #000000;
+    margin: 0;
+}
 /* Адаптивность для мобильных устройств */
+/* ДОБАВЬТЕ В КОНЕЦ style1.css */
+
+/* Мобильная версия профиля */
 @media (max-width: 768px) {
-    .nav {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px 20px;
-    }
-    
-    .part2 {
-        gap: 20px;
-        padding: 10px 15px;
-    }
-    
-    .part2 a {
-        font-size: 14px;
-        padding: 6px 10px;
-    }
-    
-    .dropdown-menu {
-        width: 240px;
-        right: -30px;
-    }
-    .profile {
-        flex-direction: column; /* Столбик на мобильных */
-        margin-left: 5%;
-        margin-right: 5%;
-        gap: 20px; /* Расстояние между блоками */
-    }
-    
-    .avatar {
-        padding: 20px;
-        padding-left: 40px; /* Уменьшаем отступы */
-        padding-right: 40px;
-        width: 100%; /* Занимает всю ширину */
-        box-sizing: border-box; /* Учитываем padding в ширине */
-        order: 1; /* Порядок: аватар первый */
-    }
-    
-    .inf {
-        margin-right: 0;
-        width: 100%; /* Занимает всю ширину */
-        order: 2; /* Порядок: информация вторая */
-    }
-    
-    .inf .me {
-        padding-bottom: 20px;
-        margin-bottom: 0;
-    }
-    
-    .nav {
-        flex-direction: column;
-        gap: 15px;
-        padding: 15px 20px;
-    }
-    
-    .part2 {
-        gap: 20px;
-        padding: 10px 15px;
-        flex-wrap: wrap; /* Перенос на новую строку если не помещается */
-        justify-content: center;
-    }
-    
-    .part2 a {
-        font-size: 14px;
-        padding: 6px 10px;
-    }
-    
-    .dropdown-menu {
-        width: 240px;
-        right: -30px;
-    }
-    
-    /* Уменьшаем SVG на мобильных */
-    .prof1 .imgreg,
-    .prof1 .imgreg1,
-    .prof1 .imgreg2 {
-        opacity: 0.5; /* Делаем менее заметными */
-    }
-        .dropdown-menu {
-        width: 280px; /* Шире для удобства на мобильных */
-        right: 10px;
-        left: auto;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-    }
-    
-    /* Увеличиваем область клика для меню */
-    .part3 {
-        padding: 15px 20px; /* Больше padding для удобства касания */
-        min-height: 44px; /* Минимальная высота для touch */
-    }
-    
-    .menu-item-with-icon {
-        min-height: 44px; /* Минимальная высота для touch элементов */
-        padding: 12px 0; /* Больше padding */
-    }
-    
-    /* Убедитесь, что меню поверх всех элементов */
-    .dropdown-menu {
-        z-index: 10000;
-    }
-    
-    .part3 {
-        z-index: 10001;
-    }
-    .nav {
-        position: relative;
-        z-index: 10002; /* Увеличиваем z-index навигации */
-    }
-    
-    .dropdown-menu {
-        width: 280px;
-        right: 10px;
-        left: auto;
-        box-shadow: 0 8px 25px rgba(0,0,0,0.15);
-        z-index: 10003; /* Увеличиваем z-index меню */
-        position: fixed; /* Меняем на fixed для мобильных */
-        top: 80px; /* Позиционируем ниже навигации */
-    }
-    
-    /* Увеличиваем область клика для меню */
-    .part3 {
-        padding: 15px 20px;
-        min-height: 44px;
-        z-index: 10004; /* Увеличиваем z-index кнопки меню */
-    }
-    
-    .menu-item-with-icon {
-        min-height: 44px;
-        padding: 12px 0;
-    }
-    
-    /* Убедитесь, что SVG не перекрывают меню */
-    .prof1 .imgreg,
-    .prof1 .imgreg1,
-    .prof1 .imgreg2 {
-        opacity: 0.3; /* Делаем еще более прозрачными */
-        z-index: 1; /* Убеждаемся, что z-index низкий */
-    }
-    
-    /* Убедитесь, что контент профиля не перекрывает меню */
-    .profile {
-        z-index: 1;
-        position: relative;
-    }
+  .prof1 {
+    height: auto;
+    min-height: 100vh;
+    padding-bottom: 40px;
+  }
+  
+  .prof1 .imgreg,
+  .prof1 .imgreg1,
+  .prof1 .imgreg2 {
+    opacity: 0.3;
+  }
+  
+  /* Навигация */
+  .nav {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 20px;
+    align-items: stretch;
+  }
+  
+  .logo .h1 {
+    text-align: center;
+    margin-bottom: 10px;
+  }
+  
+  .part2 {
+    flex-direction: column;
+    gap: 10px;
+    padding: 15px;
+    order: 3;
+    margin-top: 15px;
+  }
+  
+  .part2 a {
+    text-align: center;
+    padding: 12px;
+    font-size: 16px;
+  }
+  
+  .part3 {
+    order: 2;
+    justify-content: center;
+    margin-top: 15px;
+  }
+  
+  /* Выпадающее меню */
+  .dropdown-menu {
+    right: 20px;
+    left: 20px;
+    width: calc(100% - 40px);
+    max-width: none;
+    position: fixed;
+    top: 70px;
+  }
+  
+  /* Профиль */
+  .profile {
+    flex-direction: column;
+    margin: 20px;
+    gap: 20px;
+  }
+  
+  .avatar {
+    width: 100%;
+    padding: 30px 20px;
+    margin-bottom: 0;
+  }
+  
+  .avatar h2 {
+    font-size: 28px;
+  }
+  
+  .grade {
+    margin: 20px 0;
+  }
+  
+  .inf {
+    margin-right: 0;
+    width: 100%;
+  }
+  
+  .me, .quali {
+    padding: 25px;
+  }
+  
+  .me h2, .quali h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .quali .comp1,
+  .quali .comp2,
+  .quali .comp3,
+  .quali .comp4 {
+    padding: 15px;
+    margin-top: 15px;
+  }
+  
+  .last {
+    margin-top: 25px;
+  }
+  
+  .last a {
+    font-size: 16px;
+    padding: 10px 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  .avatar h2 {
+    font-size: 24px;
+  }
+  
+  .me, .quali {
+    padding: 20px;
+  }
+  
+  .me p {
+    font-size: 14px;
+  }
 }

@@ -389,4 +389,117 @@ body {
 .imgteam{
     margin-right:10px;
 }
+/* ДОБАВЬТЕ В КОНЕЦ company.css */
 
+@media (max-width: 768px) {
+  .prof1 {
+    height: auto;
+    min-height: 100vh;
+  }
+  
+  .prof1 .imgreg,
+  .prof1 .imgreg1,
+  .prof1 .imgreg2 {
+    display: none;
+  }
+  
+  /* Навигация */
+  .nav {
+    flex-direction: column;
+    gap: 15px;
+    padding: 15px 20px;
+  }
+  
+  .part2 {
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 10px 15px;
+    width: 100%;
+  }
+  
+  .part2 a {
+    font-size: 14px;
+    padding: 8px 12px;
+  }
+  
+  .part3 {
+    width: 100%;
+    justify-content: center;
+    margin-top: 10px;
+  }
+  
+  /* Выпадающее меню */
+  .dropdown-menu {
+    right: 50%;
+    transform: translateX(50%) translateY(-10px);
+    width: 90%;
+    max-width: 300px;
+  }
+  
+  .dropdown-menu.active {
+    transform: translateX(50%) translateY(0);
+  }
+  
+  /* Основной контент */
+  .company {
+    flex-direction: column;
+    margin: 20px;
+    gap: 30px;
+  }
+  
+  .name, .team {
+    width: 100%;
+    margin: 0;
+    padding: 25px;
+  }
+  
+  .name .namecomp {
+    font-size: 28px;
+    margin-bottom: 20px;
+  }
+  
+  .name p {
+    font-size: 18px;
+  }
+  
+  .name .about {
+    font-size: 16px;
+    margin-bottom: 20px;
+  }
+  
+  .team {
+    padding: 25px;
+  }
+  
+  .team h2 {
+    font-size: 24px;
+    margin-bottom: 20px;
+  }
+  
+  .first, .sec, .fird {
+    flex-direction: column;
+    padding: 20px;
+    margin-bottom: 15px;
+    gap: 15px;
+  }
+  
+  .imgteam {
+    margin: 0 auto;
+  }
+  
+  .nik {
+    text-align: center;
+    font-size: 18px;
+  }
+  
+  .special {
+    margin-left: 0;
+    margin-top: 10px;
+  }
+  
+  .special-text {
+    text-align: center;
+    margin: 0;
+  }
+}

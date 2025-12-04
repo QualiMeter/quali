@@ -3,9 +3,14 @@
 
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#155DFC">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
   <title>Qualimeter - оценка компетенций</title>
-  <link rel="stylesheet" href="style..css" />
+  <link rel="stylesheet" href="style.css" />
 </head>
 
 <body>
@@ -119,7 +124,7 @@
       </div>
     </div>
   </div>
-  <div class="str4">   
+  <div class="str4">
     <img src="img/cropped-image (1).svg" alt="" class="img1">
     <h2>Ключевые выгоды платформы</h2>
     <img src="img/cropped-image (2).svg" alt="" class="img2">
@@ -130,36 +135,36 @@
         <div class="h3">
           <h3>Для собственников и топ-менеджмента</h3>
         </div>
-        <p>Прозрачная картина навыков по 
-          компании для стратегического 
-          планирования и принятия 
+        <p>Прозрачная картина навыков по
+          компании для стратегического
+          планирования и принятия
           обоснованных решений.</p>
       </div>
       <div class="key2">
         <div class="h3">
           <h3>Для HR и рекрутеров</h3>
         </div>
-        <p>Детальные профили компетенций 
-          для оценки потенциала, 
-          планирования обучения и точного 
+        <p>Детальные профили компетенций
+          для оценки потенциала,
+          планирования обучения и точного
           подбора кандидатов.</p>
       </div>
       <div class="key3">
         <div class="h3">
           <h3>Для руководителей проектов</h3>
         </div>
-        <p>Инструмент для быстрого 
-          формирования сильных команд под 
-          задачи проекта на основе реальных 
+        <p>Инструмент для быстрого
+          формирования сильных команд под
+          задачи проекта на основе реальных
           навыков сотрудников.</p>
       </div>
       <div class="key4">
         <div class="h3">
           <h3>Для линейных руководителей</h3>
         </div>
-        <p>Удобный функционал для 
-          постановки целей, развития Hard 
-          Skills и воспитания сильных 
+        <p>Удобный функционал для
+          постановки целей, развития Hard
+          Skills и воспитания сильных
           профессиональных команд.
         </p>
       </div>
@@ -182,7 +187,7 @@
           <div class="h3">
             <h3>Qualimeter</h3>
           </div>
-          <p>Платформа для оценки и развития 
+          <p>Платформа для оценки и развития
             профессиональных компетенций</p>
         </div>
         <div class="page2">
@@ -190,7 +195,7 @@
             <h3>Контакты</h3>
           </div>
           <p>helloworldd401@gmail.com</p>
-          <p>+7  (985)  373 -54 -72</p>
+          <p>+7 (985) 373 -54 -72</p>
         </div>
         <div class="page3">
           <div class="h3">
@@ -211,6 +216,53 @@
     </div>
 
   </div>
+  <script>
+    // mobile.js - улучшения для мобильных устройств
+    document.addEventListener('DOMContentLoaded', function () {
+      // Определяем мобильное устройство
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+      if (isMobile) {
+        // Увеличиваем область клика для всех кнопок и ссылок
+        document.querySelectorAll('a, button, .menu-item-with-icon, .switch-btn').forEach(element => {
+          element.style.minHeight = '44px';
+          element.style.minWidth = '44px';
+        });
+
+        // Улучшаем touch события
+        document.querySelectorAll('.password-toggle, .btn, .switch-btn').forEach(button => {
+          button.addEventListener('touchstart', function () {
+            this.style.transform = 'scale(0.98)';
+          });
+
+          button.addEventListener('touchend', function () {
+            this.style.transform = 'scale(1)';
+          });
+        });
+
+        // Предотвращаем масштабирование при двойном тапе на полях ввода
+        document.querySelectorAll('input, textarea').forEach(field => {
+          field.addEventListener('touchstart', function (e) {
+            if (e.touches.length > 1) {
+              e.preventDefault();
+            }
+          }, { passive: false });
+        });
+
+        // Улучшаем скролл на мобильных
+        document.body.style.overflow = 'auto';
+        document.body.style.webkitOverflowScrolling = 'touch';
+
+        // Скрываем нативные стрелки ввода на iOS
+        if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+          document.querySelectorAll('input[type="number"]').forEach(input => {
+            input.style.appearance = 'none';
+            input.style.MozAppearance = 'textfield';
+          });
+        }
+      }
+    });
+  </script>
 </body>
 
 </html>

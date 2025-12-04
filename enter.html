@@ -1,385 +1,425 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Вход</title>
-    <link rel="stylesheet" href="style..css" />
-    <style>
-      /* Стили для кнопки показа/скрытия пароля */
-      .password-container {
-        position: relative;
-        width: 100%;
-      }
-      
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="theme-color" content="#155DFC">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Вход</title>
+  <link rel="stylesheet" href="style.css" />
+  <style>
+    /* Стили для кнопки показа/скрытия пароля */
+    .password-container {
+      position: relative;
+      width: 100%;
+    }
+
+    .password-toggle {
+      position: absolute;
+      right: 10px;
+      top: 50%;
+      transform: translateY(-50%);
+      background: none;
+      border: none;
+      cursor: pointer;
+      color: #666;
+      font-size: 12px;
+      padding: 5px;
+    }
+
+    .password-toggle:hover {
+      color: #333;
+    }
+
+    #password {
+      padding-right: 70px !important;
+      width: 100%;
+      box-sizing: border-box;
+    }
+
+    /* Мобильная адаптация */
+    @media (max-width: 768px) {
       .password-toggle {
-        position: absolute;
-        right: 10px;
-        top: 50%;
-        transform: translateY(-50%);
-        background: none;
-        border: none;
-        cursor: pointer;
-        color: #666;
-        font-size: 12px;
-        padding: 5px;
+        font-size: 11px;
+        padding: 4px;
       }
-      
-      .password-toggle:hover {
-        color: #333;
-      }
-      
+
       #password {
-        padding-right: 70px !important;
-        width: 100%;
-        box-sizing: border-box;
+        padding-right: 60px !important;
       }
-      
-      /* Мобильная адаптация */
-      @media (max-width: 768px) {
-        .password-toggle {
-          font-size: 11px;
-          padding: 4px;
-        }
-        
-        #password {
-          padding-right: 60px !important;
-        }
-      }
-      
-      /* Стили для статуса загрузки */
-      .loading {
-        opacity: 0.7;
-        cursor: not-allowed;
-      }
-    </style>
-  </head>
-  <body>
-    <div class="enter">
-      <h1 class="h1">Qualimeter</h1>
-      <img src="img/cropped-image (6).svg" alt="" class="imgreg" />
-      <img src="img/cropped-image (7).svg" alt="" class="imgreg1" />
-      <img src="img/cropped-image (8).svg" alt="" class="imgreg2" />
-      <div class="entered">
-        <form id="Ent">
-          <div class="h2">
-            <h2 class="h22">Вход в систему</h2>
+    }
+
+    /* Стили для статуса загрузки */
+    .loading {
+      opacity: 0.7;
+      cursor: not-allowed;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="enter">
+    <h1 class="h1">Qualimeter</h1>
+    <img src="img/cropped-image (6).svg" alt="" class="imgreg" />
+    <img src="img/cropped-image (7).svg" alt="" class="imgreg1" />
+    <img src="img/cropped-image (8).svg" alt="" class="imgreg2" />
+    <div class="entered">
+      <form id="Ent">
+        <div class="h2">
+          <h2 class="h22">Вход в систему</h2>
+        </div>
+        <p class="p1">Войдите в свою учётную запись</p>
+        <div class="cole1">
+          <p class="p5">Email</p>
+          <input type="text" id="loginOrEmail" name="loginOrEmail" placeholder="  your@email.com" class="el"
+            required /><br /><br />
+        </div>
+        <div class="cole2">
+          <p class="p6">Пароль</p>
+          <div class="password-container">
+            <input type="password" id="password" name="password" placeholder="  ********" class="pass" required />
+            <button type="button" id="togglePassword" class="password-toggle" title="Показать пароль">
+              Показать
+            </button>
           </div>
-          <p class="p1">Войдите в свою учётную запись</p>
-          <div class="cole1">
-            <p class="p5">Email</p>
-            <input
-              type="text"
-              id="loginOrEmail"
-              name="loginOrEmail"
-              placeholder="  your@email.com"
-              class="el"
-              required
-            /><br /><br />
-          </div>
-          <div class="cole2">
-            <p class="p6">Пароль</p>
-            <div class="password-container">
-              <input
-                type="password"
-                id="password"
-                name="password"
-                placeholder="  ********"
-                class="pass"
-                required
-              />
-              <button type="button" id="togglePassword" class="password-toggle" title="Показать пароль">
-                Показать
-              </button>
-            </div>
-            <br /><br />
-          </div>
-          <div class="dve">
-            <button type="submit" class="btn" id="submitBtn">Войти</button>
-          </div>
-          <div class="dv">
-            <p>Нет учетной записи?</p>
-            <a href="regict.html">Зарегистрироваться</a>
-            <img src="img/Line 1.svg" alt="" />
-          </div>
-        </form>
-      </div>
+          <br /><br />
+        </div>
+        <div class="dve">
+          <button type="submit" class="btn" id="submitBtn">Войти</button>
+        </div>
+        <div class="dv">
+          <p>Нет учетной записи?</p>
+          <a href="regict.html">Зарегистрироваться</a>
+          <img src="img/Line 1.svg" alt="" />
+        </div>
+      </form>
     </div>
-    <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        const form = document.getElementById("Ent");
-        const submitBtn = document.getElementById("submitBtn");
-        const passwordInput = document.getElementById("password");
-        const togglePasswordBtn = document.getElementById('togglePassword');
-        
-        // Функция для переключения видимости пароля
-        togglePasswordBtn.addEventListener('click', function() {
-          const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
-          passwordInput.setAttribute('type', type);
-          
-          // Меняем текст кнопки
-          this.textContent = type === 'password' ? 'Показать' : 'Скрыть';
-          this.setAttribute('title', type === 'password' ? 'Показать пароль' : 'Скрыть пароль');
-        });
+  </div>
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const form = document.getElementById("Ent");
+      const submitBtn = document.getElementById("submitBtn");
+      const passwordInput = document.getElementById("password");
+      const togglePasswordBtn = document.getElementById('togglePassword');
 
-        form.addEventListener("submit", async function (e) {
-          e.preventDefault();
+      // Функция для переключения видимости пароля
+      togglePasswordBtn.addEventListener('click', function () {
+        const type = passwordInput.getAttribute('type') === 'password' ? 'text' : 'password';
+        passwordInput.setAttribute('type', type);
 
-          const loginOrEmail = document.getElementById("loginOrEmail").value.trim();
-          const password = document.getElementById("password").value;
+        // Меняем текст кнопки
+        this.textContent = type === 'password' ? 'Показать' : 'Скрыть';
+        this.setAttribute('title', type === 'password' ? 'Показать пароль' : 'Скрыть пароль');
+      });
 
-          // Валидация
-          if (!loginOrEmail || !password) {
-            alert("Пожалуйста, заполните все поля");
-            return;
+      form.addEventListener("submit", async function (e) {
+        e.preventDefault();
+
+        const loginOrEmail = document.getElementById("loginOrEmail").value.trim();
+        const password = document.getElementById("password").value;
+
+        // Валидация
+        if (!loginOrEmail || !password) {
+          alert("Пожалуйста, заполните все поля");
+          return;
+        }
+
+        // Проверяем минимальную длину пароля
+        if (password.length < 1) {
+          alert("Пожалуйста, введите пароль");
+          return;
+        }
+
+        // Отключаем кнопку на время отправки
+        submitBtn.disabled = true;
+        submitBtn.textContent = "Вход...";
+        submitBtn.classList.add('loading');
+
+        try {
+          console.log("Попытка входа...");
+
+          // Определяем, что ввели пользователь: email или login
+          const isEmail = loginOrEmail.includes('@');
+          const loginParam = isEmail ? null : loginOrEmail;
+          const emailParam = isEmail ? loginOrEmail : null;
+
+          // Формируем URL с параметрами для GET запроса
+          let apiUrl = 'https://qmv2api.onrender.com/api/Users/login';
+
+          // Добавляем параметры к URL
+          if (loginParam) {
+            apiUrl += `?login=${encodeURIComponent(loginParam)}`;
+          } else if (emailParam) {
+            apiUrl += `?email=${encodeURIComponent(emailParam)}`;
           }
 
-          // Проверяем минимальную длину пароля
-          if (password.length < 1) {
-            alert("Пожалуйста, введите пароль");
-            return;
-          }
+          // Добавляем пароль как параметр
+          apiUrl += `&password=${encodeURIComponent(password)}`;
 
-          // Отключаем кнопку на время отправки
-          submitBtn.disabled = true;
-          submitBtn.textContent = "Вход...";
-          submitBtn.classList.add('loading');
+          console.log("URL запроса:", apiUrl);
 
-          try {
-            console.log("Попытка входа...");
-            
-            // Определяем, что ввели пользователь: email или login
-            const isEmail = loginOrEmail.includes('@');
-            const loginParam = isEmail ? null : loginOrEmail;
-            const emailParam = isEmail ? loginOrEmail : null;
-            
-            // Формируем URL с параметрами для GET запроса
-            let apiUrl = 'https://qmv2api.onrender.com/api/Users/login';
-            
-            // Добавляем параметры к URL
-            if (loginParam) {
-              apiUrl += `?login=${encodeURIComponent(loginParam)}`;
-            } else if (emailParam) {
-              apiUrl += `?email=${encodeURIComponent(emailParam)}`;
+          // Отправляем GET запрос на сервер (как в примере)
+          const response = await fetch(apiUrl, {
+            method: 'GET',
+            headers: {
+              'Accept': 'application/json',
+              'Content-Type': 'application/json'
             }
-            
-            // Добавляем пароль как параметр
-            apiUrl += `&password=${encodeURIComponent(password)}`;
-            
-            console.log("URL запроса:", apiUrl);
-            
-            // Отправляем GET запрос на сервер (как в примере)
-            const response = await fetch(apiUrl, {
-              method: 'GET',
-              headers: {
-                'Accept': 'application/json',
-                'Content-Type': 'application/json'
+          });
+
+          console.log("Статус ответа:", response.status);
+
+          if (response.ok) {
+            const userData = await response.json();
+            console.log("Успешный ответ сервера:", userData);
+
+            // Сохраняем данные пользователя в localStorage
+            const currentUser = {
+              id: userData.id || '',
+              name: userData.name || '',
+              lastname: userData.lastname || '',
+              login: userData.login || loginOrEmail,
+              email: userData.email || (isEmail ? loginOrEmail : ''),
+              role: userData.role || 'employee',
+              token: userData.token || null, // если API возвращает токен
+              lastLogin: new Date().toISOString()
+            };
+
+            localStorage.setItem("currentUser", JSON.stringify(currentUser));
+
+            // Также обновляем общий список пользователей в localStorage
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+
+            // Проверяем, есть ли уже такой пользователь в списке
+            const existingUserIndex = users.findIndex(u =>
+              u.email === currentUser.email || u.login === currentUser.login
+            );
+
+            if (existingUserIndex !== -1) {
+              // Обновляем существующего пользователя
+              users[existingUserIndex] = {
+                ...users[existingUserIndex],
+                ...currentUser
+              };
+            } else {
+              // Добавляем нового пользователя
+              users.push(currentUser);
+            }
+
+            localStorage.setItem("users", JSON.stringify(users));
+
+            alert("Вход успешен!");
+            window.location.href = "prof.html";
+          } else {
+            // Получаем текст ошибки
+            let errorText = 'Неизвестная ошибка';
+            try {
+              const errorData = await response.json();
+              errorText = errorData.message || JSON.stringify(errorData);
+            } catch {
+              errorText = await response.text();
+            }
+
+            console.error("Ошибка сервера:", errorText);
+
+            // Пробуем альтернативный метод (POST)
+            console.log("Пробуем POST метод...");
+            try {
+              const postResponse = await fetch('https://qmv2api.onrender.com/api/Users/login', {
+                method: 'POST',
+                headers: {
+                  'Content-Type': 'application/json',
+                  'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                  login: loginParam,
+                  email: emailParam,
+                  password: password
+                })
+              });
+
+              if (postResponse.ok) {
+                const userData = await postResponse.json();
+                console.log("Успешный POST ответ:", userData);
+
+                const currentUser = {
+                  id: userData.id || '',
+                  name: userData.name || '',
+                  lastname: userData.lastname || '',
+                  login: userData.login || loginOrEmail,
+                  email: userData.email || (isEmail ? loginOrEmail : ''),
+                  role: userData.role || 'employee',
+                  token: userData.token || null,
+                  lastLogin: new Date().toISOString()
+                };
+
+                localStorage.setItem("currentUser", JSON.stringify(currentUser));
+
+                alert("Вход успешен!");
+                window.location.href = "prof.html";
+                return;
               }
-            });
-            
-            console.log("Статус ответа:", response.status);
-            
-            if (response.ok) {
-              const userData = await response.json();
-              console.log("Успешный ответ сервера:", userData);
-              
-              // Сохраняем данные пользователя в localStorage
+            } catch (postError) {
+              console.error("Ошибка при POST запросе:", postError);
+            }
+
+            // Если API не сработал, пробуем локальный вход
+            console.log("Пробуем локальный вход...");
+
+            // Получаем список пользователей из localStorage
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+
+            // Ищем пользователя по email или логину
+            const user = users.find(u =>
+              (u.email === loginOrEmail || u.login === loginOrEmail) &&
+              u.password === password
+            );
+
+            if (user) {
+              // Сохраняем текущего пользователя
               const currentUser = {
-                id: userData.id || '',
-                name: userData.name || '',
-                lastname: userData.lastname || '',
-                login: userData.login || loginOrEmail,
-                email: userData.email || (isEmail ? loginOrEmail : ''),
-                role: userData.role || 'employee',
-                token: userData.token || null, // если API возвращает токен
+                username: user.username || user.login,
+                login: user.login,
+                email: user.email,
+                role: user.role || 'employee',
                 lastLogin: new Date().toISOString()
               };
-              
-              localStorage.setItem("currentUser", JSON.stringify(currentUser));
-              
-              // Также обновляем общий список пользователей в localStorage
-              let users = JSON.parse(localStorage.getItem("users")) || [];
-              
-              // Проверяем, есть ли уже такой пользователь в списке
-              const existingUserIndex = users.findIndex(u => 
-                u.email === currentUser.email || u.login === currentUser.login
-              );
-              
-              if (existingUserIndex !== -1) {
-                // Обновляем существующего пользователя
-                users[existingUserIndex] = {
-                  ...users[existingUserIndex],
-                  ...currentUser
-                };
-              } else {
-                // Добавляем нового пользователя
-                users.push(currentUser);
-              }
-              
-              localStorage.setItem("users", JSON.stringify(users));
 
-              alert("Вход успешен!");
+              localStorage.setItem("currentUser", JSON.stringify(currentUser));
+
+              alert("Локальный вход успешен!");
               window.location.href = "prof.html";
             } else {
-              // Получаем текст ошибки
-              let errorText = 'Неизвестная ошибка';
-              try {
-                const errorData = await response.json();
-                errorText = errorData.message || JSON.stringify(errorData);
-              } catch {
-                errorText = await response.text();
-              }
-              
-              console.error("Ошибка сервера:", errorText);
-              
-              // Пробуем альтернативный метод (POST)
-              console.log("Пробуем POST метод...");
-              try {
-                const postResponse = await fetch('https://qmv2api.onrender.com/api/Users/login', {
-                  method: 'POST',
-                  headers: {
-                    'Content-Type': 'application/json',
-                    'Accept': 'application/json'
-                  },
-                  body: JSON.stringify({
-                    login: loginParam,
-                    email: emailParam,
-                    password: password
-                  })
-                });
-                
-                if (postResponse.ok) {
-                  const userData = await postResponse.json();
-                  console.log("Успешный POST ответ:", userData);
-                  
-                  const currentUser = {
-                    id: userData.id || '',
-                    name: userData.name || '',
-                    lastname: userData.lastname || '',
-                    login: userData.login || loginOrEmail,
-                    email: userData.email || (isEmail ? loginOrEmail : ''),
-                    role: userData.role || 'employee',
-                    token: userData.token || null,
+              // Проверяем фиксированного пользователя (из старого кода)
+              const fixedEmail = "helloworldd401@gmail.com";
+              const fixedPassword = "qwerty1";
+
+              if (loginOrEmail === fixedEmail && password === fixedPassword) {
+                localStorage.setItem(
+                  "currentUser",
+                  JSON.stringify({
+                    email: fixedEmail,
+                    username: "Фиксированный пользователь",
+                    login: "fixeduser",
+                    role: "employee",
                     lastLogin: new Date().toISOString()
-                  };
-                  
-                  localStorage.setItem("currentUser", JSON.stringify(currentUser));
-                  
-                  alert("Вход успешен!");
-                  window.location.href = "prof.html";
-                  return;
-                }
-              } catch (postError) {
-                console.error("Ошибка при POST запросе:", postError);
-              }
-              
-              // Если API не сработал, пробуем локальный вход
-              console.log("Пробуем локальный вход...");
-              
-              // Получаем список пользователей из localStorage
-              let users = JSON.parse(localStorage.getItem("users")) || [];
-              
-              // Ищем пользователя по email или логину
-              const user = users.find(u => 
-                (u.email === loginOrEmail || u.login === loginOrEmail) && 
-                u.password === password
-              );
-              
-              if (user) {
-                // Сохраняем текущего пользователя
-                const currentUser = {
-                  username: user.username || user.login,
-                  login: user.login,
-                  email: user.email,
-                  role: user.role || 'employee',
-                  lastLogin: new Date().toISOString()
-                };
-                
-                localStorage.setItem("currentUser", JSON.stringify(currentUser));
-                
-                alert("Локальный вход успешен!");
+                  })
+                );
+                alert("Вход успешен (фиксированный пользователь)!");
                 window.location.href = "prof.html";
               } else {
-                // Проверяем фиксированного пользователя (из старого кода)
-                const fixedEmail = "helloworldd401@gmail.com";
-                const fixedPassword = "qwerty1";
-                
-                if (loginOrEmail === fixedEmail && password === fixedPassword) {
-                  localStorage.setItem(
-                    "currentUser",
-                    JSON.stringify({
-                      email: fixedEmail,
-                      username: "Фиксированный пользователь",
-                      login: "fixeduser",
-                      role: "employee",
-                      lastLogin: new Date().toISOString()
-                    })
-                  );
-                  alert("Вход успешен (фиксированный пользователь)!");
-                  window.location.href = "prof.html";
-                } else {
-                  alert("Ошибка входа: Неверный email/логин или пароль");
-                }
+                alert("Ошибка входа: Неверный email/логин или пароль");
               }
             }
-            
-          } catch (error) {
-            console.error('Общая ошибка при входе:', error);
-            
-            // Пробуем локальный вход как fallback
-            try {
-              let users = JSON.parse(localStorage.getItem("users")) || [];
-              const user = users.find(u => 
-                (u.email === loginOrEmail || u.login === loginOrEmail) && 
-                u.password === password
-              );
-              
-              if (user) {
-                const currentUser = {
-                  username: user.username || user.login,
-                  login: user.login,
-                  email: user.email,
-                  role: user.role || 'employee',
-                  lastLogin: new Date().toISOString()
-                };
-                
-                localStorage.setItem("currentUser", JSON.stringify(currentUser));
-                
-                alert("Локальный вход успешен (API недоступен)!");
-                window.location.href = "prof.html";
-              } else {
-                // Фиксированный пользователь
-                const fixedEmail = "helloworldd401@gmail.com";
-                const fixedPassword = "qwerty1";
-                
-                if (loginOrEmail === fixedEmail && password === fixedPassword) {
-                  localStorage.setItem(
-                    "currentUser",
-                    JSON.stringify({
-                      email: fixedEmail,
-                      username: "Фиксированный пользователь",
-                      login: "fixeduser",
-                      role: "employee",
-                      lastLogin: new Date().toISOString()
-                    })
-                  );
-                  alert("Вход успешен (фиксированный пользователь)!");
-                  window.location.href = "prof.html";
-                } else {
-                  alert("Ошибка входа: " + error.message);
-                }
-              }
-            } catch (localError) {
-              alert("Ошибка при попытке локального входа: " + error.message);
-            }
-          } finally {
-            // Включаем кнопку обратно
-            submitBtn.disabled = false;
-            submitBtn.textContent = "Войти";
-            submitBtn.classList.remove('loading');
           }
-        });
+
+        } catch (error) {
+          console.error('Общая ошибка при входе:', error);
+
+          // Пробуем локальный вход как fallback
+          try {
+            let users = JSON.parse(localStorage.getItem("users")) || [];
+            const user = users.find(u =>
+              (u.email === loginOrEmail || u.login === loginOrEmail) &&
+              u.password === password
+            );
+
+            if (user) {
+              const currentUser = {
+                username: user.username || user.login,
+                login: user.login,
+                email: user.email,
+                role: user.role || 'employee',
+                lastLogin: new Date().toISOString()
+              };
+
+              localStorage.setItem("currentUser", JSON.stringify(currentUser));
+
+              alert("Локальный вход успешен (API недоступен)!");
+              window.location.href = "prof.html";
+            } else {
+              // Фиксированный пользователь
+              const fixedEmail = "helloworldd401@gmail.com";
+              const fixedPassword = "qwerty1";
+
+              if (loginOrEmail === fixedEmail && password === fixedPassword) {
+                localStorage.setItem(
+                  "currentUser",
+                  JSON.stringify({
+                    email: fixedEmail,
+                    username: "Фиксированный пользователь",
+                    login: "fixeduser",
+                    role: "employee",
+                    lastLogin: new Date().toISOString()
+                  })
+                );
+                alert("Вход успешен (фиксированный пользователь)!");
+                window.location.href = "prof.html";
+              } else {
+                alert("Ошибка входа: " + error.message);
+              }
+            }
+          } catch (localError) {
+            alert("Ошибка при попытке локального входа: " + error.message);
+          }
+        } finally {
+          // Включаем кнопку обратно
+          submitBtn.disabled = false;
+          submitBtn.textContent = "Войти";
+          submitBtn.classList.remove('loading');
+        }
       });
-    </script>
-  </body>
+    });
+    // mobile.js - улучшения для мобильных устройств
+    document.addEventListener('DOMContentLoaded', function () {
+      // Определяем мобильное устройство
+      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+      if (isMobile) {
+        // Увеличиваем область клика для всех кнопок и ссылок
+        document.querySelectorAll('a, button, .menu-item-with-icon, .switch-btn').forEach(element => {
+          element.style.minHeight = '44px';
+          element.style.minWidth = '44px';
+        });
+
+        // Улучшаем touch события
+        document.querySelectorAll('.password-toggle, .btn, .switch-btn').forEach(button => {
+          button.addEventListener('touchstart', function () {
+            this.style.transform = 'scale(0.98)';
+          });
+
+          button.addEventListener('touchend', function () {
+            this.style.transform = 'scale(1)';
+          });
+        });
+
+        // Предотвращаем масштабирование при двойном тапе на полях ввода
+        document.querySelectorAll('input, textarea').forEach(field => {
+          field.addEventListener('touchstart', function (e) {
+            if (e.touches.length > 1) {
+              e.preventDefault();
+            }
+          }, { passive: false });
+        });
+
+        // Улучшаем скролл на мобильных
+        document.body.style.overflow = 'auto';
+        document.body.style.webkitOverflowScrolling = 'touch';
+
+        // Скрываем нативные стрелки ввода на iOS
+        if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+          document.querySelectorAll('input[type="number"]').forEach(input => {
+            input.style.appearance = 'none';
+            input.style.MozAppearance = 'textfield';
+          });
+        }
+      }
+    });
+  </script>
+</body>
+
 </html>
