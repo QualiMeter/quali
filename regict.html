@@ -124,20 +124,7 @@
         this.setAttribute('title', type === 'password' ? 'Показать пароль' : 'Скрыть пароль');
       });
 
-      function updatePlaceholder(role) {
-        if (role === 'company') {
-          usernameInput.placeholder = "  ООО \"Компания\"";
-        } else {
-          usernameInput.placeholder = "  Никита Никитин";
-        }
-      }
-
-      switchButtons.forEach(button => {
-        button.addEventListener('click', async function () {
-          switchButtons.forEach(btn => btn.classList.remove('active'));
-          this.classList.add('active');
-          currentRole = this.getAttribute('data-value');
-          updatePlaceholder(currentRole);
+      async function updatePlaceholder(role) {
           const rolesResponse = await fetch('http://qmv2api.onrender.com/api/Roles', {
               method: 'GET',
               headers: {
@@ -147,6 +134,19 @@
           });
           const roleClient = (await rolesResponse.json()).find((element, index, array) => element.name == 'client');
           console.log('role is: ' + roleClient);
+        if (role === 'company') {
+          usernameInput.placeholder = "  ООО \"Компания\"";
+        } else {
+          usernameInput.placeholder = "  Никита Никитин";
+        }
+      }
+
+      switchButtons.forEach(button => {
+        button.addEventListener('click', function () {
+          switchButtons.forEach(btn => btn.classList.remove('active'));
+          this.classList.add('active');
+          currentRole = this.getAttribute('data-value');
+          updatePlaceholder(currentRole);
         });
       });
 
@@ -398,6 +398,7 @@
 </body>
 
 </html>
+
 
 
 
