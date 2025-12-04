@@ -1,0 +1,314 @@
+/* tests.css - ТОЛЬКО стили для контента тестов */
+@font-face {
+    font-family: 'lnb';
+    src: url('fonts/Lusitana-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'DG';
+    src: url('fonts/DelaGothicOne-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ln';
+    src: url('fonts/Lusitana-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+/* УДАЛИТЬ все стили навигации из этого файла */
+/* Оставить ТОЛЬКО стили для контента */
+
+/* Основной контент */
+.main-content {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 40px;
+    position: relative;
+    z-index: 2;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    /* Добавляем фиксированную высоту и скролл для ПК */
+    height: calc(100vh - 180px);
+    overflow-y: auto;
+    margin-top: 20px;
+    z-index: 1;
+}
+
+.page-header {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.page-header h1 {
+    font-family: 'lnb', sans-serif;
+    font-size: 42px;
+    color: #155DFC;
+    margin-bottom: 15px;
+}
+
+.page-header .subtitle {
+    font-family: 'ln', sans-serif;
+    font-size: 20px;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* Список тестов */
+.tests-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 30px;
+    margin-top: 40px;
+}
+
+.test-item {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 30px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    position: relative;
+    overflow: hidden;
+}
+
+.test-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+    border-color: #155DFC;
+    background: #FFFFFF;
+}
+
+.test-item::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #155DFC, #4A90E2);
+    opacity: 0;
+    transition: opacity 0.3s ease;
+}
+
+.test-item:hover::before {
+    opacity: 1;
+}
+
+.test-title {
+    font-family: 'lnb', sans-serif;
+    font-size: 24px;
+    color: #000000;
+    margin-bottom: 15px;
+    position: relative;
+    padding-left: 30px;
+}
+
+.test-title::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #155DFC;
+    font-size: 28px;
+    line-height: 1;
+}
+
+.test-description {
+    font-family: 'ln', sans-serif;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+.test-meta {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 25px;
+    padding-top: 20px;
+    border-top: 1px solid #eee;
+}
+
+.test-type {
+    font-family: 'ln', sans-serif;
+    font-size: 14px;
+    color: #155DFC;
+    background-color: #f0f4ff;
+    padding: 6px 15px;
+    border-radius: 20px;
+}
+
+.test-btn {
+    font-family: 'ln', sans-serif;
+    font-size: 16px;
+    color: #155DFC;
+    background-color: transparent;
+    border: 2px solid #155DFC;
+    padding: 10px 25px;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    min-width: 140px;
+}
+
+.test-btn:hover {
+    background-color: #155DFC;
+    color: #FFFFFF;
+}
+
+.test-btn:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+    border-color: #ccc;
+    color: #ccc;
+}
+
+.test-btn:disabled:hover {
+    background-color: transparent;
+    color: #ccc;
+}
+
+/* Футер */
+.footer {
+    text-align: center;
+    padding: 30px;
+    margin-top: 80px;
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    font-family: 'ln', sans-serif;
+    color: #FFFFFF;
+    font-size: 14px;
+    position: relative;
+    z-index: 2;
+    background-color: rgba(21, 93, 252, 0.8);
+    backdrop-filter: blur(10px);
+}
+
+/* Анимация загрузки */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.test-item {
+    animation: fadeIn 0.6s ease forwards;
+    opacity: 0;
+}
+
+.test-item:nth-child(1) {
+    animation-delay: 0.1s;
+}
+
+.test-item:nth-child(2) {
+    animation-delay: 0.2s;
+}
+
+.test-item:nth-child(3) {
+    animation-delay: 0.3s;
+}
+
+.test-item:nth-child(4) {
+    animation-delay: 0.4s;
+}
+
+.test-item:nth-child(5) {
+    animation-delay: 0.5s;
+}
+
+.test-item:nth-child(6) {
+    animation-delay: 0.6s;
+}
+
+.test-item:nth-child(7) {
+    animation-delay: 0.7s;
+}
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .tests-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 25px;
+    }
+}
+
+@media (max-width: 768px) {
+    .main-content {
+        margin: 20px 15px;
+        padding: 30px 15px;
+        height: auto;
+        overflow-y: visible;
+    }
+    
+    .page-header h1 {
+        font-size: 32px;
+    }
+
+    .page-header .subtitle {
+        font-size: 18px;
+    }
+
+    .tests-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .test-item {
+        padding: 25px;
+    }
+
+    .test-title {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 480px) {
+    .page-header h1 {
+        font-size: 28px;
+    }
+
+    .page-header .subtitle {
+        font-size: 16px;
+    }
+
+    .test-item {
+        padding: 20px;
+    }
+
+    .test-title {
+        font-size: 20px;
+        padding-left: 25px;
+    }
+
+    .test-meta {
+        flex-direction: column;
+        gap: 15px;
+        align-items: stretch;
+    }
+
+    .test-btn {
+        width: 100%;
+    }
+}
+
+/* УДАЛИТЬ все стили для навигации из этого файла */
+/* Они уже есть в style1.css */
