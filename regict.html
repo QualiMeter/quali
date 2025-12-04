@@ -145,8 +145,8 @@
                 'Accept': 'application/json'
               }
           });
-            const roleClient = (await rolesResponse.json()).find((element, index, array) => element.name == 'client');
-          console.log(roleClient);
+          const roleClient = (await rolesResponse.json()).find((element, index, array) => element.name == 'client');
+          console.log('role is: ' + roleClient);
         });
       });
 
@@ -398,5 +398,6 @@
 </body>
 
 </html>
+
 
 
