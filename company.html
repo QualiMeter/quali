@@ -2,139 +2,305 @@
 <html lang="ru">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
-    <title>Профиль - Qualimeter</title>
-    <link rel="stylesheet" href="company.css" />
+  <meta charset="UTF-8" />
+  <meta name="theme-color" content="#155DFC">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+  <meta name="format-detection" content="telephone=no">
+  <meta name="viewport"
+    content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+  <title>Профиль - Qualimeter</title>
+  <link rel="stylesheet" href="company.css" />
 </head>
 
 <body>
-    <div class="prof1">
-        <div class="nav">
-            <div class="logo">
-                <h1 class="h1">Qualimeter</h1>
-            </div>
-            <div class="part2">
-                <div class="a1">
-                    <a href="#">Тесты</a>
-                </div>
-                <div class="a2">
-                    <a href="#">План развития</a>
-                </div>
-                <div class="a3">
-                    <a href="#">Повышение</a>
-                </div>
-                <div class="a4">
-                    <a href="#">Компания</a>
-                </div>
-            </div>
-            <div class="part3" id="userMenu">
-                <img src="img/imgprof/user-account_9327873 1 (1).svg" alt="user" class="user-icon" />
-                <p>Никита Н.</p>
-                <img src="img/imgprof/Vector 1.svg" alt="arrow" class="arrow-icon" />
-            </div>
-            <div class="dropdown-menu" id="dropdownMenu">
-                <div class="menu-section">
-                    <div class="menu-item-with-icon">
-                        <img src="img/imgprof/person.svg" alt="" class="menu-icon" />
-                        <a href="prof.html" class="menu-link main-link">Профиль</a>
-                    </div>
-                    <div class="menu-item-with-icon">
-                        <img src="img/imgprof/settings.svg" alt="" class="menu-icon" />
-                        <a href="#" class="menu-link">Настройки</a>
-                    </div>
-                    <div class="menu-item-with-icon">
-                        <img src="img/imgprof/notifications_unread.svg" alt="" class="menu-icon" />
-                        <a href="#" class="menu-link">Уведомления</a>
-                    </div>
-                    <div class="menu-item-with-icon logout">
-                        <img src="img/imgprof/logout.svg" alt="" class="menu-icon" />
-                        <a href="profend.html" class="menu-link">Выйти</a>
-                    </div>
-                </div>
-            </div>
+  <div class="prof1">
+    <div class="nav">
+      <div class="logo">
+        <h1 class="h1">Qualimeter</h1>
+      </div>
+      <div class="part2">
+        <div class="a1">
+          <a href="#">Тесты</a>
         </div>
-        <img src="img/imgprof/blending 1 (1).svg" alt="" class="imgreg" />
-        <img src="img/imgprof/blending 1 (2).svg" alt="" class="imgreg1" />
-        <img src="img/imgprof/blending 1 (3).svg" alt="" class="imgreg2" />
-        <div class="company">
-            <div class="name">
-                <div class="namecomp">ООО "Компания"</div>
-                <p>О компании</p>
-                <img src="img/imgprof/Line 5.svg" alt="">
-                <div class="about">ляляля туда сюда, вложились в кукисы и получили деньгусы</div>
-            </div>
-            <div class="team">
-                <h2>Команда</h2>
-                <div class="first">
-                    <div class="imgteam">
-                        <img src="img/imgprof/user-account_9327873 1 (1).svg" alt="">
-                    </div>
-                    <div class="nik">Роман Романыч</div>
-                    <div class="special">
-                        <img src="img/imgprof/Line 6.svg" alt="" class="img1">
-                        <div class="special-text">Руководитель</div>
-                    </div>
-                </div>
-                <div class="sec">
-                    <div class="imgteam">
-                        <img src="img/imgprof/user-account_9327873 1 (1).svg" alt="">
-                    </div>
-                    <div class="nik">Никита Никтин</div>
-                    <div class="special">
-                        <img src="img/imgprof/Line 6.svg" alt="" class="img1">
-                        <div class="special-text">Senior Python
-                            develope</div>
-                    </div>
-                </div>
-                <div class="fird">
-                    <div class="imgteam">
-                        <img src="img/imgprof/user-account_9327873 1 (1).svg" alt="">
-                    </div>
-                    <div class="nik">Денис Владиславович</div>
-                    <div class="special">
-                        <img src="img/imgprof/Line 6.svg" alt="" class="img1">
-                        <div class="special-text">Middle c++
-                            разработчик</div>
-                    </div>
-                </div>
-            </div>
+        <div class="a2">
+          <a href="#">План развития</a>
         </div>
-        <script>
-            document.addEventListener("DOMContentLoaded", function () {
-                const userMenu = document.getElementById("userMenu");
-                const dropdownMenu = document.getElementById("dropdownMenu");
+        <div class="a3">
+          <a href="#">Повышение</a>
+        </div>
+        <div class="a4">
+          <a href="#">Компания</a>
+        </div>
+      </div>
+      <div class="part3" id="userMenu">
+        <img src="img/imgprof/user-account_9327873 1 (1).svg" alt="user" class="user-icon" />
+        <p id="userMenuName">Загрузка...</p>
+        <img src="img/imgprof/Vector 1.svg" alt="arrow" class="arrow-icon" />
+      </div>
+      <div class="dropdown-menu" id="dropdownMenu">
+        <div class="menu-section">
+          <div class="menu-item-with-icon">
+            <img src="img/imgprof/person.svg" alt="" class="menu-icon" />
+            <a href="prof.html" class="menu-link main-link">Профиль</a>
+          </div>
+          <div class="menu-item-with-icon">
+            <img src="img/imgprof/settings.svg" alt="" class="menu-icon" />
+            <a href="#" class="menu-link">Настройки</a>
+          </div>
+          <div class="menu-item-with-icon">
+            <img src="img/imgprof/notifications_unread.svg" alt="" class="menu-icon" />
+            <a href="#" class="menu-link">Уведомления</a>
+          </div>
+          <div class="menu-item-with-icon logout">
+            <img src="img/imgprof/logout.svg" alt="" class="menu-icon" />
+            <a href="profend.html" class="menu-link">Выйти</a>
+          </div>
+        </div>
+      </div>
+    </div>
+    <img src="img/imgprof/blending 1 (1).svg" alt="" class="imgreg" />
+    <img src="img/imgprof/blending 1 (2).svg" alt="" class="imgreg1" />
+    <img src="img/imgprof/blending 1 (3).svg" alt="" class="imgreg2" />
+    <div class="company">
+      <div class="name">
+        <div class="namecomp">ООО "Компания"</div>
+        <p>О компании</p>
+        <img src="img/imgprof/Line 5.svg" alt="">
+        <div class="about">ляляля туда сюда, вложились в кукисы и получили деньгусы</div>
+      </div>
+      <div class="team">
+        <h2>Команда</h2>
+        <div class="first">
+          <div class="imgteam">
+            <img src="img/imgprof/user-account_9327873 1 (1).svg" alt="">
+          </div>
+          <div class="nik">Роман Романыч</div>
+          <div class="special">
+            <img src="img/imgprof/Line 6.svg" alt="" class="img1">
+            <div class="special-text">Руководитель</div>
+          </div>
+        </div>
+        <div class="sec">
+          <div class="imgteam">
+            <img src="img/imgprof/user-account_9327873 1 (1).svg" alt="">
+          </div>
+          <!-- ИЗМЕНЕНИЕ ЗДЕСЬ: поменяли id на userTeamName -->
+          <div class="nik" id="userTeamName">Загрузка...</div>
+          <div class="special">
+            <img src="img/imgprof/Line 6.svg" alt="" class="img1">
+            <div class="special-text">Senior Python
+              develope</div>
+          </div>
+        </div>
+        <div class="fird">
+          <div class="imgteam">
+            <img src="img/imgprof/user-account_9327873 1 (1).svg" alt="">
+          </div>
+          <div class="nik">Денис Владиславович</div>
+          <div class="special">
+            <img src="img/imgprof/Line 6.svg" alt="" class="img1">
+            <div class="special-text">Middle c++
+              разработчик</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <script>
+      // Проверяем, вошел ли пользователь
+      const currentUser = localStorage.getItem('currentUser');
+      if (!currentUser) {
+        alert('Пожалуйста, войдите в систему');
+        window.location.href = 'enter.html';
+      }
 
-                // Функция для переключения меню
-                function toggleMenu(e) {
-                    e.preventDefault();
-                    e.stopPropagation();
-                    dropdownMenu.classList.toggle("active");
-                    userMenu.classList.toggle("active");
-                }
+      // Функция для загрузки данных пользователя
+      function loadUserData() {
+        try {
+          // Получаем данные пользователя из localStorage
+          const userDataStr = localStorage.getItem('currentUser');
 
-                // Обработчики для десктопов и мобильных
-                userMenu.addEventListener("click", toggleMenu);
-                userMenu.addEventListener("touchstart", toggleMenu); // Для мобильных
+          if (!userDataStr) {
+            console.error('Данные пользователя не найдены');
+            return;
+          }
 
-                // Закрытие меню при клике вне его
-                function closeMenu() {
-                    dropdownMenu.classList.remove("active");
-                    userMenu.classList.remove("active");
-                }
+          const userData = JSON.parse(userDataStr);
+          console.log('Данные пользователя:', userData);
 
-                document.addEventListener("click", closeMenu);
-                document.addEventListener("touchstart", closeMenu); // Для мобильных
+          // Извлекаем имя и фамилию
+          let firstName = '';
+          let lastName = '';
 
-                // Предотвращение закрытия при клике внутри меню
-                dropdownMenu.addEventListener("click", function (e) {
-                    e.stopPropagation();
-                });
-                dropdownMenu.addEventListener("touchstart", function (e) {
-                    e.stopPropagation();
-                });
+          // Пытаемся получить имя из разных возможных полей
+          if (userData.name) {
+            firstName = userData.name;
+          } else if (userData.firstName) {
+            firstName = userData.firstName;
+          } else if (userData.username) {
+            firstName = userData.username;
+          } else if (userData.login) {
+            firstName = userData.login;
+          }
+
+          // Пытаемся получить фамилию из разных возможных полей
+          if (userData.lastname) {
+            lastName = userData.lastname;
+          } else if (userData.lastName) {
+            lastName = userData.lastName;
+          }
+
+          // Если в поле name есть и имя и фамилия, разделяем их
+          if (userData.name && userData.name.includes(' ')) {
+            const nameParts = userData.name.split(' ');
+            firstName = nameParts[0] || firstName;
+            lastName = nameParts.slice(1).join(' ') || lastName;
+          }
+
+          // Формируем короткое имя для меню (Имя Ф.)
+          let shortName = firstName;
+          if (lastName) {
+            // Берем первую букву фамилии
+            const lastNameInitial = lastName.charAt(0);
+            shortName += ' ' + lastNameInitial + '.';
+          }
+          document.getElementById('userMenuName').textContent = shortName;
+
+          // Формируем полное имя для команды (Имя Фамилия)
+          let fullName = firstName;
+          if (lastName) {
+            fullName += ' ' + lastName;
+          }
+          document.getElementById('userTeamName').textContent = fullName;
+
+          console.log('Данные пользователя загружены');
+
+        } catch (error) {
+          console.error('Ошибка при загрузке данных пользователя:', error);
+
+          // Показываем сообщение об ошибке пользователю
+          document.getElementById('userMenuName').textContent = 'Пользователь';
+          document.getElementById('userTeamName').textContent = 'Пользователь';
+
+          // Показываем сообщение в консоли для разработчика
+          setTimeout(() => {
+            alert('Произошла ошибка при загрузке данных профиля. Проверьте консоль разработчика (F12) для подробностей.');
+          }, 100);
+        }
+      }
+
+      // Функция для выхода из системы
+      function setupLogout() {
+        const logoutLink = document.querySelector('.logout a');
+        if (logoutLink) {
+          logoutLink.addEventListener('click', function (e) {
+            e.preventDefault();
+
+            // Удаляем текущего пользователя
+            localStorage.removeItem('currentUser');
+
+            // Сохраняем время выхода (опционально)
+            localStorage.setItem('lastLogout', new Date().toISOString());
+
+            // Перенаправляем на страницу входа
+            window.location.href = 'enter.html';
+          });
+        }
+      }
+
+      document.addEventListener("DOMContentLoaded", function () {
+        // Загружаем данные пользователя при загрузке страницы
+        loadUserData();
+
+        // Настраиваем выход из системы
+        setupLogout();
+
+        const userMenu = document.getElementById("userMenu");
+        const dropdownMenu = document.getElementById("dropdownMenu");
+
+        // Функция для переключения меню
+        function toggleMenu(e) {
+          e.preventDefault();
+          e.stopPropagation();
+          dropdownMenu.classList.toggle("active");
+          userMenu.classList.toggle("active");
+        }
+
+        // Обработчики для десктопов и мобильных
+        userMenu.addEventListener("click", toggleMenu);
+        userMenu.addEventListener("touchstart", toggleMenu);
+
+        // Закрытие меню при клике вне его
+        function closeMenu() {
+          dropdownMenu.classList.remove("active");
+          userMenu.classList.remove("active");
+        }
+
+        document.addEventListener("click", closeMenu);
+        document.addEventListener("touchstart", closeMenu);
+
+        // Предотвращение закрытия при клике внутри меню
+        dropdownMenu.addEventListener("click", function (e) {
+          e.stopPropagation();
+        });
+        dropdownMenu.addEventListener("touchstart", function (e) {
+          e.stopPropagation();
+        });
+      });
+
+      // Также загружаем данные пользователя при каждой загрузке страницы
+      window.addEventListener('storage', function (e) {
+        if (e.key === 'currentUser') {
+          console.log('Данные пользователя обновлены, перезагружаем...');
+          loadUserData();
+        }
+      });
+      // mobile.js - улучшения для мобильных устройств
+      document.addEventListener('DOMContentLoaded', function () {
+        // Определяем мобильное устройство
+        const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
+        if (isMobile) {
+          // Увеличиваем область клика для всех кнопок и ссылок
+          document.querySelectorAll('a, button, .menu-item-with-icon, .switch-btn').forEach(element => {
+            element.style.minHeight = '44px';
+            element.style.minWidth = '44px';
+          });
+
+          // Улучшаем touch события
+          document.querySelectorAll('.password-toggle, .btn, .switch-btn').forEach(button => {
+            button.addEventListener('touchstart', function () {
+              this.style.transform = 'scale(0.98)';
             });
-        </script>
+
+            button.addEventListener('touchend', function () {
+              this.style.transform = 'scale(1)';
+            });
+          });
+
+          // Предотвращаем масштабирование при двойном тапе на полях ввода
+          document.querySelectorAll('input, textarea').forEach(field => {
+            field.addEventListener('touchstart', function (e) {
+              if (e.touches.length > 1) {
+                e.preventDefault();
+              }
+            }, { passive: false });
+          });
+
+          // Улучшаем скролл на мобильных
+          document.body.style.overflow = 'auto';
+          document.body.style.webkitOverflowScrolling = 'touch';
+
+          // Скрываем нативные стрелки ввода на iOS
+          if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
+            document.querySelectorAll('input[type="number"]').forEach(input => {
+              input.style.appearance = 'none';
+              input.style.MozAppearance = 'textfield';
+            });
+          }
+        }
+      });
+    </script>
 </body>
 
 </html>
