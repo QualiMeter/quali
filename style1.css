@@ -213,7 +213,7 @@
 }
 
 .menu-item-with-icon.logout:hover .menu-link {
-    color: #ff0000;
+    color: #ff0000!important;
 }
 .profile{
     display: flex;
@@ -350,6 +350,27 @@ body{
     font-size: 16px;
     color: #000000;
     margin: 0;
+}
+.menu-item-with-icon {
+    cursor: pointer !important;
+}
+
+.menu-link {
+    cursor: pointer !important;
+    transition: color 0.3s ease !important;
+}
+
+.menu-link:hover {
+    color: #155DFC !important;
+}
+
+.menu-item-with-icon:hover {
+    background-color: #f0f4ff !important;
+}
+
+.menu-link.main-link {
+    text-decoration: underline !important;
+    color: #155DFC !important;
 }
 /* Адаптивность для мобильных устройств */
 /* ДОБАВЬТЕ В КОНЕЦ style1.css */
