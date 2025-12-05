@@ -17,14 +17,7 @@
 </head>
 
 <body>
-  <script>
-    // Проверяем, вошел ли пользователь
-    const currentUser = localStorage.getItem('currentUser');
-    if (!currentUser) {
-      alert('Пожалуйста, войдите в систему');
-      window.location.href = 'enter.html';
-    }
-  </script>
+  <script src="auth-check.js"></script>
   
   <div class="prof1">
     <!-- Навигация из style1.css -->
@@ -34,7 +27,7 @@
       </div>
       <div class="part2">
         <div class="a1">
-          <a href="#">Тесты</a>
+          <a href="tests.html">Тесты</a>
         </div>
         <div class="a2">
           <a href="#">План развития</a>
@@ -100,90 +93,8 @@
     </div>
   </div>
 
-  <script>
-    // Функция для загрузки данных пользователя
-    function loadUserData() {
-      try {
-        const userDataStr = localStorage.getItem('currentUser');
+  <script src="more.js"></script>
 
-        if (!userDataStr) {
-          console.error('Данные пользователя не найдены');
-          return;
-        }
-
-        const userData = JSON.parse(userDataStr);
-
-        let firstName = '';
-        let lastName = '';
-
-        if (userData.name) {
-          firstName = userData.name;
-        } else if (userData.firstName) {
-          firstName = userData.firstName;
-        } else if (userData.username) {
-          firstName = userData.username;
-        }
-
-        if (userData.lastname) {
-          lastName = userData.lastname;
-        } else if (userData.lastName) {
-          lastName = userData.lastName;
-        }
-
-        if (userData.name && userData.name.includes(' ')) {
-          const nameParts = userData.name.split(' ');
-          firstName = nameParts[0] || firstName;
-          lastName = nameParts.slice(1).join(' ') || lastName;
-        }
-
-        // Короткое имя для меню
-        let shortName = firstName;
-        if (lastName) {
-          const lastNameInitial = lastName.charAt(0);
-          shortName += ' ' + lastNameInitial + '.';
-        }
-
-        document.getElementById('userMenuName').textContent = shortName;
-
-      } catch (error) {
-        console.error('Ошибка при загрузке данных пользователя:', error);
-        document.getElementById('userMenuName').textContent = 'Пользователь';
-      }
-    }
-
-    // Настройка меню
-    document.addEventListener("DOMContentLoaded", function () {
-      loadUserData();
-
-      const userMenu = document.getElementById("userMenu");
-      const dropdownMenu = document.getElementById("dropdownMenu");
-
-      function toggleMenu(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        dropdownMenu.classList.toggle("active");
-        userMenu.classList.toggle("active");
-      }
-
-      userMenu.addEventListener("click", toggleMenu);
-      userMenu.addEventListener("touchstart", toggleMenu);
-
-      function closeMenu() {
-        dropdownMenu.classList.remove("active");
-        userMenu.classList.remove("active");
-      }
-
-      document.addEventListener("click", closeMenu);
-      document.addEventListener("touchstart", closeMenu);
-
-      dropdownMenu.addEventListener("click", function (e) {
-        e.stopPropagation();
-      });
-      dropdownMenu.addEventListener("touchstart", function (e) {
-        e.stopPropagation();
-      });
-    });
-  </script>
 </body>
 
 </html>

@@ -216,53 +216,8 @@
     </div>
 
   </div>
-  <script>
-    // mobile.js - улучшения для мобильных устройств
-    document.addEventListener('DOMContentLoaded', function () {
-      // Определяем мобильное устройство
-      const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
-      if (isMobile) {
-        // Увеличиваем область клика для всех кнопок и ссылок
-        document.querySelectorAll('a, button, .menu-item-with-icon, .switch-btn').forEach(element => {
-          element.style.minHeight = '44px';
-          element.style.minWidth = '44px';
-        });
-
-        // Улучшаем touch события
-        document.querySelectorAll('.password-toggle, .btn, .switch-btn').forEach(button => {
-          button.addEventListener('touchstart', function () {
-            this.style.transform = 'scale(0.98)';
-          });
-
-          button.addEventListener('touchend', function () {
-            this.style.transform = 'scale(1)';
-          });
-        });
-
-        // Предотвращаем масштабирование при двойном тапе на полях ввода
-        document.querySelectorAll('input, textarea').forEach(field => {
-          field.addEventListener('touchstart', function (e) {
-            if (e.touches.length > 1) {
-              e.preventDefault();
-            }
-          }, { passive: false });
-        });
-
-        // Улучшаем скролл на мобильных
-        document.body.style.overflow = 'auto';
-        document.body.style.webkitOverflowScrolling = 'touch';
-
-        // Скрываем нативные стрелки ввода на iOS
-        if (/iPhone|iPad|iPod/i.test(navigator.userAgent)) {
-          document.querySelectorAll('input[type="number"]').forEach(input => {
-            input.style.appearance = 'none';
-            input.style.MozAppearance = 'textfield';
-          });
-        }
-      }
-    });
-  </script>
+  <script src="index.js"></script>
+  <script src="mobile.js"></script>
 </body>
 
 </html>
