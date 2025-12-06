@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="theme-color" content="#155DFC">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Редактирование профиля - Qualimeter</title>
+    <!-- Общие стили навигации -->
+    <link rel="stylesheet" href="style1.css" />
+    <!-- Стили для страницы редактирования профиля -->
+    <link rel="stylesheet" href="edit-profile.css" />
+</head>
+
+<body>
+    <script src="auth-check.js"></script>
+
+    <div class="prof1">
+        <!-- Фоновые изображения -->
+        <img src="img/imgprof/blending 1754474870 (1).svg" alt="" class="imgreg" />
+        <img src="img/imgprof/blending 1762691066228 (1).svg" alt="" class="imgreg1" />
+        <img src="img/imgprof/blending 1754474869 (1).svg" alt="" class="imgreg2" />
+
+        <!-- Навигация -->
+        <div class="nav">
+            <div class="logo">
+                <h1 class="h1">Qualimeter</h1>
+            </div>
+            <div class="part2">
+                <div class="a1">
+                    <a href="tests.html">Тесты</a>
+                </div>
+                <div class="a2">
+                    <a href="#">План развития</a>
+                </div>
+                <div class="a3">
+                    <a href="#">Повышение</a>
+                </div>
+                <div class="a4">
+                    <a href="company.html">Компания</a>
+                </div>
+            </div>
+            <div class="part3" id="userMenu">
+                <img src="img/imgprof/user-account_9327873 1 (1).svg" alt="user" class="user-icon" />
+                <p id="userMenuName">Загрузка...</p>
+                <img src="img/imgprof/Vector 1.svg" alt="arrow" class="arrow-icon" />
+            </div>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <div class="menu-section">
+                    <div class="menu-item-with-icon">
+                        <img src="img/imgprof/person.svg" alt="" class="menu-icon" />
+                        <a href="prof.html" class="menu-link main-link">Профиль</a>
+                    </div>
+                    <div class="menu-item-with-icon">
+                        <img src="img/imgprof/settings.svg" alt="" class="menu-icon" />
+                        <a href="edit-profile.html" class="menu-link">Редактировать профиль</a>
+                    </div>
+                    <div class="menu-item-with-icon">
+                        <img src="img/imgprof/notifications_unread.svg" alt="" class="menu-icon" />
+                        <a href="#" class="menu-link">Уведомления</a>
+                    </div>
+                    <div class="menu-item-with-icon logout">
+                        <img src="img/imgprof/logout.svg" alt="" class="menu-icon" />
+                        <a href="profend.html" class="menu-link">Выйти</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Основной контент редактирования профиля -->
+        <main class="edit-profile-content">
+            <div class="edit-profile-header">
+                <h1>Изменение профиля</h1>
+                <p class="privacy-note">
+                    Позаботьтесь о конфиденциальности личных данных. 
+                    Люди, которые видят ваш профиль, могут просмотреть информацию, которую вы в него добавляете.
+                </p>
+            </div>
+
+            <div class="edit-profile-container">
+                <h2>Редактирование профиля</h2>
+                
+                <form id="profileEditForm" class="profile-edit-form">
+                    <div class="form-section">
+                        <h3>Основная информация</h3>
+                        
+                        <div class="form-group">
+                            <label for="firstName">
+                                <span class="label-text">Имя</span>
+                                <span class="field-value" id="currentFirstName">Никита</span>
+                            </label>
+                            <input type="text" id="firstName" name="firstName" class="form-input" value="Никита" placeholder="Введите ваше имя">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="lastName">
+                                <span class="label-text">Фамилия</span>
+                                <span class="field-value" id="currentLastName">Никитин</span>
+                            </label>
+                            <input type="text" id="lastName" name="lastName" class="form-input" value="Никитин" placeholder="Введите вашу фамилию">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="username">
+                                <span class="label-text">Логин</span>
+                                <span class="field-value" id="currentUsername">Nikiaz28</span>
+                            </label>
+                            <input type="text" id="username" name="username" class="form-input" value="Nikiaz28" placeholder="Введите логин">
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h3>Дополнительная информация</h3>
+                        
+                        <div class="form-group">
+                            <label for="about">
+                                <span class="label-text">Обо мне</span>
+                                <span class="field-value" id="currentAbout">Люблю сосиски с кепчуком, макарошки с сыром и программировать на ассемблере.</span>
+                            </label>
+                            <textarea id="about" name="about" class="form-textarea" rows="4" placeholder="Расскажите о себе">Люблю сосиски с кепчуком, макарошки с сыром и программировать на ассемблере.</textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="avatar" class="avatar-label">
+                                <span class="label-text">Аватар</span>
+                                <div class="avatar-preview">
+                                    <img src="img/imgprof/user-account_9327873 1 (1).svg" alt="Текущий аватар" class="current-avatar">
+                                    <span class="change-text">Изменить фото</span>
+                                </div>
+                            </label>
+                            <input type="file" id="avatar" name="avatar" class="form-file-input" accept="image/*" style="display: none;">
+                        </div>
+                    </div>
+                    
+                    <div class="form-section">
+                        <h3>Конфиденциальность</h3>
+                        <div class="privacy-settings">
+                            <div class="privacy-item">
+                                <input type="checkbox" id="profileVisible" name="profileVisible" checked>
+                                <label for="profileVisible">Мой профиль виден другим пользователям</label>
+                            </div>
+                            <div class="privacy-item">
+                                <input type="checkbox" id="showEmail" name="showEmail">
+                                <label for="showEmail">Показывать email в профиле</label>
+                            </div>
+                            <div class="privacy-item">
+                                <input type="checkbox" id="showResults" name="showResults" checked>
+                                <label for="showResults">Показывать результаты тестов</label>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="form-actions">
+                        <button type="button" class="btn-cancel" onclick="window.location.href='prof.html'">Отмена</button>
+                        <button type="submit" class="btn-save">Сохранить изменения</button>
+                    </div>
+                </form>
+                
+                <div class="current-data-section">
+                    <h3>Текущие данные профиля</h3>
+                    <div class="data-table">
+                        <div class="data-row">
+                            <div class="data-label">Имя</div>
+                            <div class="data-value">Никита</div>
+                        </div>
+                        <div class="data-row">
+                            <div class="data-label">Фамилия</div>
+                            <div class="data-value">Никитин</div>
+                        </div>
+                        <div class="data-row">
+                            <div class="data-label">Логин</div>
+                            <div class="data-value">Nikiaz28</div>
+                        </div>
+                        <div class="data-row">
+                            <div class="data-label">Обо мне</div>
+                            <div class="data-value">Люблю сосиски с кепчуком, макарошки с сыром и программировать на ассемблере.</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+
+    <script src="tests.js"></script>
+    <script src="edit-profile.js"></script>
+</body>
+
+</html>
