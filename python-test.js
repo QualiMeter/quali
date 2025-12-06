@@ -1,3 +1,38 @@
+function loadUserData() {
+  try {
+    const userDataStr = localStorage.getItem('currentUser');
+    if (!userDataStr) return;
+
+    const userData = JSON.parse(userDataStr);
+    let firstName = '';
+    let lastName = '';
+
+    if (userData.name) firstName = userData.name;
+    else if (userData.firstName) firstName = userData.firstName;
+    else if (userData.username) firstName = userData.username;
+
+    if (userData.lastname) lastName = userData.lastname;
+    else if (userData.lastName) lastName = userData.lastName;
+
+    if (userData.name && userData.name.includes(' ')) {
+      const nameParts = userData.name.split(' ');
+      firstName = nameParts[0] || firstName;
+      lastName = nameParts.slice(1).join(' ') || lastName;
+    }
+
+    let shortName = firstName;
+    if (lastName) {
+      const lastNameInitial = lastName.charAt(0);
+      shortName += ' ' + lastNameInitial + '.';
+    }
+
+    document.getElementById('userMenuName').textContent = shortName;
+
+  } catch (error) {
+    console.error('Ошибка:', error);
+    document.getElementById('userMenuName').textContent = 'Пользователь';
+  }
+}
 // JavaScript для страницы Python теста
         document.addEventListener('DOMContentLoaded', function() {
             // Навигация
@@ -15,8 +50,7 @@
                 }
             });
             
-            // Устанавливаем имя пользователя
-            document.getElementById('userMenuName').textContent = 'Никита Н';
+
             
             // Функции для уровней сложности
             let currentLevel = 'basic';
@@ -84,4 +118,5 @@
             if (basicLevel) {
                 basicLevel.classList.add('active');
             }
+
         });
