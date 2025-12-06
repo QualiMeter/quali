@@ -21,12 +21,15 @@ document.addEventListener("DOMContentLoaded", function () {
     }
   }
 
-  switchButtons.forEach(button => {
-    button.addEventListener('click', function () {
-      switchButtons.forEach(btn => btn.classList.remove('active'));
-      this.classList.add('active');
-      currentRole = this.getAttribute('data-value');
-      updatePlaceholder(currentRole);
+	switchButtons.forEach(button => {
+		button.addEventListener('click', async function () {
+			switchButtons.forEach(btn => btn.classList.remove('active'));
+			this.classList.add('active');
+      		currentRole = this.getAttribute('data-value');
+      		updatePlaceholder(currentRole);
+
+      		let response = await fetch('https://qmv2api.onrender.com/api/Roles/');
+			console.info(response.json());
     });
   });
 
@@ -223,3 +226,4 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+
