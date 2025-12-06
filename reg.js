@@ -29,7 +29,7 @@ document.addEventListener("DOMContentLoaded", function () {
       		updatePlaceholder(currentRole);
 
       		let response = await fetch('https://qmv2api.onrender.com/api/Roles/');
-			console.info(response.json()[0]);
+			console.info(await response.json()[0]);
 		});
 	});
 
@@ -226,5 +226,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+
 
 
