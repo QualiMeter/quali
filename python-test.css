@@ -1,0 +1,334 @@
+/* python-test.css - стили для страницы Python теста */
+@font-face {
+    font-family: 'lnb';
+    src: url('fonts/Lusitana-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
+@font-face {
+    font-family: 'DG';
+    src: url('fonts/DelaGothicOne-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ln';
+    src: url('fonts/Lusitana-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+/* СТИЛИ ДЛЯ СТРАНИЦЫ PYTHON ТЕСТА */
+
+/* Основной контент страницы теста */
+.test-page-content {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 40px;
+    position: relative;
+    z-index: 2;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+    z-index: 1;
+}
+
+/* Заголовок страницы */
+.test-page-header {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.test-page-header h1 {
+    font-family: 'lnb', sans-serif;
+    font-size: 42px;
+    color: #155DFC;
+    margin-bottom: 15px;
+}
+
+.test-page-header .subtitle {
+    font-family: 'ln', sans-serif;
+    font-size: 20px;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* Карточка теста */
+.test-detail-card {
+    background: rgba(255, 255, 255, 0.95);
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    margin-bottom: 40px;
+    position: relative;
+    overflow: hidden;
+}
+
+.test-detail-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, #155DFC, #4A90E2);
+    opacity: 1;
+}
+
+/* Уровни сложности */
+.difficulty-levels {
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.difficulty-level {
+    font-family: 'ln', sans-serif;
+    font-size: 16px;
+    padding: 12px 30px;
+    border: 2px solid #e0e0e0;
+    border-radius: 25px;
+    color: #666;
+    background: white;
+    transition: all 0.3s ease;
+    cursor: pointer;
+    user-select: none;
+}
+
+.difficulty-level.active {
+    background: linear-gradient(135deg, #155DFC 0%, #4D8AFF 100%);
+    color: white;
+    border-color: #155DFC;
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(21, 93, 252, 0.2);
+}
+
+.difficulty-level:hover:not(.active) {
+    border-color: #155DFC;
+    color: #155DFC;
+    background: #f8faff;
+}
+
+/* Индикатор уровня */
+.level-indicator {
+    text-align: center;
+    margin: 20px 0;
+    font-family: 'ln', sans-serif;
+    font-size: 16px;
+    color: #155DFC;
+    font-weight: 500;
+    min-height: 24px;
+}
+
+/* Предупреждение */
+.test-warning {
+    background: #fff9e6;
+    border-left: 4px solid #ffc107;
+    padding: 20px;
+    border-radius: 12px;
+    margin: 30px 0;
+}
+
+.test-warning p {
+    font-family: 'ln', sans-serif;
+    font-size: 16px;
+    color: #856404;
+    line-height: 1.5;
+    margin: 0;
+}
+
+/* Информация о тесте */
+.test-info-panel {
+    display: flex;
+    justify-content: center;
+    gap: 50px;
+    margin: 30px 0;
+    flex-wrap: wrap;
+}
+
+.info-item {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.info-icon {
+    width: 24px;
+    height: 24px;
+    color: #155DFC;
+}
+
+.info-text {
+    font-family: 'ln', sans-serif;
+    font-size: 18px;
+    font-weight: 500;
+    color: #333;
+}
+
+/* Кнопка начала теста */
+.start-test-btn {
+    font-family: 'ln', sans-serif;
+    font-size: 18px;
+    color: #155DFC;
+    background-color: transparent;
+    border: 2px solid #155DFC;
+    padding: 15px 40px;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    text-decoration: none;
+    display: inline-block;
+    text-align: center;
+    min-width: 200px;
+    margin: 30px auto;
+    display: block;
+}
+
+.start-test-btn:hover {
+    background-color: #155DFC;
+    color: #FFFFFF;
+    transform: translateY(-3px);
+    box-shadow: 0 5px 15px rgba(21, 93, 252, 0.3);
+}
+
+/* Раздел содержания */
+.content-section {
+    background: white;
+    border-radius: 15px;
+    padding: 40px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    margin-top: 40px;
+}
+
+.content-section h2 {
+    font-family: 'lnb', sans-serif;
+    font-size: 28px;
+    color: #000000;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+/* Сетка содержания */
+.content-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(350px, 1fr));
+    gap: 20px;
+}
+
+.content-item {
+    background: #f8faff;
+    border-radius: 12px;
+    padding: 20px;
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    transition: all 0.3s ease;
+}
+
+.content-item:hover {
+    background: #f0f5ff;
+    transform: translateY(-2px);
+}
+
+.item-number {
+    font-family: 'lnb', sans-serif;
+    font-size: 24px;
+    font-weight: 700;
+    color: #155DFC;
+    min-width: 40px;
+}
+
+.item-text {
+    font-family: 'ln', sans-serif;
+    font-size: 16px;
+    color: #333;
+}
+
+/* Анимация загрузки */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.test-detail-card, .content-section {
+    animation: fadeIn 0.6s ease forwards;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .test-page-content {
+        margin: 20px 15px;
+        padding: 30px 15px;
+    }
+    
+    .test-page-header h1 {
+        font-size: 32px;
+    }
+
+    .test-page-header .subtitle {
+        font-size: 18px;
+    }
+
+    .difficulty-levels {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .difficulty-level {
+        width: 200px;
+        text-align: center;
+    }
+
+    .test-info-panel {
+        flex-direction: column;
+        align-items: center;
+        gap: 20px;
+    }
+
+    .content-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .content-section {
+        padding: 30px 20px;
+    }
+
+    .test-detail-card {
+        padding: 30px 20px;
+    }
+}
+
+@media (max-width: 480px) {
+    .test-page-header h1 {
+        font-size: 28px;
+    }
+
+    .test-page-header .subtitle {
+        font-size: 16px;
+    }
+
+    .content-item {
+        flex-direction: column;
+        text-align: center;
+        gap: 10px;
+    }
+
+    .item-number {
+        margin-bottom: 5px;
+    }
+}
