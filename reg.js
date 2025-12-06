@@ -151,7 +151,7 @@ document.addEventListener("DOMContentLoaded", function () {
               password: password
             };
 
-            const httpResponse = await fetch('http://qmv2api.onrender.com/api/Users/register', {
+            const httpResponse = await fetch('https://qmv2api.onrender.com/api/Users/register', {
               method: 'POST',
               headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
               body: JSON.stringify(userData)
@@ -221,4 +221,5 @@ document.addEventListener("DOMContentLoaded", function () {
     submitBtn.disabled = false;
     submitBtn.textContent = "Зарегистрироваться";
   });
+
 });
