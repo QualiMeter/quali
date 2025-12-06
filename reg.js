@@ -29,9 +29,9 @@ document.addEventListener("DOMContentLoaded", function () {
       		updatePlaceholder(currentRole);
 
       		let response = await fetch('https://qmv2api.onrender.com/api/Roles/');
-			console.info(response.json());
-    });
-  });
+			console.info(response.json()[0]);
+		});
+	});
 
   const form = document.getElementById("regForm");
   form.addEventListener("submit", async function (e) {
@@ -226,4 +226,5 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+
 
