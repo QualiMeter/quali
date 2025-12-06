@@ -27,9 +27,6 @@ document.addEventListener("DOMContentLoaded", function () {
 			this.classList.add('active');
       		currentRole = this.getAttribute('data-value');
       		updatePlaceholder(currentRole);
-
-      		let response = await fetch('https://qmv2api.onrender.com/api/Roles/');
-			console.info(await response.json()[0]);
 		});
 	});
 
@@ -226,6 +223,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+
 
 
 
