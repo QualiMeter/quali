@@ -547,3 +547,29 @@ body.is-mobile .edit-profile-content {
         text-align: center;
     }
 }
+/* edit-profile.css - дополнительное исправление для меню */
+
+/* Убираем синий фон при активном состоянии */
+.part3.active {
+    background-color: #FFFFFF !important;
+    box-shadow: none !important;
+}
+
+/* Стрелка при активном состоянии */
+.part3.active .arrow-icon {
+    transform: rotate(180deg);
+    transition: transform 0.3s ease;
+}
+
+/* Убираем эффект наведения на мобильных */
+@media (max-width: 768px) {
+    .part3:hover,
+    .part3:active,
+    .part3:focus {
+        background-color: #FFFFFF !important;
+    }
+    
+    .part3.active {
+        background-color: #FFFFFF !important;
+    }
+}
