@@ -1,0 +1,598 @@
+/* notifications.css - стили для страницы уведомлений */
+@font-face {
+    font-family: 'lnb';
+    src: url('fonts/Lusitana-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ln';
+    src: url('fonts/Lusitana-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+/* Основной контент */
+.notifications-content {
+    max-width: 1400px;
+    margin: 40px auto;
+    padding: 40px;
+    position: relative;
+    z-index: 2;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    height: calc(100vh - 180px);
+    overflow-y: auto;
+    margin-top: 20px;
+    z-index: 1;
+}
+
+/* Заголовок */
+.notifications-header {
+    margin-bottom: 40px;
+    border-bottom: 2px solid #f0f4ff;
+    padding-bottom: 20px;
+}
+
+.notifications-header h1 {
+    font-family: 'lnb', sans-serif;
+    font-size: 36px;
+    color: #155DFC;
+    margin-bottom: 10px;
+}
+
+.notifications-header .subtitle {
+    font-family: 'ln', sans-serif;
+    font-size: 16px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Контейнер уведомлений */
+.notifications-container {
+    background: #fff;
+    border-radius: 15px;
+}
+
+/* Фильтры */
+.notification-filters {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 30px;
+    padding-bottom: 20px;
+    border-bottom: 1px solid #eee;
+    flex-wrap: wrap;
+    overflow-x: auto;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+}
+
+.notification-filters::-webkit-scrollbar {
+    display: none;
+}
+
+.filter-btn {
+    padding: 10px 20px;
+    border: 2px solid #e0e6ff;
+    border-radius: 25px;
+    background: white;
+    color: #666;
+    font-family: 'ln', sans-serif;
+    font-size: 14px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    white-space: nowrap;
+}
+
+.filter-btn.active {
+    background: #155DFC;
+    color: white;
+    border-color: #155DFC;
+}
+
+.filter-btn:hover:not(.active) {
+    border-color: #155DFC;
+    color: #155DFC;
+    background: #f8faff;
+}
+
+.badge {
+    background: #ff4757;
+    color: white;
+    font-size: 12px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    font-weight: bold;
+}
+
+/* Основной контент уведомлений */
+.notifications-main {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 40px;
+}
+
+/* Список уведомлений */
+.notifications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    max-height: 600px;
+    overflow-y: auto;
+}
+
+/* Кастомный ползунок для списка уведомлений */
+.notifications-list::-webkit-scrollbar {
+    width: 8px;
+}
+
+.notifications-list::-webkit-scrollbar-track {
+    background: rgba(240, 244, 255, 0.3);
+    border-radius: 10px;
+    margin: 5px 0;
+}
+
+.notifications-list::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #155DFC 0%, #4A90E2 100%);
+    border-radius: 10px;
+    border: 2px solid rgba(240, 244, 255, 0.3);
+    background-clip: padding-box;
+    min-height: 40px;
+}
+
+.notifications-list::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #1250d8 0%, #3a7bc8 100%);
+}
+
+.notifications-list::-webkit-scrollbar-button {
+    display: none;
+}
+
+/* Для Firefox */
+.notifications-list {
+    scrollbar-width: thin;
+    scrollbar-color: #155DFC rgba(240, 244, 255, 0.3);
+}
+
+/* Карточка уведомления */
+.notification-item {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    border: 2px solid #f0f4ff;
+    transition: all 0.3s ease;
+    position: relative;
+}
+
+.notification-item.new {
+    border-left: 4px solid #155DFC;
+    background: #f8faff;
+}
+
+.notification-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.1);
+    border-color: #155DFC;
+}
+
+/* Заголовок уведомления */
+.notification-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #f0f4ff;
+}
+
+.notification-type {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.type-icon {
+    font-size: 18px;
+}
+
+.type-text {
+    font-family: 'ln', sans-serif;
+    font-size: 14px;
+    color: #666;
+    font-weight: 500;
+}
+
+.notification-date {
+    font-family: 'ln', sans-serif;
+    font-size: 14px;
+    color: #999;
+}
+
+/* Тело уведомления */
+.notification-body {
+    margin-bottom: 20px;
+}
+
+.notification-title {
+    font-family: 'lnb', sans-serif;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 10px;
+}
+
+.notification-sender {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-bottom: 15px;
+}
+
+.sender-icon {
+    font-size: 16px;
+}
+
+.sender-name {
+    font-family: 'ln', sans-serif;
+    font-size: 14px;
+    color: #666;
+}
+
+.notification-text {
+    font-family: 'ln', sans-serif;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.6;
+}
+
+/* Футер уведомления */
+.notification-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-top: 15px;
+    border-top: 1px solid #f0f4ff;
+}
+
+.notification-time {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.time-icon {
+    font-size: 14px;
+}
+
+.time-text {
+    font-family: 'ln', sans-serif;
+    font-size: 14px;
+    color: #666;
+}
+
+.notification-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.status {
+    font-family: 'ln', sans-serif;
+    font-size: 12px;
+    padding: 4px 10px;
+    border-radius: 12px;
+}
+
+.status.read {
+    background: #e8f5e8;
+    color: #27ae60;
+}
+
+.status.unread {
+    background: #ffe6e6;
+    color: #ff4757;
+}
+
+.action-btn {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border: 1px solid #e0e6ff;
+    border-radius: 8px;
+    background: white;
+    color: #666;
+    font-family: 'ln', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.action-btn:hover {
+    background: #f8faff;
+    border-color: #155DFC;
+    color: #155DFC;
+}
+
+.action-btn.active {
+    background: #155DFC;
+    color: white;
+    border-color: #155DFC;
+}
+
+.action-btn.active .star-icon {
+    color: #ffd700;
+}
+
+/* Боковая панель */
+.notifications-sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+
+.sidebar-section {
+    background: #f8faff;
+    border-radius: 15px;
+    padding: 25px;
+    border: 1px solid #e0e6ff;
+}
+
+.sidebar-section h3 {
+    font-family: 'lnb', sans-serif;
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
+    border-bottom: 1px solid #e0e6ff;
+}
+
+/* Статистика */
+.stats-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 15px;
+}
+
+.stat-item {
+    background: white;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    border: 1px solid #e0e6ff;
+}
+
+.stat-number {
+    display: block;
+    font-family: 'lnb', sans-serif;
+    font-size: 24px;
+    color: #155DFC;
+    margin-bottom: 5px;
+}
+
+.stat-label {
+    font-family: 'ln', sans-serif;
+    font-size: 12px;
+    color: #666;
+}
+
+/* Настройки */
+.settings-list {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+.setting-item {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+    padding: 8px 0;
+}
+
+.setting-item input[type="checkbox"] {
+    width: 18px;
+    height: 18px;
+    cursor: pointer;
+}
+
+.setting-item span {
+    font-family: 'ln', sans-serif;
+    font-size: 14px;
+    color: #333;
+}
+
+/* Секция логотипа */
+.logo-section {
+    text-align: center;
+    background: linear-gradient(135deg, #155DFC 0%, #4D8AFF 100%);
+    color: white;
+    border: none;
+}
+
+.logo-section h2 {
+    font-family: 'lnb', sans-serif;
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.logo-section p {
+    font-family: 'ln', sans-serif;
+    font-size: 14px;
+    opacity: 0.9;
+}
+
+/* Кастомный ползунок для основного контента */
+.notifications-content::-webkit-scrollbar {
+    width: 12px;
+}
+
+.notifications-content::-webkit-scrollbar-track {
+    background: rgba(240, 244, 255, 0.5);
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.notifications-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #155DFC 0%, #4A90E2 100%);
+    border-radius: 10px;
+    border: 3px solid rgba(240, 244, 255, 0.5);
+    background-clip: padding-box;
+    min-height: 60px;
+}
+
+.notifications-content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #1250d8 0%, #3a7bc8 100%);
+}
+
+.notifications-content::-webkit-scrollbar-button {
+    display: none;
+}
+
+/* Для Firefox */
+.notifications-content {
+    scrollbar-width: thin;
+    scrollbar-color: #155DFC rgba(240, 244, 255, 0.5);
+}
+
+/* Анимация загрузки */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.notification-item {
+    animation: fadeIn 0.4s ease forwards;
+}
+
+/* Адаптивность */
+@media (max-width: 1200px) {
+    .notifications-main {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .notifications-sidebar {
+        order: -1;
+    }
+}
+
+@media (max-width: 768px) {
+    .notifications-content {
+        margin: 20px 15px;
+        padding: 30px 20px;
+        height: auto;
+        overflow-y: visible;
+    }
+    
+    .notifications-header h1 {
+        font-size: 28px;
+    }
+    
+    .notification-filters {
+        padding-bottom: 15px;
+    }
+    
+    .filter-btn {
+        padding: 8px 15px;
+        font-size: 13px;
+    }
+    
+    .notification-item {
+        padding: 20px;
+    }
+    
+    .notification-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .notification-footer {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .notification-actions {
+        width: 100%;
+        justify-content: space-between;
+    }
+    
+    .sidebar-section {
+        padding: 20px;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(4, 1fr);
+    }
+    
+    .stat-item {
+        padding: 10px;
+    }
+}
+
+@media (max-width: 480px) {
+    .notifications-header h1 {
+        font-size: 24px;
+    }
+    
+    .filter-btn {
+        padding: 6px 12px;
+        font-size: 12px;
+    }
+    
+    .badge {
+        font-size: 10px;
+        padding: 1px 6px;
+    }
+    
+    .notification-title {
+        font-size: 16px;
+    }
+    
+    .notification-text {
+        font-size: 13px;
+    }
+    
+    .stats-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    .action-btn .action-text {
+        display: none;
+    }
+    
+    .action-btn {
+        padding: 6px;
+    }
+}
+
+/* Стили для активной ссылки в меню */
+.menu-link.active-link {
+    color: #155DFC !important;
+    text-decoration: underline !important;
+    font-weight: bold !important;
+}
+
+.menu-item-with-icon.active-item {
+    background-color: #f0f4ff !important;
+    border-radius: 6px;
+}
+
+.menu-link.active-link .menu-icon {
+    filter: invert(24%) sepia(98%) saturate(2778%) hue-rotate(212deg) brightness(98%) contrast(101%) !important;
+}
