@@ -1,49 +1,73 @@
-// edit-profile.js - ИСПРАВЛЕННАЯ ВЕРСИЯ
+// edit-profile.js - ИСПРАВЛЕННАЯ ВЕРСИЯ ДЛЯ МОБИЛЬНЫХ
 
-// Функция загрузки данных пользователя
+// Функция загрузки данных пользователя (ОБНОВЛЕННАЯ)
 function loadUserData() {
     try {
         const userDataStr = localStorage.getItem('currentUser');
         const userMenuName = document.getElementById('userMenuName');
         
+        if (!userMenuName) {
+            console.warn('Элемент userMenuName не найден');
+            return;
+        }
+        
         if (userDataStr) {
             const userData = JSON.parse(userDataStr);
-            if (userMenuName) {
-                let firstName = '';
-                let lastName = '';
+            
+            let firstName = '';
+            let lastName = '';
 
-                if (userData.name) firstName = userData.name;
-                else if (userData.firstName) firstName = userData.firstName;
-                else if (userData.username) firstName = userData.username;
-
-                if (userData.lastname) lastName = userData.lastname;
-                else if (userData.lastName) lastName = userData.lastName;
-
-                if (userData.name && userData.name.includes(' ')) {
+            // Получаем имя
+            if (userData.name) {
+                if (userData.name.includes(' ')) {
                     const nameParts = userData.name.split(' ');
-                    firstName = nameParts[0] || firstName;
-                    lastName = nameParts.slice(1).join(' ') || lastName;
+                    firstName = nameParts[0] || '';
+                    lastName = nameParts.slice(1).join(' ') || '';
+                } else {
+                    firstName = userData.name;
                 }
+            } else if (userData.firstName) {
+                firstName = userData.firstName;
+            } else if (userData.username) {
+                firstName = userData.username;
+            }
 
-                let shortName = firstName;
-                if (lastName) {
-                    const lastNameInitial = lastName.charAt(0);
-                    shortName += ' ' + lastNameInitial + '.';
+            // Получаем фамилию
+            if (!lastName) {
+                if (userData.lastname) {
+                    lastName = userData.lastname;
+                } else if (userData.lastName) {
+                    lastName = userData.lastName;
                 }
-                
-                userMenuName.textContent = shortName;
             }
+
+            // Формируем короткое имя
+            let shortName = firstName || 'Пользователь';
+            if (lastName) {
+                const lastNameInitial = lastName.charAt(0);
+                shortName += ' ' + lastNameInitial + '.';
+            }
+            
+            userMenuName.textContent = shortName;
         } else {
-            // Если данных нет, используем значение по умолчанию
-            if (userMenuName) {
-                userMenuName.textContent = 'Никита Н';
-            }
+            // Если данных нет в localStorage
+            userMenuName.textContent = 'Никита Н';
+            
+            // Создаем тестового пользователя если его нет
+            const testUser = {
+                firstName: 'Никита',
+                lastName: 'Никитин',
+                username: 'Nikiaz28',
+                about: 'Люблю сосиски с кепчуком, макарошки с сыром и программировать на ассемблере.',
+                name: 'Никита Никитин'
+            };
+            localStorage.setItem('currentUser', JSON.stringify(testUser));
         }
     } catch (error) {
         console.error('Ошибка загрузки данных пользователя:', error);
         const userMenuName = document.getElementById('userMenuName');
         if (userMenuName) {
-            userMenuName.textContent = 'Никита Н';
+            userMenuName.textContent = 'Пользователь';
         }
     }
 }
@@ -73,35 +97,19 @@ function highlightActiveMenuItem() {
     if (editProfileLink) {
         editProfileLink.style.color = '#155DFC';
         editProfileLink.style.textDecoration = 'underline';
-        editProfileLink.style.fontWeight = 'normal'; // Убираем полужирный
-        
-        // НЕ изменяем цвет шестеренки
-        const menuItem = editProfileLink.closest('.menu-item-with-icon');
-        if (menuItem) {
-            const icon = menuItem.querySelector('.menu-icon');
-            if (icon) {
-                // Оставляем иконку черной
-                icon.style.filter = 'none';
-            }
-        }
-    }
-    
-    // Для ссылки "Профиль" убираем подчеркивание
-    const profileLink = document.querySelector('a[href="prof.html"]');
-    if (profileLink) {
-        profileLink.classList.remove('main-link');
-        profileLink.style.color = '#000000';
-        profileLink.style.textDecoration = 'none';
-        profileLink.style.fontWeight = 'normal';
+        editProfileLink.style.fontWeight = 'normal';
     }
 }
 
-// Инициализация меню навигации
+// Инициализация меню навигации (ОБНОВЛЕННАЯ ДЛЯ МОБИЛЬНЫХ)
 function initNavigation() {
     const userMenu = document.getElementById('userMenu');
     const dropdownMenu = document.getElementById('dropdownMenu');
 
-    if (!userMenu || !dropdownMenu) return;
+    if (!userMenu || !dropdownMenu) {
+        console.warn('Элементы меню не найдены');
+        return;
+    }
 
     function toggleMenu(e) {
         e.preventDefault();
@@ -110,29 +118,39 @@ function initNavigation() {
         userMenu.classList.toggle('active');
     }
 
-    function closeMenu() {
-        dropdownMenu.classList.remove('active');
-        userMenu.classList.remove('active');
+    function closeMenu(e) {
+        // Закрываем меню только если клик был вне меню
+        if (!userMenu.contains(e.target) && !dropdownMenu.contains(e.target)) {
+            dropdownMenu.classList.remove('active');
+            userMenu.classList.remove('active');
+        }
     }
 
-    // Удаляем старые обработчики событий
+    // Удаляем старые обработчики
     userMenu.removeEventListener('click', toggleMenu);
-    userMenu.removeEventListener('touchstart', toggleMenu);
+    userMenu.removeEventListener('touchend', toggleMenu);
     document.removeEventListener('click', closeMenu);
-    document.removeEventListener('touchstart', closeMenu);
+    document.removeEventListener('touchend', closeMenu);
 
-    // Добавляем новые обработчики событий
+    // Добавляем новые обработчики (используем touchend для мобильных)
     userMenu.addEventListener('click', toggleMenu);
-    userMenu.addEventListener('touchstart', toggleMenu);
+    userMenu.addEventListener('touchend', function(e) {
+        e.preventDefault();
+        toggleMenu(e);
+    });
 
     document.addEventListener('click', closeMenu);
-    document.addEventListener('touchstart', closeMenu);
+    document.addEventListener('touchend', function(e) {
+        // Для мобильных устройств
+        closeMenu(e);
+    });
 
+    // Предотвращаем закрытие при клике внутри меню
     dropdownMenu.addEventListener('click', function(e) {
         e.stopPropagation();
     });
     
-    dropdownMenu.addEventListener('touchstart', function(e) {
+    dropdownMenu.addEventListener('touchend', function(e) {
         e.stopPropagation();
     });
 }
@@ -241,20 +259,42 @@ function saveProfileChanges() {
     }
 }
 
-// Основная инициализация
+// Функция для мобильных устройств
+function initMobileSupport() {
+    // Добавляем CSS класс для мобильных
+    if (window.innerWidth <= 768) {
+        document.body.classList.add('is-mobile');
+        
+        // Увеличиваем область касания для элементов меню
+        const touchElements = document.querySelectorAll('.part3, .menu-link, .btn-save, .btn-cancel');
+        touchElements.forEach(el => {
+            el.style.minHeight = '44px';
+            el.style.display = 'flex';
+            el.style.alignItems = 'center';
+            el.style.justifyContent = 'center';
+        });
+    }
+}
+
+// Основная инициализация (ОБНОВЛЕННАЯ)
 document.addEventListener('DOMContentLoaded', function() {
     console.log('Страница редактирования профиля загружена');
     
-    // 1. Загружаем данные пользователя
+    // 1. Инициализируем поддержку мобильных устройств
+    initMobileSupport();
+    
+    // 2. Загружаем данные пользователя СРАЗУ
     loadUserData();
     
-    // 2. Инициализируем навигацию
-    initNavigation();
+    // 3. Инициализируем навигацию
+    setTimeout(() => {
+        initNavigation();
+    }, 100);
     
-    // 3. Загрузка текущих данных пользователя в форму
+    // 4. Загрузка текущих данных пользователя в форму
     loadCurrentProfileData();
     
-    // 4. Обработчик формы
+    // 5. Обработчик формы
     const profileForm = document.getElementById('profileEditForm');
     if (profileForm) {
         profileForm.addEventListener('submit', function(e) {
@@ -263,7 +303,7 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // 5. Обработчик загрузки аватара
+    // 6. Обработчик загрузки аватара
     const avatarInput = document.getElementById('avatar');
     const avatarPreview = document.querySelector('.avatar-preview');
     
@@ -286,9 +326,21 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
     
-    // 6. Выделение активного пункта меню
+    // 7. Выделение активного пункта меню
     setTimeout(() => {
         highlightActiveMenuItem();
-    }, 100);
+    }, 200);
+    
+    // 8. Добавляем обработчик ресайза для мобильных
+    window.addEventListener('resize', function() {
+        initMobileSupport();
+    });
 });
 
+// Также добавьте обработчик для предотвращения масштабирования на мобильных
+window.addEventListener('load', function() {
+    // Фиксируем данные в localStorage при загрузке
+    setTimeout(() => {
+        loadUserData();
+    }, 500);
+});
