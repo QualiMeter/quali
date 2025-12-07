@@ -1,5 +1,87 @@
 /* edit-profile.css - стили для страницы редактирования профиля */
 
+/* ИСПРАВЛЕНИЕ: Убираем display: none из базовых стилей */
+.dropdown-menu {
+    position: absolute;
+    top: 100%;
+    right: 25px;
+    background: white;
+    border-radius: 10px;
+    box-shadow: 0 4px 0px rgba(0,0,0,0.15);
+    padding: 20px;
+    padding-bottom: 5px;
+    padding-top: 5px;
+    padding-right: 25px;
+    margin-top: 0px;
+    margin-right: 5px;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-10px);
+    transition: all 0.3s ease;
+    z-index: 1000;
+    display: block !important; /* ИСПРАВЛЕНИЕ: меняем на block */
+}
+
+.dropdown-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+.part3.active {
+    background-color: #f0f4ff;
+}
+
+.user-icon, .arrow-icon {
+    transition: all 0.3s ease;
+}
+
+.part3.active .arrow-icon {
+    transform: rotate(180deg);
+}
+
+/* Стили для активных/неактивных ссылок в меню */
+.menu-link.active {
+    color: #155DFC !important;
+    font-weight: bold;
+    background-color: rgba(21, 93, 252, 0.1);
+    border-radius: 6px;
+    padding: 8px 12px !important;
+    margin: 2px 0;
+    position: relative;
+}
+
+.menu-link.active::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 4px;
+    background-color: #155DFC;
+    border-radius: 0 2px 2px 0;
+}
+
+.menu-link.inactive {
+    color: #999 !important;
+    opacity: 0.7;
+}
+
+.menu-link.inactive:hover {
+    color: #666 !important;
+    opacity: 0.9;
+}
+
+/* Стили для иконок */
+/*
+.menu-link.active .menu-icon {
+    filter: invert(24%) sepia(98%) saturate(2778%) hue-rotate(212deg) brightness(98%) contrast(101%);
+}
+
+.menu-link.inactive .menu-icon {
+    filter: grayscale(100%) opacity(0.5);
+}
+*/
 @font-face {
     font-family: 'lnb';
     src: url('fonts/Lusitana-Bold.ttf') format('truetype');
@@ -16,6 +98,58 @@
     font-display: swap;
 }
 
+/* Остальные стили остаются без изменений... */
+/* edit-profile.css - стили для страницы редактирования профиля */
+
+@font-face {
+    font-family: 'lnb';
+    src: url('fonts/Lusitana-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ln';
+    src: url('fonts/Lusitana-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+/* Стили для меню навигации */
+.dropdown-menu.active {
+    display: block !important;
+    opacity: 1 !important;
+    transform: translateY(0) !important;
+}
+
+.part3.active {
+    background-color: #f0f4ff;
+}
+
+.user-icon, .arrow-icon {
+    transition: all 0.3s ease;
+}
+
+.part3.active .arrow-icon {
+    transform: rotate(180deg);
+}
+
+/* Анимация для выпадающего меню */
+@keyframes slideDown {
+    from {
+        opacity: 0;
+        transform: translateY(-10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.dropdown-menu {
+    animation: slideDown 0.3s ease forwards;
+}
 /* Основной контент */
 .edit-profile-content {
     max-width: 1000px;
@@ -304,7 +438,30 @@
     color: #666;
     flex: 1;
 }
+/* Дополнительные стили для выделения активной ссылки */
+.menu-link.active-link {
+    color: #155DFC !important;
+    text-decoration: underline !important;
+    font-weight: bold !important;
+}
 
+.menu-item-with-icon.active-item {
+    background-color: #f0f4ff !important;
+    border-radius: 6px;
+}
+
+.menu-link.active-link .menu-icon {
+    filter: invert(24%) sepia(98%) saturate(2778%) hue-rotate(212deg) brightness(98%) contrast(101%) !important;
+}
+
+.menu-link.inactive-link {
+    color: #999 !important;
+    text-decoration: none !important;
+}
+
+.menu-link.inactive-link:hover {
+    color: #666 !important;
+}
 /* Адаптивность */
 @media (max-width: 768px) {
     .edit-profile-content {
