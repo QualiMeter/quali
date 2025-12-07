@@ -1,89 +1,141 @@
-// JavaScript для страницы редактирования профиля
+// edit-profile.js - ИСПРАВЛЕННАЯ ВЕРСИЯ
 
-// Выделение активной ссылки в выпадающем меню
-function highlightActiveMenuItem() {
-    // Убираем активный класс со всех ссылок меню
-    const menuLinks = document.querySelectorAll('.menu-link');
-    menuLinks.forEach(link => {
-        link.classList.remove('active');
-        link.classList.remove('inactive');
-    });
-    
-    // Добавляем активный класс к ссылке "Настройки" (она ведет на edit-profile.html)
-    const editProfileLink = document.querySelector('a[href="edit-profile.html"]');
-    if (editProfileLink) {
-        editProfileLink.classList.add('active');
-    }
-    
-    // Специально выделяем ссылку "Профиль" как неактивную
-    const profileLink = document.querySelector('a[href="prof.html"]');
-    if (profileLink) {
-        profileLink.classList.add('inactive');
+// Функция загрузки данных пользователя
+function loadUserData() {
+    try {
+        const userDataStr = localStorage.getItem('currentUser');
+        const userMenuName = document.getElementById('userMenuName');
+        
+        if (userDataStr) {
+            const userData = JSON.parse(userDataStr);
+            if (userMenuName) {
+                let firstName = '';
+                let lastName = '';
+
+                if (userData.name) firstName = userData.name;
+                else if (userData.firstName) firstName = userData.firstName;
+                else if (userData.username) firstName = userData.username;
+
+                if (userData.lastname) lastName = userData.lastname;
+                else if (userData.lastName) lastName = userData.lastName;
+
+                if (userData.name && userData.name.includes(' ')) {
+                    const nameParts = userData.name.split(' ');
+                    firstName = nameParts[0] || firstName;
+                    lastName = nameParts.slice(1).join(' ') || lastName;
+                }
+
+                let shortName = firstName;
+                if (lastName) {
+                    const lastNameInitial = lastName.charAt(0);
+                    shortName += ' ' + lastNameInitial + '.';
+                }
+                
+                userMenuName.textContent = shortName;
+            }
+        } else {
+            // Если данных нет, используем значение по умолчанию
+            if (userMenuName) {
+                userMenuName.textContent = 'Никита Н';
+            }
+        }
+    } catch (error) {
+        console.error('Ошибка загрузки данных пользователя:', error);
+        const userMenuName = document.getElementById('userMenuName');
+        if (userMenuName) {
+            userMenuName.textContent = 'Никита Н';
+        }
     }
 }
 
-document.addEventListener('DOMContentLoaded', function() {
-    // Загружаем данные пользователя
-    loadUserData();
+// Выделение активной ссылки в выпадающем меню
+function highlightActiveMenuItem() {
+    // Убираем все стили активных ссылок
+    const menuLinks = document.querySelectorAll('.menu-link');
+    menuLinks.forEach(link => {
+        // Убираем все классы
+        link.classList.remove('active');
+        link.classList.remove('inactive');
+        
+        // Убираем подчеркивание
+        link.style.textDecoration = 'none';
+        link.style.color = '#000000';
+        link.style.fontWeight = 'normal';
+    });
     
-    // Инициализация навигации
+    // Убираем стиль main-link у всех ссылок
+    menuLinks.forEach(link => {
+        link.classList.remove('main-link');
+    });
+    
+    // Добавляем стиль активной ссылки к "Настройки"
+    const editProfileLink = document.querySelector('a[href="edit-profile.html"]');
+    if (editProfileLink) {
+        editProfileLink.style.color = '#155DFC';
+        editProfileLink.style.textDecoration = 'underline';
+        editProfileLink.style.fontWeight = 'normal'; // Убираем полужирный
+        
+        // НЕ изменяем цвет шестеренки
+        const menuItem = editProfileLink.closest('.menu-item-with-icon');
+        if (menuItem) {
+            const icon = menuItem.querySelector('.menu-icon');
+            if (icon) {
+                // Оставляем иконку черной
+                icon.style.filter = 'none';
+            }
+        }
+    }
+    
+    // Для ссылки "Профиль" убираем подчеркивание
+    const profileLink = document.querySelector('a[href="prof.html"]');
+    if (profileLink) {
+        profileLink.classList.remove('main-link');
+        profileLink.style.color = '#000000';
+        profileLink.style.textDecoration = 'none';
+        profileLink.style.fontWeight = 'normal';
+    }
+}
+
+// Инициализация меню навигации
+function initNavigation() {
     const userMenu = document.getElementById('userMenu');
     const dropdownMenu = document.getElementById('dropdownMenu');
 
-    if (userMenu && dropdownMenu) {
-        userMenu.addEventListener('click', function(e) {
-            e.preventDefault();
-            e.stopPropagation();
-            dropdownMenu.classList.toggle('active');
-            userMenu.classList.toggle('active');
-        });
+    if (!userMenu || !dropdownMenu) return;
 
-        document.addEventListener('click', function(e) {
-            if (!userMenu.contains(e.target) && !dropdownMenu.contains(e.target)) {
-                dropdownMenu.classList.remove('active');
-                userMenu.classList.remove('active');
-            }
-        });
+    function toggleMenu(e) {
+        e.preventDefault();
+        e.stopPropagation();
+        dropdownMenu.classList.toggle('active');
+        userMenu.classList.toggle('active');
     }
-    
-    // Загрузка текущих данных пользователя
-    loadCurrentProfileData();
-    
-    // Обработчик формы
-    const profileForm = document.getElementById('profileEditForm');
-    if (profileForm) {
-        profileForm.addEventListener('submit', function(e) {
-            e.preventDefault();
-            saveProfileChanges();
-        });
+
+    function closeMenu() {
+        dropdownMenu.classList.remove('active');
+        userMenu.classList.remove('active');
     }
+
+    // Удаляем старые обработчики событий
+    userMenu.removeEventListener('click', toggleMenu);
+    userMenu.removeEventListener('touchstart', toggleMenu);
+    document.removeEventListener('click', closeMenu);
+    document.removeEventListener('touchstart', closeMenu);
+
+    // Добавляем новые обработчики событий
+    userMenu.addEventListener('click', toggleMenu);
+    userMenu.addEventListener('touchstart', toggleMenu);
+
+    document.addEventListener('click', closeMenu);
+    document.addEventListener('touchstart', closeMenu);
+
+    dropdownMenu.addEventListener('click', function(e) {
+        e.stopPropagation();
+    });
     
-    // Обработчик загрузки аватара
-    const avatarInput = document.getElementById('avatar');
-    const avatarPreview = document.querySelector('.avatar-preview');
-    
-    if (avatarInput && avatarPreview) {
-        avatarPreview.addEventListener('click', function() {
-            avatarInput.click();
-        });
-        
-        avatarInput.addEventListener('change', function(e) {
-            if (e.target.files && e.target.files[0]) {
-                const reader = new FileReader();
-                reader.onload = function(event) {
-                    const img = avatarPreview.querySelector('.current-avatar');
-                    if (img) {
-                        img.src = event.target.result;
-                    }
-                };
-                reader.readAsDataURL(e.target.files[0]);
-            }
-        });
-    }
-    
-    // Выделение активного пункта меню
-    highlightActiveMenuItem();
-});
+    dropdownMenu.addEventListener('touchstart', function(e) {
+        e.stopPropagation();
+    });
+}
 
 // Функция загрузки текущих данных профиля
 function loadCurrentProfileData() {
@@ -93,14 +145,16 @@ function loadCurrentProfileData() {
             const userData = JSON.parse(userDataStr);
             
             // Заполняем поля формы данными из localStorage
-            if (userData.firstName) {
-                document.getElementById('firstName').value = userData.firstName;
-                document.getElementById('currentFirstName').textContent = userData.firstName;
+            if (userData.firstName || userData.name) {
+                const firstName = userData.firstName || (userData.name ? userData.name.split(' ')[0] : '');
+                document.getElementById('firstName').value = firstName;
+                document.getElementById('currentFirstName').textContent = firstName;
             }
             
-            if (userData.lastName) {
-                document.getElementById('lastName').value = userData.lastName;
-                document.getElementById('currentLastName').textContent = userData.lastName;
+            if (userData.lastName || userData.name) {
+                const lastName = userData.lastName || (userData.name ? userData.name.split(' ').slice(1).join(' ') : '');
+                document.getElementById('lastName').value = lastName;
+                document.getElementById('currentLastName').textContent = lastName;
             }
             
             if (userData.username) {
@@ -164,15 +218,7 @@ function saveProfileChanges() {
         alert('Профиль успешно обновлен!');
         
         // Обновляем отображение в меню
-        const userMenuName = document.getElementById('userMenuName');
-        if (userMenuName) {
-            let shortName = updatedData.firstName;
-            if (updatedData.lastName) {
-                const lastNameInitial = updatedData.lastName.charAt(0);
-                shortName += ' ' + lastNameInitial + '.';
-            }
-            userMenuName.textContent = shortName;
-        }
+        loadUserData();
         
         // Обновляем текущие значения на странице
         document.getElementById('currentFirstName').textContent = updatedData.firstName;
@@ -181,13 +227,68 @@ function saveProfileChanges() {
         document.getElementById('currentAbout').textContent = updatedData.about;
         
         // Обновляем таблицу текущих данных
-        document.querySelectorAll('.data-row')[0].querySelector('.data-value').textContent = updatedData.firstName;
-        document.querySelectorAll('.data-row')[1].querySelector('.data-value').textContent = updatedData.lastName;
-        document.querySelectorAll('.data-row')[2].querySelector('.data-value').textContent = updatedData.username;
-        document.querySelectorAll('.data-row')[3].querySelector('.data-value').textContent = updatedData.about;
+        const dataRows = document.querySelectorAll('.data-row');
+        if (dataRows.length >= 4) {
+            dataRows[0].querySelector('.data-value').textContent = updatedData.firstName;
+            dataRows[1].querySelector('.data-value').textContent = updatedData.lastName;
+            dataRows[2].querySelector('.data-value').textContent = updatedData.username;
+            dataRows[3].querySelector('.data-value').textContent = updatedData.about;
+        }
         
     } catch (error) {
         console.error('Ошибка сохранения профиля:', error);
         alert('Произошла ошибка при сохранении профиля');
     }
 }
+
+// Основная инициализация
+document.addEventListener('DOMContentLoaded', function() {
+    console.log('Страница редактирования профиля загружена');
+    
+    // 1. Загружаем данные пользователя
+    loadUserData();
+    
+    // 2. Инициализируем навигацию
+    initNavigation();
+    
+    // 3. Загрузка текущих данных пользователя в форму
+    loadCurrentProfileData();
+    
+    // 4. Обработчик формы
+    const profileForm = document.getElementById('profileEditForm');
+    if (profileForm) {
+        profileForm.addEventListener('submit', function(e) {
+            e.preventDefault();
+            saveProfileChanges();
+        });
+    }
+    
+    // 5. Обработчик загрузки аватара
+    const avatarInput = document.getElementById('avatar');
+    const avatarPreview = document.querySelector('.avatar-preview');
+    
+    if (avatarInput && avatarPreview) {
+        avatarPreview.addEventListener('click', function() {
+            avatarInput.click();
+        });
+        
+        avatarInput.addEventListener('change', function(e) {
+            if (e.target.files && e.target.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(event) {
+                    const img = avatarPreview.querySelector('.current-avatar');
+                    if (img) {
+                        img.src = event.target.result;
+                    }
+                };
+                reader.readAsDataURL(e.target.files[0]);
+            }
+        });
+    }
+    
+    // 6. Выделение активного пункта меню
+    setTimeout(() => {
+        highlightActiveMenuItem();
+    }, 100);
+});
+
