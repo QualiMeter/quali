@@ -463,6 +463,53 @@
     color: #666 !important;
 }
 /* Адаптивность */
+/* Дополнительные стили для мобильной навигации */
+@media (max-width: 768px) {
+    /* Улучшаем видимость меню на мобильных */
+    .dropdown-menu {
+        max-height: 70vh;
+        overflow-y: auto;
+        -webkit-overflow-scrolling: touch;
+        box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+        border: 2px solid #155DFC;
+    }
+    
+    /* Увеличиваем область касания для меню пользователя */
+    .part3 {
+        min-height: 50px !important;
+        cursor: pointer;
+        user-select: none;
+        -webkit-tap-highlight-color: transparent;
+    }
+    
+    /* Убираем текст "Загрузка..." если висит */
+    #userMenuName:empty:before,
+    #userMenuName:contains("Загрузка..."):after {
+        content: 'Пользователь';
+    }
+    
+    /* Скрываем "Загрузка..." если висит долго */
+    #userMenuName.loading {
+        position: relative;
+    }
+    
+    #userMenuName.loading:after {
+        content: 'Пользователь';
+        position: absolute;
+        left: 0;
+        top: 0;
+        background: white;
+    }
+}
+
+/* Стили для тела при мобильной версии */
+body.is-mobile {
+    overflow-x: hidden;
+}
+
+body.is-mobile .edit-profile-content {
+    margin-top: 20px !important;
+}
 @media (max-width: 768px) {
     .edit-profile-content {
         margin: 20px 15px;
