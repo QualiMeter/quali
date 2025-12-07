@@ -331,4 +331,97 @@
     .item-number {
         margin-bottom: 5px;
     }
+
+}
+/* Добавьте этот блок в python-test.css после всех стилей */
+
+/* Стили для кастомного скроллбара страницы */
+.test-page-content {
+    /* Добавляем ползунок */
+    height: calc(100vh - 180px);
+    overflow-y: auto;
+}
+
+/* Кастомный ползунок для контента */
+.test-page-content::-webkit-scrollbar {
+    width: 12px;
+}
+
+.test-page-content::-webkit-scrollbar-track {
+    background: rgba(240, 244, 255, 0.5);
+    border-radius: 10px;
+    margin: 10px 0;
+}
+
+.test-page-content::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #155DFC 0%, #4A90E2 100%);
+    border-radius: 10px;
+    border: 3px solid rgba(240, 244, 255, 0.5);
+    background-clip: padding-box;
+    min-height: 60px;
+}
+
+.test-page-content::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #1250d8 0%, #3a7bc8 100%);
+}
+
+.test-page-content::-webkit-scrollbar-button {
+    display: none;
+}
+
+/* Для Firefox */
+.test-page-content {
+    scrollbar-width: thin;
+    scrollbar-color: #155DFC rgba(240, 244, 255, 0.5);
+}
+
+/* Также добавьте ползунки для внутренних блоков если нужно */
+.content-section {
+    max-height: 400px;
+    overflow-y: auto;
+}
+
+.content-section::-webkit-scrollbar {
+    width: 8px;
+}
+
+.content-section::-webkit-scrollbar-track {
+    background: rgba(240, 244, 255, 0.3);
+    border-radius: 10px;
+    margin: 5px 0;
+}
+
+.content-section::-webkit-scrollbar-thumb {
+    background: linear-gradient(180deg, #155DFC 0%, #4A90E2 100%);
+    border-radius: 10px;
+    border: 2px solid rgba(240, 244, 255, 0.3);
+    background-clip: padding-box;
+    min-height: 40px;
+}
+
+.content-section::-webkit-scrollbar-thumb:hover {
+    background: linear-gradient(180deg, #1250d8 0%, #3a7bc8 100%);
+}
+
+.content-section::-webkit-scrollbar-button {
+    display: none;
+}
+
+/* Для Firefox для content-section */
+.content-section {
+    scrollbar-width: thin;
+    scrollbar-color: #155DFC rgba(240, 244, 255, 0.3);
+}
+
+/* Адаптивность для ползунков */
+@media (max-width: 768px) {
+    .test-page-content {
+        height: auto;
+        overflow-y: visible;
+    }
+    
+    .content-section {
+        max-height: none;
+        overflow-y: visible;
+    }
 }
