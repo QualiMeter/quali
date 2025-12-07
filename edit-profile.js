@@ -164,4 +164,36 @@ function saveProfileChanges() {
         console.error('Ошибка сохранения профиля:', error);
         alert('Произошла ошибка при сохранении профиля');
     }
+
 }
+document.addEventListener("DOMContentLoaded", function () {
+  loadUserData();
+
+  const userMenu = document.getElementById("userMenu");
+  const dropdownMenu = document.getElementById("dropdownMenu");
+
+  function toggleMenu(e) {
+    e.preventDefault();
+    e.stopPropagation();
+    dropdownMenu.classList.toggle("active");
+    userMenu.classList.toggle("active");
+  }
+
+  userMenu.addEventListener("click", toggleMenu);
+  userMenu.addEventListener("touchstart", toggleMenu);
+
+  function closeMenu() {
+    dropdownMenu.classList.remove("active");
+    userMenu.classList.remove("active");
+  }
+
+  document.addEventListener("click", closeMenu);
+  document.addEventListener("touchstart", closeMenu);
+
+  dropdownMenu.addEventListener("click", function (e) {
+    e.stopPropagation();
+  });
+  dropdownMenu.addEventListener("touchstart", function (e) {
+    e.stopPropagation();
+  });
+});
