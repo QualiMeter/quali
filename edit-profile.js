@@ -1,4 +1,27 @@
 // JavaScript для страницы редактирования профиля
+
+// Выделение активной ссылки в выпадающем меню
+function highlightActiveMenuItem() {
+    // Убираем активный класс со всех ссылок меню
+    const menuLinks = document.querySelectorAll('.menu-link');
+    menuLinks.forEach(link => {
+        link.classList.remove('active');
+        link.classList.remove('inactive');
+    });
+    
+    // Добавляем активный класс к ссылке "Настройки" (она ведет на edit-profile.html)
+    const editProfileLink = document.querySelector('a[href="edit-profile.html"]');
+    if (editProfileLink) {
+        editProfileLink.classList.add('active');
+    }
+    
+    // Специально выделяем ссылку "Профиль" как неактивную
+    const profileLink = document.querySelector('a[href="prof.html"]');
+    if (profileLink) {
+        profileLink.classList.add('inactive');
+    }
+}
+
 document.addEventListener('DOMContentLoaded', function() {
     // Загружаем данные пользователя
     loadUserData();
@@ -57,6 +80,9 @@ document.addEventListener('DOMContentLoaded', function() {
             }
         });
     }
+    
+    // Выделение активного пункта меню
+    highlightActiveMenuItem();
 });
 
 // Функция загрузки текущих данных профиля
@@ -165,4 +191,3 @@ function saveProfileChanges() {
         alert('Произошла ошибка при сохранении профиля');
     }
 }
-
