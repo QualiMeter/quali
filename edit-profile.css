@@ -503,73 +503,70 @@
 }
 
 /* Стили для тела при мобильной версии */
-body.is-mobile {
-    overflow-x: hidden;
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .tests-grid {
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 25px;
+    }
 }
 
-body.is-mobile .edit-profile-content {
-    margin-top: 20px !important;
-}
 @media (max-width: 768px) {
-    .edit-profile-content {
+    .main-content {
         margin: 20px 15px;
-        padding: 25px 15px;
+        padding: 30px 15px;
         height: auto;
         overflow-y: visible;
     }
     
-    .edit-profile-header h1 {
-        font-size: 28px;
+    .page-header h1 {
+        font-size: 32px;
     }
-    
-    .form-actions {
-        flex-direction: column;
+
+    .page-header .subtitle {
+        font-size: 18px;
     }
-    
-    .btn-cancel,
-    .btn-save {
-        width: 100%;
+
+    .tests-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
     }
-    
-    .data-row {
-        flex-direction: column;
-        gap: 5px;
+
+    .test-item {
+        padding: 25px;
     }
-    
-    .data-label {
-        width: 100%;
+
+    .test-title {
+        font-size: 22px;
     }
 }
 
 @media (max-width: 480px) {
-    .avatar-preview {
+    .page-header h1 {
+        font-size: 28px;
+    }
+
+    .page-header .subtitle {
+        font-size: 16px;
+    }
+
+    .test-item {
+        padding: 20px;
+    }
+
+    .test-title {
+        font-size: 20px;
+        padding-left: 25px;
+    }
+
+    .test-meta {
         flex-direction: column;
-        text-align: center;
+        gap: 15px;
+        align-items: stretch;
+    }
+
+    .test-btn {
+        width: 100%;
     }
 }
-/* edit-profile.css - дополнительное исправление для меню */
 
-/* Убираем синий фон при активном состоянии */
-.part3.active {
-    background-color: #FFFFFF !important;
-    box-shadow: none !important;
-}
-
-/* Стрелка при активном состоянии */
-.part3.active .arrow-icon {
-    transform: rotate(180deg);
-    transition: transform 0.3s ease;
-}
-
-/* Убираем эффект наведения на мобильных */
-@media (max-width: 768px) {
-    .part3:hover,
-    .part3:active,
-    .part3:focus {
-        background-color: #FFFFFF !important;
-    }
-    
-    .part3.active {
-        background-color: #FFFFFF !important;
-    }
-}
