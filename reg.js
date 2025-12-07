@@ -80,8 +80,6 @@ document.addEventListener("DOMContentLoaded", function () {
         const userData = {
           id: null,
           name: name,
-          lastname: lastname,
-          patronym: null,
           roleId: '123e4567-e89b-12d3-a456-426614174000',
           email: email,
           isEmailConfirmed: false,
@@ -140,8 +138,6 @@ document.addEventListener("DOMContentLoaded", function () {
             const userData = {
               id: null,
               name: name,
-              lastname: lastname,
-              patronym: null,
               roleId: '123e4567-e89b-12d3-a456-426614174000',
               email: email,
               isEmailConfirmed: false,
@@ -223,6 +219,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+
 
 
 
