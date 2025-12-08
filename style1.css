@@ -363,7 +363,8 @@ body{
 .menu-link:hover {
     color: #155DFC !important;
 }
-
+/*promotion.html
+plan.html*/
 .menu-item-with-icon:hover {
     background-color: #f0f4ff !important;
 }
@@ -371,6 +372,9 @@ body{
 .menu-link.main-link {
     text-decoration: underline !important;
     color: #155DFC !important;
+}
+.grade .star{
+    filter: brightness(0) saturate(100%) invert(73%) sepia(98%) saturate(676%) hue-rotate(360deg);
 }
 /* Адаптивность для мобильных устройств */
 /* ДОБАВЬТЕ В КОНЕЦ style1.css */
