@@ -1,0 +1,359 @@
+/* plan.css - стили для контента плана развития */
+@font-face {
+    font-family: 'lnb';
+    src: url('fonts/Lusitana-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ln';
+    src: url('fonts/Lusitana-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+.plan-content {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 40px;
+    position: relative;
+    z-index: 1;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    /* Добавляем фиксированную высоту и скролл для ПК */
+    height: calc(100vh - 180px);
+    overflow-y: auto;
+    margin-top: 20px;
+    z-index: 1;
+}
+
+/* Стили для скроллбара */
+.plan-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.plan-content::-webkit-scrollbar-track {
+    background: #F0F4FF;
+    border-radius: 4px;
+}
+
+.plan-content::-webkit-scrollbar-thumb {
+    background: #155DFC;
+    border-radius: 4px;
+}
+
+.plan-content::-webkit-scrollbar-thumb:hover {
+    background: #0D4BC9;
+}
+
+.plan-header {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.plan-header h1 {
+    font-family: 'lnb', sans-serif;
+    font-size: 42px;
+    color: #155DFC;
+    margin-bottom: 15px;
+}
+
+.plan-header .subtitle {
+    font-family: 'ln', sans-serif;
+    font-size: 20px;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* Таймлайн */
+.timeline {
+    position: relative;
+    margin: 40px 0;
+    padding-left: 30px;
+}
+
+.timeline::before {
+    content: '';
+    position: absolute;
+    left: 20px;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: #E0E0E0;
+}
+
+.timeline-item {
+    position: relative;
+    margin-bottom: 50px;
+    padding-left: 40px;
+}
+
+.timeline-marker {
+    position: absolute;
+    left: -30px;
+    top: 0;
+    width: 40px;
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.marker-circle {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: #155DFC;
+    border: 4px solid #FFFFFF;
+    box-shadow: 0 0 0 3px #155DFC;
+}
+
+.timeline-item.current .marker-circle {
+    background: #FDC700;
+    box-shadow: 0 0 0 3px #FDC700;
+    animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+    0% { box-shadow: 0 0 0 0 rgba(253, 199, 0, 0.4); }
+    70% { box-shadow: 0 0 0 10px rgba(253, 199, 0, 0); }
+    100% { box-shadow: 0 0 0 0 rgba(253, 199, 0, 0); }
+}
+
+.timeline-item.upcoming .marker-circle {
+    background: #4F86FF;
+    box-shadow: 0 0 0 3px #4F86FF;
+}
+
+.timeline-item.future .marker-circle {
+    background: #A2BFFE;
+    box-shadow: 0 0 0 3px #A2BFFE;
+}
+
+.timeline-content h3 {
+    font-family: 'lnb', sans-serif;
+    font-size: 24px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.stage-card {
+    background: #F9FAFB;
+    border-radius: 15px;
+    padding: 25px;
+    border-left: 5px solid #155DFC;
+}
+
+.timeline-item.current .stage-card {
+    border-left-color: #FDC700;
+}
+
+.timeline-item.upcoming .stage-card {
+    border-left-color: #4F86FF;
+}
+
+.timeline-item.future .stage-card {
+    border-left-color: #A2BFFE;
+}
+
+.stage-card h4 {
+    font-family: 'lnb', sans-serif;
+    font-size: 20px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.stage-card p {
+    font-family: 'ln', sans-serif;
+    font-size: 16px;
+    color: #666;
+    margin-bottom: 15px;
+}
+
+.progress {
+    height: 8px;
+    background: #E0E0E0;
+    border-radius: 4px;
+    margin: 20px 0;
+    overflow: hidden;
+}
+
+.progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, #155DFC, #4A90E2);
+    border-radius: 4px;
+    transition: width 0.5s ease;
+}
+
+.timeline-item.current .progress-bar {
+    background: linear-gradient(90deg, #FDC700, #FFD700);
+}
+
+.timeline-item.upcoming .progress-bar {
+    background: linear-gradient(90deg, #4F86FF, #6BA3FF);
+}
+
+.progress-text {
+    font-family: 'ln', sans-serif;
+    font-size: 14px;
+    color: #666;
+}
+
+/* Рекомендации */
+.recommendations {
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+.recommendations h2 {
+    font-family: 'lnb', sans-serif;
+    font-size: 32px;
+    color: #155DFC;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.courses-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 25px;
+}
+
+.course-card {
+    background: #FFFFFF;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #E0E0E0;
+    transition: all 0.3s ease;
+}
+
+.course-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.course-card h4 {
+    font-family: 'lnb', sans-serif;
+    font-size: 18px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.course-card p {
+    font-family: 'ln', sans-serif;
+    font-size: 14px;
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.5;
+}
+
+.course-tag {
+    display: inline-block;
+    font-family: 'ln', sans-serif;
+    font-size: 12px;
+    padding: 4px 12px;
+    border-radius: 20px;
+    background: #F0F4FF;
+    color: #155DFC;
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+    .plan-content {
+        margin: 20px 15px;
+        padding: 30px 20px;
+        height: auto; /* Убираем фиксированную высоту на мобильных */
+        overflow-y: visible; /* Убираем скролл на мобильных */
+    }
+    
+    .plan-header h1 {
+        font-size: 32px;
+    }
+    
+    .plan-header .subtitle {
+        font-size: 18px;
+    }
+    
+    .timeline {
+        padding-left: 20px;
+    }
+    
+    .timeline::before {
+        left: 10px;
+    }
+    
+    .timeline-item {
+        padding-left: 30px;
+    }
+    
+    .timeline-marker {
+        left: -20px;
+    }
+    
+    .stage-card {
+        padding: 20px;
+    }
+    
+    .courses-grid {
+        grid-template-columns: 1fr;
+    }
+    
+    .recommendations h2 {
+        font-size: 28px;
+    }
+}
+
+@media (max-width: 480px) {
+    .plan-header h1 {
+        font-size: 28px;
+    }
+    
+    .plan-header .subtitle {
+        font-size: 16px;
+    }
+    
+    .timeline-content h3 {
+        font-size: 20px;
+    }
+    
+    .stage-card h4 {
+        font-size: 18px;
+    }
+}
+
+/* Анимация для плавного появления элементов */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.timeline-item {
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.timeline-item:nth-child(1) { animation-delay: 0.1s; }
+.timeline-item:nth-child(2) { animation-delay: 0.2s; }
+.timeline-item:nth-child(3) { animation-delay: 0.3s; }
+
+.course-card {
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.course-card:nth-child(1) { animation-delay: 0.4s; }
+.course-card:nth-child(2) { animation-delay: 0.5s; }
+.course-card:nth-child(3) { animation-delay: 0.6s; }

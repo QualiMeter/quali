@@ -498,3 +498,35 @@ body{
     font-size: 14px;
   }
 }
+/* Дополнительные стили для новых страниц */
+.menu-link.main-link {
+    text-decoration: none!important;
+    color: black !important;
+}
+.menu-link.main-link:hover{
+    color: #155DFC!important;
+}
+
+/* Адаптивность для новых страниц */
+@media (max-width: 768px) {
+  .plan-content,
+  .promotion-content {
+    margin: 20px 15px !important;
+    padding: 25px 15px !important;
+  }
+  
+  .nav {
+    flex-direction: column;
+    gap: 15px;
+  }
+  
+  .part2 {
+    flex-direction: column;
+    gap: 10px;
+  }
+  
+  .part2 a {
+    text-align: center;
+    padding: 12px;
+  }
+}

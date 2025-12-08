@@ -1,0 +1,535 @@
+/* promotion.css - стили для контента повышения */
+@font-face {
+    font-family: 'lnb';
+    src: url('fonts/Lusitana-Bold.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'ln';
+    src: url('fonts/Lusitana-Regular.ttf') format('truetype');
+    font-style: normal;
+    font-weight: 400;
+    font-display: swap;
+}
+
+.promotion-content {
+    max-width: 1200px;
+    margin: 40px auto;
+    padding: 40px;
+    position: relative;
+    z-index: 1;
+    background-color: #FFFFFF;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    /* Добавляем фиксированную высоту и скролл для ПК */
+    height: calc(100vh - 180px);
+    overflow-y: auto;
+    margin-top: 20px;
+    z-index: 1;
+}
+
+/* Стили для скроллбара */
+.promotion-content::-webkit-scrollbar {
+    width: 8px;
+}
+
+.promotion-content::-webkit-scrollbar-track {
+    background: #F0F4FF;
+    border-radius: 4px;
+}
+
+.promotion-content::-webkit-scrollbar-thumb {
+    background: #155DFC;
+    border-radius: 4px;
+}
+
+.promotion-content::-webkit-scrollbar-thumb:hover {
+    background: #0D4BC9;
+}
+
+.promotion-header {
+    margin-bottom: 50px;
+    text-align: center;
+}
+
+.promotion-header h1 {
+    font-family: 'lnb', sans-serif;
+    font-size: 42px;
+    color: #155DFC;
+    margin-bottom: 15px;
+}
+
+.promotion-header .subtitle {
+    font-family: 'ln', sans-serif;
+    font-size: 20px;
+    color: #666;
+    max-width: 600px;
+    margin: 0 auto;
+    line-height: 1.5;
+}
+
+/* Текущая позиция и следующая */
+.current-position {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    gap: 30px;
+    margin-bottom: 50px;
+}
+
+.position-card {
+    background: #F9FAFB;
+    border-radius: 15px;
+    padding: 30px;
+    height: 100%;
+}
+
+.position-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 25px;
+}
+
+.position-header h3 {
+    font-family: 'lnb', sans-serif;
+    font-size: 24px;
+    color: #000000;
+}
+
+.position-badge {
+    font-family: 'lnb', sans-serif;
+    font-size: 16px;
+    padding: 8px 16px;
+    border-radius: 20px;
+    color: white;
+}
+
+.current-badge {
+    background: linear-gradient(135deg, #155DFC, #4A90E2);
+}
+
+.next-badge {
+    background: linear-gradient(135deg, #FDC700, #FFD700);
+}
+
+.position-info {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.info-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 12px 0;
+    border-bottom: 1px solid #E0E0E0;
+}
+
+.info-item:last-child {
+    border-bottom: none;
+}
+
+.info-label {
+    font-family: 'ln', sans-serif;
+    font-size: 16px;
+    color: #666;
+}
+
+.info-value {
+    font-family: 'lnb', sans-serif;
+    font-size: 18px;
+    color: #155DFC;
+}
+
+/* Требования */
+.requirements h4 {
+    font-family: 'lnb', sans-serif;
+    font-size: 20px;
+    color: #000000;
+    margin-bottom: 20px;
+}
+
+.requirements-list {
+    list-style: none;
+    padding: 0;
+}
+
+.requirement-item {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+    margin-bottom: 10px;
+    background: white;
+    border-radius: 10px;
+    border-left: 4px solid #E0E0E0;
+}
+
+.requirement-item.completed {
+    border-left-color: #4CAF50;
+    background: #F0F9F0;
+}
+
+.requirement-item.in-progress {
+    border-left-color: #FF9800;
+    background: #FFF3E0;
+}
+
+.requirement-item.pending {
+    border-left-color: #9E9E9E;
+}
+
+.check-icon {
+    font-family: 'lnb', sans-serif;
+    font-size: 18px;
+    margin-right: 15px;
+    width: 24px;
+    height: 24px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.requirement-item.completed .check-icon {
+    color: #4CAF50;
+}
+
+.requirement-item.in-progress .check-icon {
+    color: #FF9800;
+}
+
+.requirement-item.pending .check-icon {
+    color: #9E9E9E;
+}
+
+.requirement-item span:nth-child(2) {
+    font-family: 'ln', sans-serif;
+    font-size: 16px;
+    color: #333;
+    flex: 1;
+}
+
+.progress-percent {
+    font-family: 'lnb', sans-serif;
+    font-size: 14px;
+    color: #FF9800;
+    margin-left: 10px;
+}
+
+/* График зарплаты - ИСПРАВЛЕННАЯ ВЕРСИЯ */
+.salary-projection {
+    margin: 60px 0;
+}
+
+.salary-projection h2 {
+    font-family: 'lnb', sans-serif;
+    font-size: 32px;
+    color: #155DFC;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.salary-chart {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 30px;
+    height: 300px;
+    padding: 30px;
+    background: #F9FAFB;
+    border-radius: 15px;
+    position: relative;
+}
+
+.salary-level {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 15px;
+    flex: 1;
+    max-width: 200px;
+}
+
+.level-label {
+    font-family: 'lnb', sans-serif;
+    font-size: 16px;
+    color: #333;
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+.salary-bar {
+    width: 60px;
+    background: linear-gradient(180deg, #4F86FF, #155DFC);
+    border-radius: 10px 10px 0 0;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    position: relative;
+    transition: height 0.5s ease;
+    margin: 0 auto;
+}
+
+.salary-level:nth-child(1) .salary-bar {
+    background: linear-gradient(180deg, #4F86FF, #155DFC);
+    height: 60%;
+}
+
+.salary-level:nth-child(2) .salary-bar {
+    background: linear-gradient(180deg, #FDC700, #FF9800);
+    height: 85%;
+}
+
+.salary-level:nth-child(3) .salary-bar {
+    background: linear-gradient(180deg, #4CAF50, #2E7D32);
+    height: 100%;
+}
+
+.salary-amount {
+    font-family: 'lnb', sans-serif;
+    font-size: 14px;
+    color: white;
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    white-space: nowrap;
+    text-align: center;
+    width: 120px;
+}
+
+/* Ось графика */
+.chart-axis {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #333;
+}
+
+/* Советы */
+.promotion-tips {
+    margin-top: 60px;
+    margin-bottom: 30px;
+}
+
+.promotion-tips h2 {
+    font-family: 'lnb', sans-serif;
+    font-size: 32px;
+    color: #155DFC;
+    margin-bottom: 30px;
+    text-align: center;
+}
+
+.tips-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+    gap: 25px;
+}
+
+.tip-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    text-align: center;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    border: 1px solid #E0E0E0;
+    transition: all 0.3s ease;
+}
+
+.tip-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15);
+}
+
+.tip-icon {
+    font-size: 40px;
+    margin-bottom: 20px;
+}
+
+.tip-card h4 {
+    font-family: 'lnb', sans-serif;
+    font-size: 18px;
+    color: #000000;
+    margin-bottom: 10px;
+}
+
+.tip-card p {
+    font-family: 'ln', sans-serif;
+    font-size: 14px;
+    color: #666;
+    line-height: 1.5;
+}
+
+/* Анимация для плавного появления элементов */
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.position-card {
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.position-card:nth-child(1) { animation-delay: 0.1s; }
+.position-card:nth-child(2) { animation-delay: 0.2s; }
+
+.requirement-item {
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.requirement-item:nth-child(1) { animation-delay: 0.3s; }
+.requirement-item:nth-child(2) { animation-delay: 0.4s; }
+.requirement-item:nth-child(3) { animation-delay: 0.5s; }
+.requirement-item:nth-child(4) { animation-delay: 0.6s; }
+.requirement-item:nth-child(5) { animation-delay: 0.7s; }
+
+.tip-card {
+    animation: fadeInUp 0.5s ease forwards;
+    opacity: 0;
+}
+
+.tip-card:nth-child(1) { animation-delay: 0.8s; }
+.tip-card:nth-child(2) { animation-delay: 0.9s; }
+.tip-card:nth-child(3) { animation-delay: 1.0s; }
+.tip-card:nth-child(4) { animation-delay: 1.1s; }
+
+/* Адаптивность */
+@media (max-width: 1024px) {
+    .current-position {
+        grid-template-columns: 1fr;
+        gap: 30px;
+    }
+    
+    .salary-chart {
+        gap: 20px;
+    }
+    
+    .tips-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+}
+
+@media (max-width: 768px) {
+    .promotion-content {
+        margin: 20px 15px;
+        padding: 30px 20px;
+        height: auto;
+        overflow-y: visible;
+    }
+    
+    .promotion-header h1 {
+        font-size: 32px;
+    }
+    
+    .promotion-header .subtitle {
+        font-size: 18px;
+    }
+    
+    .position-header {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 15px;
+    }
+    
+    .salary-chart {
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+        gap: 30px;
+        padding: 20px;
+    }
+    
+    .salary-level {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        max-width: none;
+    }
+    
+    .salary-bar {
+        width: 100px;
+        height: 60px !important;
+        border-radius: 10px;
+        margin: 0;
+    }
+    
+    .level-label {
+        width: 150px;
+        text-align: left;
+        margin-bottom: 0;
+    }
+    
+    .salary-amount {
+        position: static;
+        transform: none;
+        margin-top: 0;
+        margin-left: 10px;
+        color: #333;
+        width: auto;
+    }
+    
+    .tips-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .promotion-header h1 {
+        font-size: 28px;
+    }
+    
+    .promotion-header .subtitle {
+        font-size: 16px;
+    }
+    
+    .position-header h3 {
+        font-size: 20px;
+    }
+    
+    .position-badge {
+        font-size: 14px;
+        padding: 6px 12px;
+    }
+    
+    .salary-projection h2,
+    .promotion-tips h2 {
+        font-size: 28px;
+    }
+    
+    .salary-level {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .level-label {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .salary-bar {
+        width: 100%;
+        height: 40px !important;
+    }
+    
+    .salary-amount {
+        margin-left: 0;
+        margin-top: 5px;
+        width: 100%;
+        text-align: center;
+    }
+}
