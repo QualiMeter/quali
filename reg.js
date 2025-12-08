@@ -74,7 +74,7 @@ document.addEventListener("DOMContentLoaded", function () {
     if (currentRole === 'employee') {
       try {
 		  const roleResponse = await fetch('https://qmv2api.onrender.com/api/Roles');
-		  const roles = await roleResponce.json();
+		  const roles = await roleResponse.json();
 
         const userData = {
           name: username,
@@ -217,6 +217,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+
 
 
 
