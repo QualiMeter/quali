@@ -73,16 +73,11 @@ document.addEventListener("DOMContentLoaded", function () {
 
     if (currentRole === 'employee') {
       try {
-        const nameParts = username.split(' ');
-        const name = nameParts[0] || '';
-        const lastname = nameParts.slice(1).join(' ') || '';
-
 		  const roleResponse = await fetch('https://qmv2api.onrender.com/api/Roles');
 		  const roles = await roleResponce.json();
 
         const userData = {
-          id: null,
-          name: name,
+          name: username,
           roleId: roles.find(x => x.name == 'client').id,
           email: email,
           isEmailConfirmed: false,
@@ -222,6 +217,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+
 
 
 
