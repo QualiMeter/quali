@@ -77,10 +77,13 @@ document.addEventListener("DOMContentLoaded", function () {
         const name = nameParts[0] || '';
         const lastname = nameParts.slice(1).join(' ') || '';
 
+		  const roleResponse = await fetch('https://qmv2api.onrender.com/api/Roles');
+		  const roles = await roleResponce.json();
+
         const userData = {
           id: null,
           name: name,
-          roleId: '123e4567-e89b-12d3-a456-426614174000',
+          roleId: roles.find(x => x.name == 'client').id,
           email: email,
           isEmailConfirmed: false,
           birthday: null,
@@ -219,6 +222,7 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
 });
+
 
 
 
