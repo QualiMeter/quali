@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="theme-color" content="#9C27B0">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Тест: Работа с ООП - Qualimeter</title>
+    <!-- Общие стили навигации -->
+    <link rel="stylesheet" href="style1.css" />
+    <!-- Стили для страницы вопросов теста -->
+    <link rel="stylesheet" href="oop-test-questions.css" />
+</head>
+<body>
+    <script src="auth-check.js"></script>
+
+    <div class="prof1">
+        <!-- Фоновые изображения -->
+        <img src="img/imgprof/blending 1754474870 (1).svg" alt="" class="imgreg" />
+        <img src="img/imgprof/blending 1762691066228 (1).svg" alt="" class="imgreg1" />
+        <img src="img/imgprof/blending 1754474869 (1).svg" alt="" class="imgreg2" />
+
+        <!-- Навигация -->
+        <div class="nav">
+            <div class="logo">
+                <h1 class="h1">Qualimeter</h1>
+            </div>
+            <div class="part2">
+                <div class="a1">
+                    <a href="tests.html" style="color: #155DFC; text-decoration: underline;">Тесты</a>
+                </div>
+                <div class="a2">
+                    <a href="#">План развития</a>
+                </div>
+                <div class="a3">
+                    <a href="#">Повышение</a>
+                </div>
+                <div class="a4">
+                    <a href="company.html">Компания</a>
+                </div>
+            </div>
+            <div class="part3" id="userMenu">
+                <img src="img/imgprof/user-account_9327873 1 (1).svg" alt="user" class="user-icon" />
+                <p id="userMenuName">Загрузка...</p>
+                <img src="img/imgprof/Vector 1.svg" alt="arrow" class="arrow-icon" />
+            </div>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <div class="menu-section">
+                    <div class="menu-item-with-icon">
+                        <img src="img/imgprof/person.svg" alt="" class="menu-icon" />
+                        <a href="prof.html" class="menu-link main-link">Профиль</a>
+                    </div>
+                    <div class="menu-item-with-icon">
+                        <img src="img/imgprof/settings.svg" alt="" class="menu-icon" />
+                        <a href="edit-profile.html" class="menu-link">Настройки</a>
+                    </div>
+                    <div class="menu-item-with-icon">
+                        <img src="img/imgprof/notifications_unread.svg" alt="" class="menu-icon" />
+                        <a href="notifications.html" class="menu-link">Уведомления</a>
+                    </div>
+                    <div class="menu-item-with-icon logout">
+                        <img src="img/imgprof/logout.svg" alt="" class="menu-icon" />
+                        <a href="profend.html" class="menu-link">Выйти</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Основной контент теста -->
+        <main class="test-questions-container">
+            <!-- Прогресс теста -->
+            <div class="test-progress">
+                <div class="progress-info">
+                    <div class="timer" id="timer">20:00</div>
+                    <div class="question-counter">
+                        Вопрос <span id="currentQuestion">1</span> из 12
+                    </div>
+                </div>
+                <div class="progress-bar">
+                    <div class="progress-fill" id="progressFill" style="width: 8.33%"></div>
+                </div>
+            </div>
+
+            <!-- Контейнер вопросов -->
+            <div id="questionsContainer">
+                <!-- Вопросы будут добавляться динамически -->
+            </div>
+
+            <!-- Навигация -->
+            <div class="test-navigation">
+                <button class="nav-btn prev-btn" id="prevBtn" onclick="TestManager.prevQuestion()" disabled>
+                    ← Назад
+                </button>
+                <button class="nav-btn next-btn" id="nextBtn" onclick="TestManager.nextQuestion()">
+                    Далее →
+                </button>
+            </div>
+        </main>
+    </div>
+
+    <!-- Окно результатов -->
+    <div class="test-complete-overlay" id="resultOverlay">
+        <div class="result-card">
+            <div class="result-icon" id="resultIcon">🏆</div>
+            <h2 class="result-title" id="resultTitle">Тест завершен!</h2>
+            <div class="result-score" id="resultScore">0/100</div>
+            <div class="result-level" id="resultLevel">Уровень: Базовый</div>
+            <p class="result-message" id="resultMessage">
+                Ваш результат будет сохранен в профиле и появится в уведомлениях
+            </p>
+            <div class="result-actions">
+                <a href="oop-test.html" class="result-btn result-home-btn">
+                    ← Назад к тесту
+                </a>
+                <a href="notifications.html" class="result-btn result-notifications-btn">
+                    Перейти к уведомлениям
+                </a>
+            </div>
+        </div>
+    </div>
+
+    <script src="oop-test-questions.js"></script>
+</body>
+</html>
