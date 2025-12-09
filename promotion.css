@@ -248,6 +248,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
+    border-radius: 15px;
     gap: 15px;
     flex: 1;
     max-width: 200px;
@@ -256,42 +257,47 @@
 .level-label {
     font-family: 'lnb', sans-serif;
     font-size: 16px;
-    color: #333;
+    color: #000000;
     text-align: center;
     margin-bottom: 10px;
 }
 
 .salary-bar {
-    width: 60px;
-    background: linear-gradient(180deg, #4F86FF, #155DFC);
-    border-radius: 10px 10px 0 0;
+    width: 150px;
+    border-radius: 10px ;
     display: flex;
     align-items: flex-start;
     justify-content: center;
     position: relative;
     transition: height 0.5s ease;
     margin: 0 auto;
+    padding: 20px;
+    min-height: 10px;
+    color: black;
+    z-index: 10000;
+    /* Минимальная высота для видимости */
 }
 
-.salary-level:nth-child(1) .salary-bar {
-    background: linear-gradient(180deg, #4F86FF, #155DFC);
-    height: 60%;
+/* ====== ЦВЕТОВАЯ ПАЛИТРА ГРАФИКА ====== */
+/* Senior Developer - светло-синий */
+#sl1 {
+    background-color: #4A90E2 !important;
 }
 
-.salary-level:nth-child(2) .salary-bar {
-    background: linear-gradient(180deg, #FDC700, #FF9800);
-    height: 85%;
+/* Lead Developer - основной синий */
+#sl2 {
+    background-color: #155DFC !important;
 }
 
-.salary-level:nth-child(3) .salary-bar {
-    background: linear-gradient(180deg, #4CAF50, #2E7D32);
-    height: 100%;
+/* Architect - золотой */
+#sl3 {
+    background-color: #FFD700 !important;
 }
 
 .salary-amount {
     font-family: 'lnb', sans-serif;
     font-size: 14px;
-    color: white;
+    color: black;
     position: absolute;
     top: -30px;
     left: 50%;
@@ -299,7 +305,136 @@
     white-space: nowrap;
     text-align: center;
     width: 120px;
+    padding: 2px 6px;
+    border-radius: 4px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
+
+/* Ось графика */
+.chart-axis {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #333;
+}
+
+/* Адаптивность для графика */
+@media (max-width: 1024px) {
+    .salary-chart {
+        gap: 20px;
+        height: 250px;
+    }
+    
+}
+
+@media (max-width: 768px) {
+    .salary-chart {
+        flex-direction: column;
+        height: auto;
+        align-items: center;
+        gap: 30px;
+        padding: 20px;
+    }
+    
+    .salary-level {
+        width: 100%;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        max-width: none;
+    }
+    
+    .salary-bar {
+        height: 60px !important;
+        border-radius: 10px;
+        margin: 0;
+    }
+    
+    .level-label {
+        width: 150px;
+        text-align: left;
+        margin-bottom: 0;
+    }
+    
+    .salary-amount {
+        position: static;
+        transform: none;
+        margin-top: 0;
+        margin-left: 10px;
+        color: #333;
+        width: auto;
+        background: none;
+        padding: 0;
+        box-shadow: none;
+    }
+}
+
+@media (max-width: 480px) {
+    .salary-level {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 10px;
+    }
+    
+    .level-label {
+        width: 100%;
+        text-align: center;
+    }
+    
+    .salary-bar {
+        width: 100%;
+        height: 40px !important;
+    }
+    
+    .salary-amount {
+        margin-left: 0;
+        margin-top: 5px;
+        width: 100%;
+        text-align: center;
+    }
+}
+
+/* Специальные правила для ПК */
+@media (min-width: 769px) {
+    .salary-chart {
+        height: 350px;
+        padding: 40px;
+    }
+    
+    /* Фиксированные высоты для ПК */
+    #sl1 {
+        height: 60% !important;
+    }
+    
+    #sl2 {
+        height: 85% !important;
+    }
+    
+    #sl3 {
+        height: 100% !important;
+    }
+    
+
+    .salary-amount {
+        font-size: 16px;
+        top: -35px;
+    }
+}
+
+/* Ось графика */
+.chart-axis {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    height: 2px;
+    background: #333;
+}
+
+
+
 
 /* Ось графика */
 .chart-axis {
@@ -465,6 +600,7 @@
         height: 60px !important;
         border-radius: 10px;
         margin: 0;
+        padding: 10px;
     }
     
     .level-label {

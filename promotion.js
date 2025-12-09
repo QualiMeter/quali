@@ -64,4 +64,8 @@ document.addEventListener("DOMContentLoaded", function () {
   dropdownMenu.addEventListener("touchstart", function (e) {
     e.stopPropagation();
   });
+  
+  // Удалите этот блок, если он не нужен
+  // Инициализируем график зарплаты (теперь цвета задаются в CSS)
+  // initSalaryChart();
 });
