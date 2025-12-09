@@ -1,0 +1,211 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="theme-color" content="#155DFC">
+    <meta name="apple-mobile-web-app-capable" content="yes">
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
+    <meta name="format-detection" content="telephone=no">
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, viewport-fit=cover">
+    <title>Работа с ООП - Qualimeter</title>
+    <!-- Общие стили навигации -->
+    <link rel="stylesheet" href="style1.css" />
+    <!-- Стили для страницы теста ООП -->
+    <link rel="stylesheet" href="oop-test.css" />
+</head>
+
+<body>
+    <script src="auth-check.js"></script>
+
+    <div class="prof1">
+        <!-- Фоновые изображения -->
+        <img src="img/imgprof/blending 1754474870 (1).svg" alt="" class="imgreg" />
+        <img src="img/imgprof/blending 1762691066228 (1).svg" alt="" class="imgreg1" />
+        <img src="img/imgprof/blending 1754474869 (1).svg" alt="" class="imgreg2" />
+
+        <!-- Навигация -->
+        <div class="nav">
+            <div class="logo">
+                <h1 class="h1">Qualimeter</h1>
+            </div>
+            <div class="part2">
+                <div class="a1">
+                    <a href="tests.html" style="color: #155DFC; text-decoration: underline;">Тесты</a>
+                </div>
+                <div class="a2">
+                    <a href="#">План развития</a>
+                </div>
+                <div class="a3">
+                    <a href="#">Повышение</a>
+                </div>
+                <div class="a4">
+                    <a href="company.html">Компания</a>
+                </div>
+            </div>
+            <div class="part3" id="userMenu">
+                <img src="img/imgprof/user-account_9327873 1 (1).svg" alt="user" class="user-icon" />
+                <p id="userMenuName">Загрузка...</p>
+                <img src="img/imgprof/Vector 1.svg" alt="arrow" class="arrow-icon" />
+            </div>
+            <div class="dropdown-menu" id="dropdownMenu">
+                <div class="menu-section">
+                    <div class="menu-item-with-icon">
+                        <img src="img/imgprof/person.svg" alt="" class="menu-icon" />
+                        <a href="prof.html" class="menu-link main-link">Профиль</a>
+                    </div>
+                    <div class="menu-item-with-icon">
+                        <img src="img/imgprof/settings.svg" alt="" class="menu-icon" />
+                        <a href="edit-profile.html" class="menu-link">Настройки</a>
+                    </div>
+                    <div class="menu-item-with-icon">
+                        <img src="img/imgprof/notifications_unread.svg" alt="" class="menu-icon" />
+                        <a href="#" class="menu-link">Уведомления</a>
+                    </div>
+                    <div class="menu-item-with-icon logout">
+                        <img src="img/imgprof/logout.svg" alt="" class="menu-icon" />
+                        <a href="profend.html" class="menu-link">Выйти</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Основной контент страницы теста ООП -->
+        <main class="test-page-content">
+            <div class="test-page-header">
+                <h1>Работа с ООП</h1>
+                <p class="subtitle">Проверьте знания принципов объектно-ориентированного программирования</p>
+            </div>
+            
+            <!-- Карточка теста -->
+            <div class="test-detail-card">
+                <!-- Уровни сложности -->
+                <div class="difficulty-levels">
+                    <div class="difficulty-level active" data-level="basic" onclick="selectLevel(this)">
+                        Базовый
+                    </div>
+                    <div class="difficulty-level" data-level="intermediate" onclick="selectLevel(this)">
+                        Средний
+                    </div>
+                    <div class="difficulty-level" data-level="advanced" onclick="selectLevel(this)">
+                        Продвинутый
+                    </div>
+                </div>
+                
+                <!-- Индикатор выбранного уровня -->
+                <div class="level-indicator" id="levelIndicator">
+                    Выбран уровень: <strong>Базовый</strong>
+                </div>
+                
+                <!-- Предупреждение -->
+                <div class="test-warning">
+                    <p>Чтобы подтвердить навыки, сдайте тест. Если не сдадите, результат не будет отображен в профиле.</p>
+                </div>
+                
+                <!-- Информация о тесте -->
+                <div class="test-info-panel">
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M6 2h12v2H6zM4 6h16v2H4zM6 10h12v2H6zM4 14h16v2H4zM6 18h12v2H6zM4 22h16v2H4z"/>
+                            </svg>
+                        </div>
+                        <span class="info-text">12 вопросов</span>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.5 2 2 6.5 2 12s4.5 10 10 10 10-4.5 10-10S17.5 2 12 2zm0 18c-4.4 0-8-3.6-8-8s3.6-8 8-8 8 3.6 8 8-3.6 8-8 8zm.5-13H11v6l5.2 3.2 1-1.6-4.2-2.6V7z"/>
+                            </svg>
+                        </div>
+                        <span class="info-text">20 минут</span>
+                    </div>
+                    <div class="info-item">
+                        <div class="info-icon">
+                            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
+                            </svg>
+                        </div>
+                        <span class="info-text">Минимальный балл: 70%</span>
+                    </div>
+                </div>
+                
+                <!-- Кнопка начала теста -->
+                <button class="start-test-btn" onclick="startOOPTest()">
+                    Начать тест
+                </button>
+            </div>
+            
+            <!-- Раздел содержания -->
+            <div class="content-section">
+                <h2>Содержание теста</h2>
+                
+                <div class="content-grid">
+                    <div class="content-item">
+                        <div class="item-number">1</div>
+                        <div class="item-text">Основные концепции ООП</div>
+                    </div>
+                    <div class="content-item">
+                        <div class="item-number">2</div>
+                        <div class="item-text">Инкапсуляция и сокрытие данных</div>
+                    </div>
+                    <div class="content-item">
+                        <div class="item-number">3</div>
+                        <div class="item-text">Наследование и иерархия классов</div>
+                    </div>
+                    <div class="content-item">
+                        <div class="item-number">4</div>
+                        <div class="item-text">Полиморфизм и переопределение методов</div>
+                    </div>
+                    <div class="content-item">
+                        <div class="item-number">5</div>
+                        <div class="item-text">Абстракция и абстрактные классы</div>
+                    </div>
+                    <div class="content-item">
+                        <div class="item-number">6</div>
+                        <div class="item-text">Интерфейсы и контракты</div>
+                    </div>
+                    <div class="content-item">
+                        <div class="item-number">7</div>
+                        <div class="item-text">Классы и объекты</div>
+                    </div>
+                    <div class="content-item">
+                        <div class="item-number">8</div>
+                        <div class="item-text">Конструкторы и деструкторы</div>
+                    </div>
+                    <div class="content-item">
+                        <div class="item-number">9</div>
+                        <div class="item-text">Модификаторы доступа</div>
+                    </div>
+                    <div class="content-item">
+                        <div class="item-number">10</div>
+                        <div class="item-text">Статические методы и свойства</div>
+                    </div>
+                    <div class="content-item">
+                        <div class="item-number">11</div>
+                        <div class="item-text">Паттерны проектирования</div>
+                    </div>
+                    <div class="content-item">
+                        <div class="item-number">12</div>
+                        <div class="item-text">Принципы SOLID</div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Дополнительная информация -->
+            <div class="additional-info">
+                <h3>Что вы узнаете после теста?</h3>
+                <ul>
+                    <li>Ваш текущий уровень понимания ООП</li>
+                    <li>Слабые места в знаниях</li>
+                    <li>Рекомендации по улучшению навыков</li>
+                    <li>Возможность получить сертификат</li>
+                </ul>
+            </div>
+        </main>
+    </div>
+
+    <script src="oop-test.js"></script>
+</body>
+</html>
