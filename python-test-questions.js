@@ -334,27 +334,23 @@ const TestManager = {
     
     // Выбор ответа
     selectAnswer(answerIndex) {
-        this.state.userAnswers[this.state.currentQuestion] = answerIndex;
-        
-        // Обновляем визуальное состояние
-        const options = document.querySelectorAll('.answer-option');
-        options.forEach((option, index) => {
-            option.classList.toggle('selected', index === answerIndex);
-        });
-        
-        // Сохраняем состояние
-        this.saveStateToStorage();
-        
-        // Автоматический переход к следующему вопросу через 1 секунду
-        setTimeout(() => {
-            if (this.state.currentQuestion < this.config.totalQuestions - 1) {
-                this.nextQuestion();
-            } else {
-                // Если это последний вопрос, меняем кнопку
-                this.updateNavigationButtons(this.state.currentQuestion);
-            }
-        }, 1000);
-    },
+    this.state.userAnswers[this.state.currentQuestion] = answerIndex;
+    
+    // Обновляем визуальное состояние
+    const options = document.querySelectorAll('.answer-option');
+    options.forEach((option, index) => {
+        option.classList.toggle('selected', index === answerIndex);
+    });
+    
+    // Сохраняем состояние
+    this.saveStateToStorage();
+    
+    // Убрали автоматический переход
+    // Если это последний вопрос, обновляем кнопку навигации
+    if (this.state.currentQuestion === this.config.totalQuestions - 1) {
+        this.updateNavigationButtons(this.state.currentQuestion);
+    }
+},
     
     // Следующий вопрос
     nextQuestion() {
@@ -712,5 +708,6 @@ window.nextQuestion = () => TestManager.nextQuestion();
 window.prevQuestion = () => TestManager.prevQuestion();
 
 window.submitTest = () => TestManager.submitTest();
+
 
 
