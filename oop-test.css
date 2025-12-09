@@ -433,3 +433,27 @@
         padding-left: 25px;
     }
 }
+.info-row {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.info-item-full {
+    width: 100%;
+    justify-content: center;
+}
+
+@media (max-width: 768px) {
+    .info-row {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+    
+    .info-item, .info-item-full {
+        width: 100%;
+        max-width: 300px;
+    }
+}
