@@ -137,10 +137,10 @@ const TestManager = {
             question: "Что выведет следующий код?\nprint(type([]))",
             code: "print(type([]))",
             options: [
-                "<class 'list'>",
-                "<class 'array'>",
-                "<class 'tuple'>",
-                "<class 'dict'>"
+                "class 'list'",
+                "class 'array'",
+                "class 'tuple'",
+                "class 'dict'"
             ],
             correctAnswer: 0,
             explanation: "В Python пустые квадратные скобки [] создают список (list)."
@@ -710,4 +710,5 @@ document.addEventListener('DOMContentLoaded', function() {
 window.selectAnswer = (index) => TestManager.selectAnswer(index);
 window.nextQuestion = () => TestManager.nextQuestion();
 window.prevQuestion = () => TestManager.prevQuestion();
+
 window.submitTest = () => TestManager.submitTest();
