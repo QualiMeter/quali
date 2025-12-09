@@ -346,13 +346,9 @@ const TestManager = {
         this.saveStateToStorage();
         
         // Автоматический переход к следующему вопросу через 1 секунду
-        setTimeout(() => {
-            if (this.state.currentQuestion < this.config.totalQuestions - 1) {
-                this.nextQuestion();
-            } else {
-                // Если это последний вопрос, меняем кнопку
+        setTimeout(() => 
                 this.updateNavigationButtons(this.state.currentQuestion);
-            }
+            
         }, 1000);
     },
     
@@ -712,3 +708,4 @@ window.nextQuestion = () => TestManager.nextQuestion();
 window.prevQuestion = () => TestManager.prevQuestion();
 
 window.submitTest = () => TestManager.submitTest();
+
