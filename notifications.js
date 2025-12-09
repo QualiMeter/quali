@@ -393,3 +393,13 @@ if (window.innerWidth <= 768) {
         });
     });
 }
+// Вместо этого добавьте или оставьте только базовую адаптацию:
+if (window.innerWidth <= 768) {
+    document.addEventListener('DOMContentLoaded', function() {
+        const touchElements = document.querySelectorAll('.filter-btn, .action-btn, .notification-item');
+        touchElements.forEach(el => {
+            el.style.minHeight = '44px';
+            el.style.touchAction = 'manipulation';
+        });
+    });
+}
