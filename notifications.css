@@ -409,25 +409,7 @@
     color: #333;
 }
 
-/* Секция логотипа */
-.logo-section {
-    text-align: center;
-    background: linear-gradient(135deg, #155DFC 0%, #4D8AFF 100%);
-    color: white;
-    border: none;
-}
 
-.logo-section h2 {
-    font-family: 'lnb', sans-serif;
-    font-size: 24px;
-    margin-bottom: 10px;
-}
-
-.logo-section p {
-    font-family: 'ln', sans-serif;
-    font-size: 14px;
-    opacity: 0.9;
-}
 
 /* Кастомный ползунок для основного контента */
 .notifications-content::-webkit-scrollbar {
@@ -595,4 +577,5 @@
 
 .menu-link.active-link .menu-icon {
     filter: invert(24%) sepia(98%) saturate(2778%) hue-rotate(212deg) brightness(98%) contrast(101%) !important;
+
 }
